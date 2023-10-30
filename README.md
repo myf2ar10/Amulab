@@ -1,24 +1,39 @@
-# README
+# Amulab
+<img src="https://github.com/myf2ar10/amulab/assets/141298495/4482174c-a632-4a25-ac58-b6943e80226e" width="210">
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
 
-Things you may want to cover:
+### サイトテーマ🧶
+各々が作成したハンドメイド作品を投稿したり、<br>
+閲覧できるコミュニティサイト
 
-* Ruby version
+### テーマを選んだ理由💫
+昔から編み物が好きで、何かに行き詰まった時に編んでいました。<br>
+今回プログラミングを学ぶ際も、時折気分転換に編んでいます。<br>
+作品がどんどんたまってしまって、悩んでいることに気が付きました。
 
-* System dependencies
+同じように悩んでいる人が他にもいると思い、<br>
+作品を見せる場があればいいと考えたのでこのテーマにしました。
 
-* Configuration
+### ターゲットユーザ👀
+- ハンドメイドが好きで、どこかで誰かに作品を見てもらいたい人
+- 編み図がなくても編めるが、何かアイデアが欲しい人
 
-* Database creation
+### 主な利用シーン👏
+- 自分の作品に対しての反応が知りたい時
+- 次の作品のアイデアのきっかけが欲しい時
+- 作品を記録しておきたい時
 
-* Database initialization
+## 設計書📝
+現在、作成中
 
-* How to run the test suite
+## 開発環境🌷
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 使用素材🌱
+フリーイラスト素材として以下を使用
+- 写真素材なら「写真AC」（ https://www.photo-ac.com/ ）
