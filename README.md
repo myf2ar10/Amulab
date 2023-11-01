@@ -28,7 +28,54 @@
 - 作品を記録しておきたい時
 
 ## 設計書📝
-現在、作成中
+随時、修正
+#### WBS
+<a href="https://github.com/myf2ar10/Amulab/assets/141298495/d87044dc-c7a8-4842-8311-a852913b21dd">
+<img src="https://github.com/myf2ar10/Amulab/assets/141298495/d87044dc-c7a8-4842-8311-a852913b21dd" alt="[Amulab_WBS - 2 タスクスケジュール_page-0001]" width="100">
+</a>
+
+#### UIフロー
+<a href="https://github.com/myf2ar10/Amulab/assets/141298495/98610e77-d9ed-4786-b4dc-8e9b166134cf">
+<img src="https://github.com/myf2ar10/Amulab/assets/141298495/98610e77-d9ed-4786-b4dc-8e9b166134cf" alt="[Amulab_UIフロー]" width="100">
+</a>
+
+#### ER図
+<a href="https://github.com/myf2ar10/Amulab/assets/141298495/e3ac7771-27a7-4e5a-b4f9-a22907894550">
+<img src="https://github.com/myf2ar10/Amulab/assets/141298495/e3ac7771-27a7-4e5a-b4f9-a22907894550" alt="[Amulab_ER図]" width="100">
+</a>
+
+#### アプリケーション詳細設計書
+<a href="https://github.com/myf2ar10/Amulab/assets/141298495/6c45614f-7a88-40ff-b379-ac0866fabc0d">
+<img src="https://github.com/myf2ar10/Amulab/assets/141298495/6c45614f-7a88-40ff-b379-ac0866fabc0d" alt="[Amulab_アプリケーション詳細設計書_page-0001]" width="100">
+</a>
+
+#### テーブル定義書
+<a href="https://github.com/myf2ar10/Amulab/assets/141298495/fac9737b-8541-4e09-92d3-100cf633404e">
+<img src="https://github.com/myf2ar10/Amulab/assets/141298495/fac9737b-8541-4e09-92d3-100cf633404e" alt="[Amulab_テーブル定義書 xlsx_page-0001]" width="100">
+</a>
+<a href="https://github.com/myf2ar10/Amulab/assets/141298495/ab332368-bd61-49ac-ae4d-2433a74b6cfa">
+<img src="https://github.com/myf2ar10/Amulab/assets/141298495/ab332368-bd61-49ac-ae4d-2433a74b6cfa" alt="[Amulab_テーブル定義書 xlsx_page-0002]" width="100">
+</a>
+<a href="https://github.com/myf2ar10/Amulab/assets/141298495/4c8b6a14-783c-40aa-9045-524a42cd017f">
+<img src="https://github.com/myf2ar10/Amulab/assets/141298495/4c8b6a14-783c-40aa-9045-524a42cd017f" alt="[Amulab_テーブル定義書 xlsx_page-0003]" width="100">
+</a>
+<a href="https://github.com/myf2ar10/Amulab/assets/141298495/63b5f7ce-6ef7-4ef4-894a-f1512696d002">
+<img src="https://github.com/myf2ar10/Amulab/assets/141298495/63b5f7ce-6ef7-4ef4-894a-f1512696d002" alt="[Amulab_テーブル定義書 xlsx_page-0004]" width="100">
+</a>
+<a href="https://github.com/myf2ar10/Amulab/assets/141298495/77ba6df3-88c6-4fd9-a2aa-88a5aab62889">
+<img src="https://github.com/myf2ar10/Amulab/assets/141298495/77ba6df3-88c6-4fd9-a2aa-88a5aab62889" alt="[Amulab_テーブル定義書 xlsx_page-0005]" width="100">
+</a>
+<a href="https://github.com/myf2ar10/Amulab/assets/141298495/0abba066-213a-4100-a3fb-645bff7130d3">
+<img src="https://github.com/myf2ar10/Amulab/assets/141298495/0abba066-213a-4100-a3fb-645bff7130d3" alt="[Amulab_テーブル定義書 xlsx_page-0006]" width="100">
+</a>
+<a href="https://github.com/myf2ar10/Amulab/assets/141298495/2a91f835-349d-4855-b0e8-841e90466728">
+<img src="https://github.com/myf2ar10/Amulab/assets/141298495/2a91f835-349d-4855-b0e8-841e90466728" alt="[Amulab_テーブル定義書 xlsx_page-0007]" width="100">
+</a>
+
+#### ワイヤーフレーム
+<a href="https://github.com/myf2ar10/Amulab/assets/141298495/50bb91db-824d-49e6-a607-75184491b983">
+<img src="https://github.com/myf2ar10/Amulab/assets/141298495/50bb91db-824d-49e6-a607-75184491b983" alt="[Amulab_ワイヤーフレーム遷移図]" width="100">
+</a>
 
 ## 開発環境🌱
 - OS：Linux(CentOS)
