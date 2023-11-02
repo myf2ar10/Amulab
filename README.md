@@ -29,6 +29,15 @@
 
 ## 設計書📝
 随時、修正
+
+#### 要件定義
+<a href="https://github.com/myf2ar10/Amulab/assets/141298495/8429b3b1-070d-4b3e-be8a-376a55fe4560">
+<img src="https://github.com/myf2ar10/Amulab/assets/141298495/8429b3b1-070d-4b3e-be8a-376a55fe4560" alt="[Amulab_要件定義_page-0001]" width="100">
+</a>
+<a href="https://github.com/myf2ar10/Amulab/assets/141298495/28db561f-0802-4339-b19b-12d1bd2d0543">
+<img src="https://github.com/myf2ar10/Amulab/assets/141298495/28db561f-0802-4339-b19b-12d1bd2d0543" alt="[Amulab_要件定義_page-0002]" width="100">
+</a>
+
 #### WBS
 <a href="https://github.com/myf2ar10/Amulab/assets/141298495/d87044dc-c7a8-4842-8311-a852913b21dd">
 <img src="https://github.com/myf2ar10/Amulab/assets/141298495/d87044dc-c7a8-4842-8311-a852913b21dd" alt="[Amulab_WBS - 2 タスクスケジュール_page-0001]" width="100">
@@ -77,6 +86,16 @@
 <img src="https://github.com/myf2ar10/Amulab/assets/141298495/50bb91db-824d-49e6-a607-75184491b983" alt="[Amulab_ワイヤーフレーム遷移図]" width="100">
 </a>
 
+#### functions list
+<a href="https://github.com/myf2ar10/Amulab/assets/141298495/52877512-e863-4a05-b816-3d724a06ee98">
+<img src="https://github.com/myf2ar10/Amulab/assets/141298495/52877512-e863-4a05-b816-3d724a06ee98" alt="[Amulab_functions list - Amulab_page-0001]" width="100">
+</a>
+
+#### テスト仕様書
+<a href="https://github.com/myf2ar10/Amulab/assets/141298495/291d4f30-1187-4186-94a4-fea2f3d1e225">
+<img src="https://github.com/myf2ar10/Amulab/assets/141298495/291d4f30-1187-4186-94a4-fea2f3d1e225" alt="[Amulab_テスト仕様書 xlsx - Amulab_page-0001]" width="100">
+</a>
+
 ## 開発環境🌱
 - OS：Linux(CentOS)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
@@ -87,3 +106,4 @@
 ## 使用素材🌷
 フリーイラスト素材として以下を使用
 - 写真AC（ https://www.photo-ac.com/ ）
+- イラストAC（ https://www.ac-illust.com/ ）
