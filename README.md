@@ -77,6 +77,16 @@
 <img src="https://github.com/myf2ar10/Amulab/assets/141298495/50bb91db-824d-49e6-a607-75184491b983" alt="[Amulab_ワイヤーフレーム遷移図]" width="100">
 </a>
 
+#### functions list
+<a href="https://github.com/myf2ar10/Amulab/assets/141298495/52877512-e863-4a05-b816-3d724a06ee98">
+<img src="https://github.com/myf2ar10/Amulab/assets/141298495/52877512-e863-4a05-b816-3d724a06ee98" alt="[Amulab_functions list - Amulab_page-0001]" width="100">
+</a>
+
+#### テスト仕様書
+<a href="https://github.com/myf2ar10/Amulab/assets/141298495/291d4f30-1187-4186-94a4-fea2f3d1e225">
+<img src="https://github.com/myf2ar10/Amulab/assets/141298495/291d4f30-1187-4186-94a4-fea2f3d1e225" alt="[Amulab_テスト仕様書 xlsx - Amulab_page-0001]" width="100">
+</a>
+
 ## 開発環境🌱
 - OS：Linux(CentOS)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
