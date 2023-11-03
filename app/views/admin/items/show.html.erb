@@ -1,3 +1,17 @@
-<h1>Admin::Items#show</h1>
-<p>Find me in app/views/admin/items/show.html.erb</p>
-作品詳細画面
+<section class="wrapper flex">
+
+  <div class="admin_item_show">
+
+      <p><%#= @item.name %></p>
+      <p><%#= item.created_at.strftime("%Y/%m/%d %H:%M:%S") %></p>
+      <p><%#= @item.description %></p>
+
+    <%= link_to "戻る", admin_items_path, class: "btn btn-primary" %>
+
+  </div>
+
+</section>
+
+<!--<h1>Admin::Items#show</h1>-->
+<!--<p>Find me in app/views/admin/items/show.html.erb</p>-->
+<!--作品詳細画面-->
