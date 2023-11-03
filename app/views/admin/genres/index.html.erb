@@ -1,3 +1,26 @@
-<h1>Admin::Genres#index</h1>
-<p>Find me in app/views/admin/genres/index.html.erb</p>
-ジャンル管理画面（一覧・追加を兼ねる）
+<section class="wrapper flex">
+
+  <div class="admin_genre_index">
+
+    <%# @genres.each do |genre| %>
+      <%#= link_to edit_admin_genre_path(genre) do %>
+      <p><%#= genre.name %></p>
+      <%#= link_to "編集", edit_admin_genre_path, class: "btn btn-primary" %>
+      <%# end %>
+    <%# end %>
+
+    <div class="mb3">
+      <%= form_with model: @genre, url: admin_genres_path, method: :post do |f| %>
+        <%= f.label :name, "ジャンル名:" %>
+        <%= f.text_field :name %>
+        <%= f.submit "登録", class: "btn btn-primary ml2" %>
+      <% end %>
+    </div>
+
+  </div>
+
+</section>
+
+<!--<h1>Admin::Genres#index</h1>-->
+<!--<p>Find me in app/views/admin/genres/index.html.erb</p>-->
+<!--ジャンル管理画面（一覧・追加を兼ねる）-->

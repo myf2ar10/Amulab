@@ -1,3 +1,20 @@
-<h1>Admin::Homes#top</h1>
-<p>Find me in app/views/admin/homes/top.html.erb</p>
-管理者トップ画面（会員一覧）
+<section class="wrapper flex">
+
+  <div class="user_index">
+
+  <h4>会員一覧</h4>
+
+  <div class="users">
+    <% @users.each do |user| %>
+      <%= link_to admin_user_path(user) do %>
+        <h5><%= user.name %></h5>
+        <p><%= user.phone_number %></p>
+      <% end %>
+    <% end %>
+  </div>
+
+</section>
+
+<!--<h1>Admin::Homes#top</h1>-->
+<!--<p>Find me in app/views/admin/homes/top.html.erb</p>-->
+<!--管理者トップ画面（会員一覧）-->
