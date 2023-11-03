@@ -1,3 +1,31 @@
-<h1>Public::Items#show</h1>
-<p>Find me in app/views/public/items/show.html.erb</p>
-作品詳細画面
+<section class="wrapper flex">
+
+  <div class="item_show">
+
+    <div class="items">
+      <%#= image_tag @item.get_image, fallback: "/amulab/app/assets/images/no_image_BLU.jpg" %>
+    </div>
+
+    <div class="item_body">
+      <h5><%#= @item.name %></h5>
+      <p><%#= @item.created_at.strftime("%Y/%m/%d %H:%M:%S") %></p>
+      <p><%#= @item.destination %></p>
+    </div>
+
+    <div class="signed_if">
+      <% if user_signed_in? %>
+        <p class="bold">いいね・コメント機能を利用できます。</p>
+      <% else %>
+        <p>いいね・コメント機能をご利用いただくには、<br><%= link_to "こちら", new_user_registration_path, class: "underline" %>から新規登録を行なってください。</p>
+      <% end %>
+    </div>
+
+  </div>
+
+  <%= link_to "戻る", items_path, class: "btn btn-primary" %>
+
+</section>
+
+<!--<h1>Public::Items#show</h1>-->
+<!--<p>Find me in app/views/public/items/show.html.erb</p>-->
+<!--作品詳細画面-->

@@ -45,29 +45,57 @@
     font-weight: bold;
     font-size: 30px; /* 任意のフォントサイズを指定 */
   }
-  main {
-    margin-top: 130px; /* メインコンテンツをヘッダーの下に配置するためのマージン設定 */
-  }
-  body {
-    background-color: #f0f8ff;
-    /*052D37 紺 E6CFDB ピンク B8C8CC ブルーグレー f0f8ff アリスブルー eee9e6 淡いベージュ E5C58F ベージュ*/
-  }
-  footer{
-    width: 100%;
-    background-color: #052D37;
-    color: #fff;
-    text-align: center;
-    padding: 5px 0;
-    position: absolute; /*←絶対位置*/
-    position: fixed;
-    bottom: 0; /*下に固定*/
-  }
   .flex{
     text-align: center;
   }
   .image_tag{
     text-align: left;
     padding: 50px 50px;
+  }
+  .image_tag_right{
+    text-align: right;
+    padding: 50px 50px;
+  }
+  main {
+    padding: 10px 0;
+    margin-top: 130px; /* メインコンテンツをヘッダーの下に配置するためのマージン設定 */
+    margin-bottom: 80px; /* フッターの高さと同じマージンを設定 */
+  }
+  body {
+    background-color: #B8C8CC;
+    /*052D37 紺 E6CFDB ピンク B8C8CC ブルーグレー f0f8ff アリスブルー eee9e6 淡いベージュ E5C58F ベージュ*/
+  }
+  .new_item_list{
+    display: flex;
+  }
+  .genre_list{
+    display: flex;
+  }
+  .link {
+    display: flex;
+  }
+  .link a {
+    color: black;
+  }
+  .about {
+    display: flex;
+  }
+  .privacypolicy {
+    text-align: left;
+  }
+  .complition {
+    text-align: left;
+  }
+  footer{
+    width: 100%; /* 横幅を100%に設定 */
+    height: 80px; /* フッターの高さを設定 */
+    background-color: #052D37;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    position: fixed; /* フッターを固定位置に設定 */
+    bottom: 0; /* 下に固定 */
+    z-index: 1000; /* 必要に応じて他の要素より手前に表示 */
   }
   </style>
 
@@ -141,7 +169,15 @@
       <%= yield %>
     </main>
 
-    <footer>Copyright © Amulab All Rights Reserved.</footer>
+    <footer>
+      <div class="footer-contack">
+        Contact<br>
+        E-mail amulabamulab@gmail.com
+      </div>
+      <div class="footer-text">
+      Copyright © Amulab All Rights Reserved.
+      </div>
+    </footer>
   </body>
 
 </html>

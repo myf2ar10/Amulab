@@ -17,3 +17,11 @@ Admin.create!(
 #   phone_number: "00000000000",
 #   password: "123456"
 #   )
+
+# Item.create!(
+#   p genre_id: "1",
+#   name: "test",
+#   description: "test"
+# )
+# item = Item.find_by(name: "test")
+# item.image.attach(io: File.open(Rails.root.join('/amulab/app/assets/images/no_image_PIK.jpg')), filename: 'test')

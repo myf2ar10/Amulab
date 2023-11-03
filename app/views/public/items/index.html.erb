@@ -1,3 +1,21 @@
-<h1>Public::Items#index</h1>
-<p>Find me in app/views/public/items/index.html.erb</p>
-作品一覧画面
+<section class="wrapper flex">
+
+  <div class="item_index">
+
+  <h4>作品一覧</h4>
+
+  <div class="items">
+    <% @items.each do |item| %>
+      <%= link_to item_path(item) do %>
+        <%= image_tag item.get_image, fallback: "/amulab/app/assets/images/no_image_BLU.jpg" %>
+        <h5><%= item.name %></h5>
+        <p><%= item.created_at.strftime("%Y/%m/%d %H:%M:%S") %></p>
+      <% end %>
+    <% end %>
+  </div>
+
+</section>
+
+<!--<h1>Public::Items#index</h1>-->
+<!--<p>Find me in app/views/public/items/index.html.erb</p>-->
+<!--作品一覧画面-->
