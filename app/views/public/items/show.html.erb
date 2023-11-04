@@ -7,14 +7,22 @@
     </div>
 
     <div class="item_body">
-      <h5><%#= @item.name %></h5>
-      <p><%#= @item.created_at.strftime("%Y/%m/%d %H:%M:%S") %></p>
-      <p><%#= @item.destination %></p>
+      <h5><%= @item.name %></h5>
+      <p><%= @item.created_at.strftime("%Y/%m/%d %H:%M:%S") %></p>
+      <p><%= @item.description %></p>
+    </div>
+
+    <div class="signed_if_edit">
+      <% if user_signed_in? %>
+        <%= link_to "編集", edit_item_path(@item), class: "btn btn-primary" %>
+      <% else %>
+        <p></p>
+      <% end %>
     </div>
 
     <div class="signed_if">
       <% if user_signed_in? %>
-        <p class="bold">いいね・コメント機能を利用できます。</p>
+        <p class="bold">【実装中】いいね・コメント機能を利用できます。</p>
       <% else %>
         <p>いいね・コメント機能をご利用いただくには、<br><%= link_to "こちら", new_user_registration_path, class: "underline" %>から新規登録を行なってください。</p>
       <% end %>
