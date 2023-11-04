@@ -1,3 +1,79 @@
-<h1>Public::Homes#top</h1>
-<p>Find me in app/views/public/homes/top.html.erb</p>
-トップ画面
+<section class="wrapper flex">
+
+  <div class="image_tag">
+    <%= image_tag 'knitting is healing.png', width: 700 %>
+  </div>
+
+  <div class="new_item_list">
+    <h3>新着作品</h3>
+  </div>
+
+  <div class="genre_list">
+    <h3>ジャンル一覧</h3>
+    <%# @genres.each do |genre| %>
+      <%#= link_to genre.name, items_path(genre_id: genre.id) %>
+    <%# end %>
+
+    <table>
+      <tr>
+
+      <%# @items.each do |item| %>
+        <%#= link_to item_path(item) do %>
+          <th>
+          <%#= image_tag item.get_image %>
+          </th>
+          <td>
+            <h5><%#= item.genre.name %></h5>
+          </td>
+          <td>
+            <p><%#= item.name %></p>
+          </td>
+        <%# end %>
+      <%# end %>
+      </tr>
+    </table>
+  </div>
+
+  <div class="about">
+    About<br>
+    当サイトにアクセス頂きありがとうございます。<br>
+    当サイトは「ハンドメイド品投稿サイト」です。<br>
+    手作りの作品が家に溜まっていませんか？<br>
+    ここでは自分が作った作品の写真を投稿することができます。<br>
+    投稿するには会員登録が必要です。<br>
+    いいね機能やコメント機能があるのでみんなでいいねし合いましょう。<br>
+    サイトに関するご意見・ご感想はお問い合わせまでご連絡ください。<br>
+  </div>
+
+  <div class="link">
+    <%= link_to items_path, class: 'nav-link text-light' do %>
+      <i class="fas fa-users"></i>
+      作品一覧
+    <% end %><br>
+    <%= link_to new_user_session_path, class: 'nav-link text-light' do %>
+      <i class="fas fa-users"></i>
+      ログイン
+    <% end %><br>
+    <%= link_to new_user_registration_path, class: 'nav-link text-light' do %>
+      <i class="fas fa-users"></i>
+      新規登録
+    <% end %><br>
+    <%= link_to privacypolicy_path, class: 'nav-link text-light' do %>
+      <i class="fas fa-users"></i>
+      プライバシーポリシー
+    <% end %><br>
+    <%= link_to information_path, class: 'nav-link text-light' do %>
+      <i class="fas fa-users"></i>
+      お問い合わせ
+    <% end %><br>
+    <%= link_to about_path, class: 'nav-link text-light' do %>
+      <i class="fas fa-users"></i>
+      当サイトについて
+    <% end %><br>
+  </div>
+
+</section>
+
+<!--<h1>Public::Homes#top</h1>-->
+<!--<p>Find me in app/views/public/homes/top.html.erb</p>-->
+<!--トップ画面-->

@@ -1,3 +1,63 @@
-<h1>Public::Homes#create</h1>
-<p>Find me in app/views/public/homes/create.html.erb</p>
-お問い合わせ画面
+<section class="wrapper flex">
+
+  <div class="image_tag">
+    <%= image_tag 'knitting is healing.png', width: 700 %>
+  </div>
+
+  <div class="information">
+
+    <table>
+      <h4>お問い合わせ</h4>
+      下記フォームにご入力の上送信ください。<br>
+      管理者にて確認後、追ってご連絡いたします。<br>
+      確認には5日程度いただく場合がございます。<br>
+      ご了承ください。<br>
+    </table>
+
+    <% resource_name = :user %>
+    <%= form_with model: @customer, url: session_path(resource_name), local: true do |f| %>
+      <div class="field mb1">
+        <%= f.label :"メールアドレス*" %>
+        <%= f.text_field :email, autocomplete: "email" %>
+        <small>※存在するメールアドレスを登録してください。</small><br>
+      </div>
+      <!-- 名前と電話番号のフィールドを追加 -->
+      <div class="field mb2">
+        <%= f.label :"名前*" %>
+        <%= f.text_field :name, autocomplete: "name" %>
+        <small>※ご連絡の際にお呼びいたします。</small><br>
+      </div>
+
+      <div class="field mb3">
+        <%= f.label :"電話番号*" %>
+        <%= f.text_field :phone_number, autocomplete: "phone_number" %>
+        <small>※存在する電話番号を登録してください。</small><br>
+      </div>
+
+      <!-- お問い合わせ内容のフィールドを追加 -->
+      <div class="field mb4">
+        <%= f.label :"お問い合わせ内容*" %>
+        <%= f.text_area :message, autocomplete: "message" %>
+        <small>※000文字以内でご入力ください。</small><br>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "送信", class: "btn btn-primary" %>
+        <small>
+          ※誠に恐れ入りますが確認画面のご用意がございません。<br>
+          最後にご入力内容をご確認ください。<br>
+          ※*は入力必須項目です。<br>
+        </smaill>
+      </div>
+    <% end %>
+
+    <h4 class="section-ttl">会員登録をご希望の方</h4>
+    <p><%= link_to "こちら", new_user_registration_path, class: "underline" %>から新規登録を行なってください。</p>
+
+  </div>
+
+</section>
+
+<!--<h1>Public::Homes#create</h1>-->
+<!--<p>Find me in app/views/public/homes/create.html.erb</p>-->
+<!--お問い合わせ画面-->

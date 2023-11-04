@@ -9,6 +9,7 @@ class Public::HomesController < ApplicationController
   end
 
   def create
+    @user = User.new
   end
 
   def information

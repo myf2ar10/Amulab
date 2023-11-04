@@ -1,3 +1,18 @@
-<h1>Admin::Users#show</h1>
-<p>Find me in app/views/admin/users/show.html.erb</p>
-顧客詳細画面
+<section class="wrapper flex">
+
+  <div class="admin_user_show">
+
+      <p><%#= @user.mail %></p>
+      <p><%#= @user.name %></p>
+      <p><%#= @user.phone_number %></p>
+      <p><%#= @user.password %></p>
+
+    <%= link_to "編集", edit_admin_user_path, class: "btn btn-primary" %>
+
+  </div>
+
+</section>
+
+<!--<h1>Admin::Users#show</h1>-->
+<!--<p>Find me in app/views/admin/users/show.html.erb</p>-->
+<!--顧客詳細画面-->

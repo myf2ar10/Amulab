@@ -5,9 +5,21 @@ class Public::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
 
   def new
+    super
   end
 
   def create
+
+  @user = User.new(user_params)
+    if @user.save
+      # ユーザーの作成に成功した場合の処理
+      redirect_to public_root_path
+    else
+      # ユーザーの作成に失敗した場合の処理
+      render :new
+    end
+
+    super
   end
 
   # GET /resource/sign_up
@@ -65,4 +77,9 @@ class Public::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+
+  def user_params
+    params.require(:user).permit(:email, :name, :phone_number, :password, :password_confirmation)
+  end
+
 end
