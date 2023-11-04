@@ -2,7 +2,7 @@
 
   <div class="admin_genre_edit">
 
-    <%#= form_with model:@genre, admin_genre_path:  do |f| %>
+    <%= form_with model: @genre, url: admin_genre_path(@genre), method: :patch do |f| %>
       <table class="admin_genre_edit_form">
         <thead>
           <tr>
@@ -11,16 +11,16 @@
         </thead>
         <tbody>
           <tr>
-            <td><%#= f.label :name, "ジャンル名" %></td>
-            <td><%#= f.text_area :name, rows: 3 %></td>
+            <td><%= f.label :name, "ジャンル名" %></td>
+            <td><%= f.text_area :name, rows: 3 %></td>
           </tr>
         </tbody>
       </table>
 
       <div class="flex align-center pl5">
-        <%#= f.submit "編集完了", class: "btn btn-primary" %>
+        <%= f.submit "編集完了", class: "btn btn-primary" %>
       </div>
-    <%# end %>
+    <% end %>
 
   </div>
 

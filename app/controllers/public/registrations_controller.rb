@@ -13,13 +13,13 @@ class Public::RegistrationsController < Devise::RegistrationsController
   @user = User.new(user_params)
     if @user.save
       # ユーザーの作成に成功した場合の処理
-      redirect_to public_root_path
+      redirect_to user_path(@user)
     else
       # ユーザーの作成に失敗した場合の処理
       render :new
     end
 
-    super
+    # super
   end
 
   # GET /resource/sign_up

@@ -1,5 +1,6 @@
 class Admin::UsersController < ApplicationController
   def show
+    @user = User.ffind(params[:id])
   end
 
   def edit

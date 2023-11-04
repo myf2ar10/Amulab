@@ -1,14 +1,20 @@
-<p style="color: white;">ようこそ、<%= current_user.name %>さん</p>
+<div class="user_header-welcome">
+  <p>ようこそ、<%= current_user.name %>さん</p>
+</div>
 
 <%= link_to items_path, class: 'nav-link text-light' do %>
   <i class="fas fa-users"></i>
   作品一覧
 <% end %>
+<%= link_to new_item_path, class: 'nav-link text-light' do %>
+  <i class="fas fa-users"></i>
+  作品登録
+<% end %>
+<%= link_to user_path(current_user), class: 'nav-link text-light' do %>
+  <i class="fas fa-users"></i>
+  マイページ
+<% end %>
 <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link text-light' do %>
   <i class="fas fa-users"></i>
   ログアウト
-<% end %>
-<%= link_to items_path, method: :post, class: 'nav-link text-light' do %>
-  <i class="fas fa-users"></i>
-  新規登録
 <% end %>
