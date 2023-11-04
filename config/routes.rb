@@ -1,11 +1,25 @@
 Rails.application.routes.draw do
 
+  # 管理者用
+  # URL /admin/sign_in ...
+  devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
+    sessions: "admin/sessions"
+  }
+
   namespace :admin do
     get 'top' => 'homes#top', as: 'admin_top'
     resources :items, except: [:destroy]
     resources :genres, only: [:index, :create, :edit, :update]
     resources :users, only: [:index, :show, :edit, :update]
     end
+
+  # 顧客用
+  # URL /users/sign_in ...
+  devise_for :users, controllers: {
+    # skip: [:passwords],
+    registrations: "public/registrations",
+    sessions: 'public/sessions'
+  }
 
   scope module: :public do
     root 'homes#top', as: 'public_root'
@@ -20,18 +34,6 @@ Rails.application.routes.draw do
     resources :genres, only: [:index]
     resources :users, only: [:show]
   end
-
-  # 顧客用
-  # URL /users/sign_in ...
-  devise_for :users,skip: [:passwords], controllers: {
-    registrations: "public/registrations",
-    sessions: 'public/sessions'
-  }
-  # 管理者用
-  # URL /admin/sign_in ...
-  devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
-    sessions: "admin/sessions"
-  }
 
   # namespace :admin do
   #   get 'users/show'

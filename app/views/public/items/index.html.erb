@@ -7,10 +7,10 @@
   <div class="items">
     <% @items.each do |item| %>
       <%= link_to item_path(item) do %>
-        <%= image_tag item.get_image, fallback: "/amulab/app/assets/images/no_image_BLU.jpg" %>
+        <%#= image_tag item.image, fallback: "no_image_BLU.jpg" %>        <!--/app/assets/images/-->
         <h5><%= item.name %></h5>
-        <p><%= item.created_at.strftime("%Y/%m/%d %H:%M:%S") %></p>
       <% end %>
+      <p><%= item.created_at.strftime("%Y/%m/%d") %></p>       <!--%H:%M:%S-->
     <% end %>
   </div>
 

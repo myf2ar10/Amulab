@@ -1,4 +1,4 @@
-<p>ようこそ、<%= current_user.full_name %>さん</p>
+<p style="color: white;">ようこそ、<%= current_user.name %>さん</p>
 
 <%= link_to items_path, class: 'nav-link text-light' do %>
   <i class="fas fa-users"></i>
@@ -10,5 +10,5 @@
 <% end %>
 <%= link_to items_path, method: :post, class: 'nav-link text-light' do %>
   <i class="fas fa-users"></i>
-  新規投稿
+  新規登録
 <% end %>

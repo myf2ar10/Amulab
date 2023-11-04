@@ -5,11 +5,9 @@ class Item < ApplicationRecord
 
   belongs_to :genre
 
-  private
-
   def get_image(*size)
     unless image.attached?
-      file_path = Rails.root.join('/amulab/app/assets/images/no_image_GRN.jpg')
+      file_path = Rails.root.join('/app/assets/images/no_image_GRN.jpg')
       image.attach(io: File.open(file_path), filename: 'no_image_GRN.jpg', content_type: 'no_image_GRN.jpg')
     end
 
@@ -19,6 +17,8 @@ class Item < ApplicationRecord
       image
     end
   end
+
+  private
 
   def validate_image_count
     if image.attached? && image.count > 5
