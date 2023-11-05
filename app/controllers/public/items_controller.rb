@@ -23,10 +23,10 @@ class Public::ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)  # 新しいアイテムを作成
     if @item.save  # データベースに保存
-      flash[:success] = "作品が新規登録されました。"
+      flash[:notice] = "作品が新規登録されました。"
       redirect_to items_path  # 一覧ページにリダイレクト
     else
-      flash[:error] = "作品が新規登録されませんでした。"
+      flash[:alert] = "作品が新規登録されませんでした。"
       render :new
     end
   end

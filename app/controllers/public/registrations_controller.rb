@@ -12,10 +12,10 @@ class Public::RegistrationsController < Devise::RegistrationsController
     @user = User.new(user_params)
     if @user.save
       sign_in @user  # ユーザーを自動的にログイン
-      flash[:success] = "ユーザーを作成しました。"
+      flash[:notice] = "ユーザーを作成しました。"
       redirect_to user_path(@user)  # 登録後にユーザーページにリダイレクト
     else
-      flash.now[:error] = "ユーザーの作成に失敗しました。"
+      flash.now[:alert] = "ユーザーの作成に失敗しました。"
       render :new
     end
   end
