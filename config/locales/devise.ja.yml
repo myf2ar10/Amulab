@@ -9,7 +9,13 @@ ja: # 日本語の設定を行う
         current_password: 現在のパスワード
         current_sign_in_at: 現在のログイン時刻
         current_sign_in_ip: 現在のログインIPアドレス
-        email: Eメール
+
+        # 本アプリケーションに合わせた日本語化
+        # email: Eメール
+        email: メールアドレス
+        name: ニックネーム
+        #
+
         encrypted_password: 暗号化パスワード
         failed_attempts: 失敗したログイン試行回数
         last_sign_in_at: 最終ログイン時刻

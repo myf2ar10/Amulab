@@ -9,17 +9,15 @@ class Public::RegistrationsController < Devise::RegistrationsController
   end
 
   def create
-
-  @user = User.new(user_params)
+    @user = User.new(user_params)
     if @user.save
-      # ユーザーの作成に成功した場合の処理
-      redirect_to user_path(@user)
+      sign_in @user  # ユーザーを自動的にログイン
+      flash[:success] = "ユーザーを作成しました。"
+      redirect_to user_path(@user)  # 登録後にユーザーページにリダイレクト
     else
-      # ユーザーの作成に失敗した場合の処理
+      flash[:error] = "ユーザーの作成に失敗しました。"
       render :new
     end
-
-    # super
   end
 
   # GET /resource/sign_up

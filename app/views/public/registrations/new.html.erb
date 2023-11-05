@@ -1,4 +1,12 @@
 <section class="wrapper flex">
+
+
+  <% if flash[:error].present? %>
+    <div class="alert alert-danger">
+      <%= flash[:error] %>
+    </div>
+  <% end %>
+
   <div class="registration_new">
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
