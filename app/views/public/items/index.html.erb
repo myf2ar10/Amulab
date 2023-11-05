@@ -11,12 +11,13 @@
 
         <tr>
           <td>
-            <% item.images.each do |image| %>
+            <% item.images.each_with_index do |image, index| %>
+              <%= index + 1 %>
               <%= link_to item_path(item) do %>
                 <% if image.blob.present? %>
-                  <%= image_tag image, style: "width: 100px;" %>
+                  <%= image_tag image, style: "width: #{(1..4).include?(index) ? '40px' : '100px'};" %>
                 <% else %>
-                  <%= image_tag "no_image_BLU.jpg", style: "width: 100px;", alt: "no_image" %>
+                  <%= image_tag "images/no_image_BLU.jpg", style: "width: 100px;", alt: "no_image" %>
                 <% end %>
               <% end %>
             <% end %>
@@ -39,6 +40,7 @@
 
       <% end %>
     </table>
+    <%= paginate @items %>
 
   </div>
 
