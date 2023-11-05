@@ -1,30 +1,48 @@
 <section class="wrapper flex">
 
-  <% if flash[:success].present? %>
-    <div class="alert alert-success">
-      <%= flash[:success] %>
-    </div>
-  <% end %>
-
-  <% if flash[:error].present? %>
-    <div class="alert alert-danger">
-      <%= flash[:error] %>
-    </div>
-  <% end %>
-
   <div class="admin_user_show">
+
     <%= form_for(@user, url: edit_admin_user_path(@user), method: :get) do |f| %>
-      <%= f.label :メールアドレス %>
-      <p><%= @user.email %></p>
-      <%= f.label :ニックネーム %>
-      <p><%= @user.name %></p>
-      <%= f.label :電話番号 %>
-      <p><%= @user.phone_number %></p>
-      <%= f.label :パスワード %><small>※暗号化にて</small>
-      <p><%= @user.encrypted_password %></p>
-      <%= link_to "戻る", admin_admin_top_path, class: "btn btn-primary" %>
-      <%= link_to "編集", edit_admin_user_path(@user), class: "btn btn-primary" %>
+      <table>
+
+        <thead>
+          <tr>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td><%= f.label :メールアドレス %></td>
+            <td><%= @user.email %></td>
+          </tr>
+
+          <tr>
+            <td><%= f.label :ニックネーム %></td>
+            <td><%= @user.name %></td>
+          </tr>
+
+          <tr>
+            <td><%= f.label :電話番号 %></td>
+            <td><%= @user.phone_number %></td>
+          </tr>
+
+          <tr>
+            <td><%= f.label :パスワード %><small>※暗号化にて</small></td>
+            <td><%= @user.encrypted_password %></td>
+          </tr>
+        </tbody>
+
+      </table>
+
+      <div class="flex align-center pl5">
+        <%= link_to "一覧に戻る", admin_admin_top_path, class: "btn btn-primary" %>
+        <%= link_to "編集", edit_admin_user_path(@user), class: "btn btn-primary" %>
+      </div>
+
     <% end %>
+
   </div>
 
 </section>

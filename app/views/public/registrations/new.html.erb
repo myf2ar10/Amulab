@@ -1,55 +1,67 @@
 <section class="wrapper flex">
 
-
-  <% if flash[:error].present? %>
-    <div class="alert alert-danger">
-      <%= flash[:error] %>
-    </div>
-  <% end %>
-
   <div class="registration_new">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "public/shared/error_messages", resource: resource %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "public/shared/error_messages", resource: resource %>
+  <div>
 
   <div class="field">
-    <%= f.label :メールアドレス %>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-    <small>※実在するメールアドレスを登録してください。</small>
-  </div>
+    <table>
 
-  <div class="field">
-    <%= f.label :ニックネーム %>
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
-  </div>
+      <tr>
+        <td>
+          <%= f.label :メールアドレス %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          <small>※実在するメールアドレスを登録してください。</small>
+        </td>
+      </tr>
 
-  <div class="field">
-    <%= f.label :電話番号 %>
-    <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number" %>
-    <small>※実在する電話番号を登録してください。</small>
-  </div>
+      <tr>
+        <td>
+          <%= f.label :ニックネーム %>
+          <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+        </td>
+      </tr>
 
-  <div class="field">
-    <%= f.label :パスワード %>
-    <% if @minimum_password_length %>
-    <!--<em>(<%#= @minimum_password_length %> characters minimum)</em>-->
+      <tr>
+        <td>
+          <%= f.label :電話番号 %>
+          <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number" %>
+          <small>※実在する電話番号を登録してください。</small>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <%= f.label :パスワード %>
+          <%= f.password_field :password, autocomplete: "new-password" %>
+          <small>※6文字以上で登録してください。</small>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <%= f.label :password_confirmation %>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <%= f.submit "新規登録" %>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <%= render "public/shared/links" %>
+        </td>
+      </tr>
+
     <% end %>
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <small>※6文字以上で登録してください。</small>
-  </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div><br>
-
-  <div class="actions">
-    <%= f.submit "新規登録" %>
-  </div>
-<% end %>
-
-<%= render "public/shared/links" %>
-
+    </table>
   </div>
 </section>
 
