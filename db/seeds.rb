@@ -51,6 +51,41 @@ Genre.create!(
   name: "テスト_ジャンル3"
   )
 
+Genre.create!(
+  p id: 4,
+  name: "テスト_ジャンル4"
+  )
+
+Genre.create!(
+  p id: 5,
+  name: "テスト_ジャンル5"
+  )
+
+Genre.create!(
+  p id: 6,
+  name: "テスト_ジャンル6"
+  )
+
+Genre.create!(
+  p id: 7,
+  name: "テスト_ジャンル7"
+  )
+
+Genre.create!(
+  p id: 8,
+  name: "テスト_ジャンル8"
+  )
+
+Genre.create!(
+  p id: 9,
+  name: "テスト_ジャンル9"
+  )
+
+Genre.create!(
+  p id: 10,
+  name: "テスト_ジャンル10"
+  )
+
 Item.create!(
   p id: 1,
   genre: Genre.find_by(name: "テスト_ジャンル"),
@@ -86,7 +121,7 @@ Item.create!(
 
 Item.create!(
   p id: 4,
-  genre: Genre.find_by(name: "テスト_ジャンル"),
+  genre: Genre.find_by(name: "テスト_ジャンル4"),
   name: "テスト_作品4",
   description: "テスト_作品説明文4"
   )
@@ -95,7 +130,7 @@ p item.images.attach(io: File.open(Rails.root.join('app/assets/images/test.jpg')
 
 Item.create!(
   p id: 5,
-  genre: Genre.find_by(name: "テスト_ジャンル"),
+  genre: Genre.find_by(name: "テスト_ジャンル5"),
   name: "テスト_作品5",
   description: "テスト_作品説明文5"
   )
@@ -104,9 +139,45 @@ p item.images.attach(io: File.open(Rails.root.join('app/assets/images/test2.png'
 
 Item.create!(
   p id: 6,
-  genre: Genre.find_by(name: "テスト_ジャンル"),
+  genre: Genre.find_by(name: "テスト_ジャンル6"),
   name: "テスト_作品6",
   description: "テスト_作品説明文6"
   )
 item = Item.find_by(name: "テスト_作品6")
+p item.images.attach(io: File.open(Rails.root.join('app/assets/images/test.jpg')), filename: 'test_item')
+
+Item.create!(
+  p id: 7,
+  genre: Genre.find_by(name: "テスト_ジャンル7"),
+  name: "テスト_作品7",
+  description: "テスト_作品説明文7"
+  )
+item = Item.find_by(name: "テスト_作品7")
+p item.images.attach(io: File.open(Rails.root.join('app/assets/images/test.jpg')), filename: 'test_item')
+
+Item.create!(
+  p id: 8,
+  genre: Genre.find_by(name: "テスト_ジャンル8"),
+  name: "テスト_作品8",
+  description: "テスト_作品説明文8"
+  )
+item = Item.find_by(name: "テスト_作品8")
+p item.images.attach(io: File.open(Rails.root.join('app/assets/images/test.jpg')), filename: 'test_item')
+
+Item.create!(
+  p id: 9,
+  genre: Genre.find_by(name: "テスト_ジャンル9"),
+  name: "テスト_作品9",
+  description: "テスト_作品説明文9"
+  )
+item = Item.find_by(name: "テスト_作品9")
+p item.images.attach(io: File.open(Rails.root.join('app/assets/images/test.jpg')), filename: 'test_item')
+
+Item.create!(
+  p id: 10,
+  genre: Genre.find_by(name: "テスト_ジャンル10"),
+  name: "テスト_作品10",
+  description: "テスト_作品説明文10"
+  )
+item = Item.find_by(name: "テスト_作品10")
 p item.images.attach(io: File.open(Rails.root.join('app/assets/images/test.jpg')), filename: 'test_item')

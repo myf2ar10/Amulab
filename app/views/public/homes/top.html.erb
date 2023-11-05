@@ -51,59 +51,75 @@
       <%= link_to items_path, class: 'nav-link text-light' do %>
         <i class="fas fa-users"></i>
         作品一覧
-      <% end %><br>
-      <%= link_to privacypolicy_path, class: 'nav-link text-light' do %>
+      <% end %>
+      <%= link_to new_item_path, class: 'nav-link text-light' do %>
+        <i class="fas fa-users"></i>
+        作品登録
+      <% end %>
+      <%= link_to user_path(current_user), class: 'nav-link text-light' do %>
+        <i class="fas fa-users"></i>
+        マイページ
+      <% end %>
+      <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link text-light' do %>
+        <i class="fas fa-users"></i>
+        ログアウト
+      <% end %>
+        <%= link_to privacypolicy_path, class: 'nav-link text-light' do %>
         <i class="fas fa-users"></i>
         プライバシーポリシー
-      <% end %><br>
+      <% end %>
       <%= link_to information_path, class: 'nav-link text-light' do %>
         <i class="fas fa-users"></i>
         お問い合わせ
-      <% end %><br>
+      <% end %>
       <%= link_to about_path, class: 'nav-link text-light' do %>
         <i class="fas fa-users"></i>
         当サイトについて
-      <% end %><br>
+      <% end %>
 
     <% elsif admin_signed_in? %>
       <%= link_to admin_genres_path, class: 'nav-link text-light' do %>
         <i class="fas fa-users"></i>
         ジャンル一覧
-      <% end %><br>
+      <% end %>
       <%= link_to admin_items_path, class: 'nav-link text-light' do %>
         <i class="fas fa-users"></i>
         作品一覧
-      <% end %><br>
+      <% end %>
       <%= link_to admin_admin_top_path, class: 'nav-link text-light' do %>
         <i class="fas fa-users"></i>
         会員一覧
-      <% end %><br>
+      <% end %>
+      <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-light' do %>
+        <i class="fas fa-users"></i>
+        ログアウト
+      <% end %>
 
       <% else %>
       <%= link_to items_path, class: 'nav-link text-light' do %>
         <i class="fas fa-users"></i>
         作品一覧
-      <% end %><br>
+      <% end %>
       <%= link_to new_user_session_path, class: 'nav-link text-light' do %>
         <i class="fas fa-users"></i>
         ログイン
-      <% end %><br>
+      <% end %>
       <%= link_to new_user_registration_path, class: 'nav-link text-light' do %>
         <i class="fas fa-users"></i>
         新規登録
-      <% end %><br>
+      <% end %>
       <%= link_to privacypolicy_path, class: 'nav-link text-light' do %>
         <i class="fas fa-users"></i>
         プライバシーポリシー
-      <% end %><br>
+      <% end %>
       <%= link_to information_path, class: 'nav-link text-light' do %>
         <i class="fas fa-users"></i>
         お問い合わせ
-      <% end %><br>
+      <% end %>
       <%= link_to about_path, class: 'nav-link text-light' do %>
         <i class="fas fa-users"></i>
         当サイトについて
-      <% end %><br>
+      <% end %>
     <% end %>
 
     </div>
