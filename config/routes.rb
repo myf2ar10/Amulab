@@ -30,7 +30,7 @@ Rails.application.routes.draw do
     patch 'information/:id', to: 'homes#information', as: 'information_send'
     get 'complition', to: 'homes#complition', as: 'complition'
 
-    resources :items, only: [:index, :show, :edit, :update, :create]
+    resources :items, only: [:index, :show, :edit, :update, :create, :new]
     resources :genres, only: [:index]
     resources :users, only: [:show]
   end

@@ -1,6 +1,6 @@
 class Public::ItemsController < ApplicationController
   def index
-    @items = Item.all
+    @items = Item.all.page(params[:page])    # ページネーション
   end
 
   def show
@@ -21,12 +21,24 @@ class Public::ItemsController < ApplicationController
   end
 
   def create
+    @item = Item.new(item_params)  # 新しいアイテムを作成
+    if @item.save  # データベースに保存
+      flash[:notice] = "作品が新規登録されました。"
+      redirect_to items_path  # 一覧ページにリダイレクト
+    else
+      flash[:alert] = "作品が新規登録されませんでした。"
+      render :new
+    end
   end
 
-private
+  def new
+    @item = Item.new  # 新しいアイテムのインスタンスを作成
+  end
+
+  private
 
   def item_params
-    params.require(:item).permit(:name, :description)
+    params.require(:item).permit(:name, :description, images: [])
   end
 
 end

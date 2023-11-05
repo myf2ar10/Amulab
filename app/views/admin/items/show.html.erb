@@ -2,9 +2,34 @@
 
   <div class="admin_item_show">
 
-      <p><%#= @item.name %></p>
-      <p><%#= item.created_at.strftime("%Y/%m/%d %H:%M:%S") %></p>
-      <p><%#= @item.description %></p>
+    <table>
+        <tr>
+          <td>
+            <% @item.images.each_with_index do |image, index| %>
+              <%= index + 1 %>
+                <% if image.blob.present? %>
+                  <%= image_tag image, style: "width: #{(1..4).include?(index) ? '40px' : '100px'};" %>
+                <% else %>
+                  <%= image_tag "images/no_image_BLU.jpg", style: "width: 100px;", alt: "no_image" %>
+                <% end %>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p><%= @item.name %></p>
+          </td>
+          <tr>
+        <td>
+          <p><%= @item.created_at.strftime("%Y/%m/%d %H:%M:%S") %></p>
+        </td>
+        </tr>
+        <tr>
+        <td>
+          <p><%= @item.description %></p>
+        </td>
+      </tr>
+    </table>
 
     <%= link_to "戻る", admin_items_path, class: "btn btn-primary" %>
 

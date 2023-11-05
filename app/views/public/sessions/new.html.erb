@@ -1,27 +1,44 @@
 <section class="wrapper flex">
+
   <div class="session_new">
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="field">
-        <%= f.label :メールアドレス %>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-        <small>※登録済みメールアドレスを入力してください。</small><br>
-      </div>
 
-      <div class="field">
-        <%= f.label :パスワード %>
-        <%= f.password_field :password, autocomplete: "current-password" %>
-        <small>※登録済みパスワード、6文字を入力してください。</small><br>
-      </div><br>
+      <table>
 
-      <div class="actions">
-        <%= f.submit "ログイン" %>
-      </div>
-    <% end %>
+        <tr>
+          <td>
+            <%= f.label :メールアドレス %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+            <small>※登録済みメールアドレスを入力してください。</small><br>
+          </td>
+        </tr>
 
-    <%= render "public/shared/links" %>
+        <tr>
+          <td>
+            <%= f.label :パスワード %>
+            <%= f.password_field :password, autocomplete: "current-password" %>
+            <small>※登録済みパスワード、6文字を入力してください。</small><br>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <%= f.submit "ログイン", class: "btn btn-primary" %>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <%= render "public/shared/links" %>
+          </td>
+        </tr>
+      <% end %>
+
+    </table>
 
   </div>
+
 </section>
 
 <!--<h2>Log in</h2>-->

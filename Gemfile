@@ -59,6 +59,6 @@ gem 'devise'
 gem "enum_help"
 gem 'kaminari','~> 1.2.1'
 gem 'image_processing', '~>1.2'
-gem 'faker'
-gem 'faker-japanese'
-gem 'gimei'
+gem 'faker'# seed用
+gem 'faker-japanese'# seed用
+gem 'gimei'# seed用
