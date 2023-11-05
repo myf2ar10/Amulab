@@ -1,3 +1,32 @@
-<h1>Public::Users#show</h1>
-<p>Find me in app/views/public/users/show.html.erb</p>
-顧客のマイページ画面
+<section class="wrapper flex">
+
+  <div class="user_show">
+
+    <h4>マイページ</h4>
+
+    <%= form_for @user do |f| %>
+      <%= f.label :メールアドレス %>
+      <p><%= @user.email %></p>
+      <%= f.label :ニックネーム %>
+      <p><%= @user.name %></p>
+      <%= f.label :電話番号 %>
+      <p><%= @user.phone_number %></p>
+      <%= f.label :パスワード %><small>※暗号化にて</small>
+      <p><%= @user.encrypted_password %></p>
+    <% end %>
+
+    <small>
+      ※誠に恐れ入りますが編集画面のご用意がございません。<br>
+      修正・削除の際は<a href="/information">お問い合わせ</a>より、<br>
+      管理者宛にご連絡いただきますようお願いします。<br>
+    </small><br>
+
+    <%= link_to "トップ", public_root_path, class: "btn btn-primary" %>
+    <%= link_to "作品一覧", items_path, class: "btn btn-primary" %>
+    <%= link_to "作品登録", new_item_path, class: "btn btn-primary" %>
+
+  </div>
+</section>
+<!--<h1>Public::Users#show</h1>-->
+<!--<p>Find me in app/views/public/users/show.html.erb</p>-->
+<!--顧客のマイページ画面-->

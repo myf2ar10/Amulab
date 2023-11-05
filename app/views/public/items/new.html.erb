@@ -1,0 +1,53 @@
+<section class="wrapper flex">
+
+  <div class="item_create">
+
+  <h4>新規作品登録</h4>
+
+    <table>
+      <%= form_with model: @item, url: items_path, local: true, html: { enctype: 'multipart/form-data' } do |f| %>
+
+        <tr>
+          <td>
+            <%= f.label :name, "作品名*" %>
+            <%= f.text_field :name %>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <%= f.label :images, "画像" %>
+            <%= f.file_field :images, accept: "image/*", multiple: true %>
+            <small>
+              ※なし可能。2枚以上可能。
+            </small><br>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <%= f.label :description, "作品説明文" %>
+            <%= f.text_area :description, rows: 3 %>
+            <small>
+              ※なし可能。
+            </small><br>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <%= f.submit "新規作品登録", class: "btn btn-primary" %>
+            <small>
+              ※誠に恐れ入りますが確認画面のご用意がございません。<br>
+      　      最後にご入力内容をご確認ください。<br>
+              ※*は入力必須項目です。<br>
+            </small>
+          </td>
+        </tr>
+
+      <% end %>
+    </table>
+
+  </div>
+
+</section>

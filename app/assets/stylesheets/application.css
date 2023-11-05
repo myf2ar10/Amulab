@@ -13,3 +13,163 @@
  *= require_tree .
  *= require_self
  */
+
+  header{
+    position: fixed;
+    width: 100%;
+     /*ヘッダーの幅を100%に設定 */
+    background-color: #052D37;
+    padding: 8px 150px;
+    height: 130px;
+    position: fixed;
+     /*ヘッダーを固定位置に設定 */
+    top: 0;
+     /*上に固定 */
+  }
+  .header-logo {
+    display: flex;
+    position: fixed;
+    align-items: center;
+     /*垂直方向の中央揃え */
+  }
+  .logo {
+    display: flex;
+    max-width: 200px;
+     /*任意の適切な幅を設定 */
+    flex: 1;
+     /*ロゴが可変幅で残りのスペースを占める */
+    text-align: left;
+     /*ロゴを左寄せに */
+  }
+
+  .user_header-link{
+    text-align: right;
+    display: flex;
+  }
+  .header-content {
+    display: flex;
+    text-align: right;
+  }
+  .header-content a {
+    /*color: white;*/
+    font-weight: bold;
+    font-size: 30px;
+     /*任意のフォントサイズを指定 */
+  }
+  .user_header-welcome {
+    padding: 8px 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+     /*任意のフォントサイズを指定 */
+  }
+  .flex{
+    text-align: center;
+  }
+  .image_tag{
+    text-align: left;
+    padding: 50px 50px;
+  }
+  .image_tag_right{
+    text-align: right;
+    padding: 50px 50px;
+  }
+  main {
+    padding: 10px 0;
+    margin-top: 130px;
+     /*メインコンテンツをヘッダーの下に配置するためのマージン設定 */
+    margin-bottom: 80px;
+     /*フッターの高さと同じマージンを設定 */
+  }
+  body {
+    background-color: #B8C8CC;
+    /*052D37 紺 E6CFDB ピンク B8C8CC ブルーグレー f0f8ff アリスブルー eee9e6 淡いベージュ E5C58F ベージュ*/
+  }
+  .new_item_list{
+    display: flex;
+  }
+  .genre_list{
+    display: flex;
+  }
+  .link {
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+    display: flex;
+  }
+  .about {
+    display: flex;
+  }
+  .privacypolicy {
+    text-align: left;
+  }
+  .complition {
+    text-align: left;
+  }
+  footer{
+    width: 100%;
+     /*横幅を100%に設定 */
+    height: 80px;
+     /*フッターの高さを設定 */
+    background-color: #052D37;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    position: fixed;
+     /*フッターを固定位置に設定 */
+    bottom: 0;
+     /*下に固定 */
+    z-index: 1000;
+     /*必要に応じて他の要素より手前に表示 */
+  }
+
+  /*kaminariレイアウト変更*/
+  .pagination>li>a {
+    border: none;
+    color: #696969;
+  }
+
+  .pagination>.active>a
+    background: #93c9ff;
+    border-radius: 15px;
+  }
+
+  .pagination>li>a:hover {
+    border-radius: 15px;
+  }
+  .pagination {
+  justify-content: center;
+  }
+  /**/
+
+  /*フラッシュメッセージ2パターンにて*/
+  .flash-message {
+    border-radius: 5px;
+    padding: 16px 24px;
+    margin: 16px 0px;
+  }
+
+  /*.flash-message.success {*/
+  /*  background-color: #bcdfff;*/
+  /*  color: #0067C0;*/
+  /*  border: solid 1px #0067C0;*/
+  /*}*/
+
+  /*.flash-message.error {*/
+  /*  background-color: #ffd4d1;*/
+  /*  color: #930403;*/
+  /*  border: solid 1px #930403;*/
+  /*}*/
+
+  .flash-message.notice {
+    background-color: #bcdfff;
+    color: #0067C0;
+    border: solid 1px #0067C0;
+  }
+
+  .flash-message.alert {
+    background-color: #ffd4d1;
+    color: #930403;
+    border: solid 1px #930403;
+  }
+/**/

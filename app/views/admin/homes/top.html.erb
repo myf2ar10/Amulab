@@ -5,12 +5,24 @@
   <h4>会員一覧</h4>
 
   <div class="users">
+
+<table>
     <% @users.each do |user| %>
-      <%= link_to admin_user_path(user) do %>
-        <h5><%= user.name %></h5>
-        <p><%= user.phone_number %></p>
-      <% end %>
+      <tr>
+        <td>
+          <%= link_to admin_user_path(user) do %>
+            <h5><%= user.name %></h5>
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p><%= user.phone_number %></p>
+        </td>
+      </tr>
     <% end %>
+  </table>
+
   </div>
 
 </section>
