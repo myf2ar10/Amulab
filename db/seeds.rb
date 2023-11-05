@@ -7,30 +7,77 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Admin.create!(
-  p email: "admin@admin",
+  p id: 1,
+  email: "admin@admin",
   password: "123456"
   )
 
 User.create!(
-  p email: "user@user",
+  p id: 1,
+  email: "user@user",
   name: "ユーザー",
   phone_number: "00000000000",
   password: "123456"
   )
 
+User.create!(
+  p id: 2,
+  email: "user2@user",
+  name: "ユーザー2",
+  phone_number: "2222222222",
+  password: "123456"
+  )
+
+User.create!(
+  p id: 3,
+  email: "user3@user",
+  name: "ユーザー3",
+  phone_number: "33333333333",
+  password: "123456"
+  )
+
 Genre.create!(
-  p name: "テスト_ジャンル"
-  # , genre_id: 1
+  p id: 1,
+  name: "テスト_ジャンル"
+  )
+
+Genre.create!(
+  p id: 2,
+  name: "テスト_ジャンル2"
+  )
+
+Genre.create!(
+  p id: 3,
+  name: "テスト_ジャンル3"
   )
 
 Item.create!(
-  p genre: Genre.find_by(name: "テスト_ジャンル"),
+  p id: 1,
+  genre: Genre.find_by(name: "テスト_ジャンル"),
   # genre_id:1,
   name: "テスト_作品",
   # item_id: 1,
-  description: "テスト_作品説明文",
-  user_id: "1",
-  image_id: "1"
+  description: "テスト_作品説明文"
+  # user_id: "1",
+  # image_id: "1"
   )
 item = Item.find_by(name: "テスト_作品")
-item.image.attach(io: File.open(Rails.root.join('app/assets/images/no_image_PIK.jpg')), filename: 'test_item')
+item.images.attach(io: File.open(Rails.root.join('app/assets/images/test.jpg')), filename: 'test_item')
+
+Item.create!(
+  p id: 2,
+  genre: Genre.find_by(name: "テスト_ジャンル2"),
+  name: "テスト_作品2",
+  description: "テスト_作品説明文2"
+  )
+item = Item.find_by(name: "テスト_作品2")
+item.images.attach(io: File.open(Rails.root.join('app/assets/images/test.jpg')), filename: 'test_item')
+
+Item.create!(
+  p id: 3,
+  genre: Genre.find_by(name: "テスト_ジャンル3"),
+  name: "テスト_作品3",
+  description: "テスト_作品説明文3"
+  )
+# item = Item.find_by(name: "テスト_作品3")
+# item.images.attach(io: File.open(Rails.root.join('app/assets/images/test.jpg')), filename: 'test_item')

@@ -4,20 +4,25 @@
 
   <h4>新規作品登録</h4>
 
-    <%= form_with model: @item, url: items_path, method: :post, local: true do |f| %>
+    <%= form_with model: @item, url: items_path, local: true, html: { enctype: 'multipart/form-data' } do |f| %>
+
       <%= f.label :name, "作品名*" %>
       <%= f.text_field :name %><br>
-      <%= f.label :image, "画像" %>
-      <%#= image_tag (@item.image.attached? ? url_for(@item.image) : 'no-image.png') %>
-      <span class="btn btn-file btn-info">
-        <%#= f.file_field :image, accept: 'image/*' %>画像選択
-      </span>
-      <small>※なし可能。2枚以上可能。</small><br>
+
+      <%#= image_tag (@item.image.attached? ? url_for(@item.image) : 'no_image_BLU.jpg'), style: "width: 100px" %>
+      <%= f.label :images, "画像" %>
+      <%= f.file_field :images, accept: "image/*", multiple: true %>
+      <small>
+        ※なし可能。2枚以上可能。
+      </small><br>
+
       <%= f.label :description, "作品説明文" %>
       <%= f.text_area :description, rows: 3 %>
       <small>
-      ※なし可能。</small><br>
-      <%= f.submit "新規登録", class: "btn btn-primary" %>
+        ※なし可能。
+      </small><br>
+
+      <%= f.submit "新規作品登録", class: "btn btn-primary" %>
       <small>
         ※誠に恐れ入りますが確認画面のご用意がございません。<br>
 　      最後にご入力内容をご確認ください。<br>

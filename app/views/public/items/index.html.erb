@@ -5,13 +5,41 @@
   <h4>作品一覧</h4>
 
   <div class="items">
-    <% @items.each do |item| %>
-      <%= link_to item_path(item) do %>
-        <%#= image_tag item.image, fallback: "no_image_BLU.jpg" %>        <!--/app/assets/images/-->
-        <h5><%= item.name %></h5>
+
+    <table>
+      <% @items.each do |item| %>
+
+        <tr>
+          <td>
+            <% item.images.each do |image| %>
+              <%= link_to item_path(item) do %>
+                <% if image.blob.present? %>
+                  <%= image_tag image, style: "width: 100px;" %>
+                <% else %>
+                  <%= image_tag "no_image_BLU.jpg", style: "width: 100px;", alt: "no_image" %>
+                <% end %>
+              <% end %>
+            <% end %>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <%= link_to item_path(item) do %>
+              <%= item.name %>
+            <% end %>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <p><%= item.created_at.strftime("%Y/%m/%d") %></p>
+          </td>
+        </tr>
+
       <% end %>
-      <p><%= item.created_at.strftime("%Y/%m/%d") %></p>       <!--%H:%M:%S-->
-    <% end %>
+    </table>
+
   </div>
 
 </section>
