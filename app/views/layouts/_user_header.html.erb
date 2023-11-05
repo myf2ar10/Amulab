@@ -3,28 +3,28 @@
 </div>
 <div class="user_header-link">
 <div>
-<%= link_to items_path, class: 'nav-link text-light' do %>
+<%= link_to items_path do %>
   <!--<i class="fa-solid fa-mitten fa-bounce"></i>-->
   <i class="fas fa-mitten"></i>
   作品一覧
 <% end %>
 </div>
 <div>
-<%= link_to new_item_path, class: 'nav-link text-light' do %>
+<%= link_to new_item_path do %>
   <!--<i class="fa-regular fa-images fa-bounce"></i>-->
   <i class="fa-regular fa-images"></i>
   作品登録
 <% end %>
 </div>
 <div>
-<%= link_to user_path(current_user), class: 'nav-link text-light' do %>
+<%= link_to user_path(current_user) do %>
   <!--<i class="fa-solid fa-user fa-bounce"></i>-->
   <i class="fa-solid fa-user"></i>
   マイページ
 <% end %>
 </div>
 <div>
-<%= link_to destroy_user_session_path, method: :delete, class: 'nav-link text-light' do %>
+<%= link_to destroy_user_session_path, method: :delete do %>
   <!--<i class="fa-solid fa-right-from-bracket fa-bounce"></i>-->
   <i class="fa-solid fa-right-from-bracket"></i>
   ログアウト

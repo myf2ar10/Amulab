@@ -33,6 +33,10 @@ Rails.application.routes.draw do
     resources :items, only: [:index, :show, :edit, :update, :create, :new]
     resources :genres, only: [:index]
     resources :users, only: [:show]
+
+    resources :items do
+      resource :favorites, only: [:create, :destroy]
+    end
   end
 
   # namespace :admin do

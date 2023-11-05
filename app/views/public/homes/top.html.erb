@@ -6,31 +6,40 @@
 
   <div class="new_item_list">
     <h3>新着作品</h3>
+      <table>
+        <% @items.each do |item| %>
+          <tr>
+            <td>
+              <%#= link_to item_path(item) do %>
+              <%#= image_tag @item.get_images %>
+              <%# end %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <%= item.genre.name %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p><%= item.name %></p>
+            </td>
+          </tr>
+        <% end %>
+      </tr>
+    </table>
   </div>
 
   <div class="genre_list">
     <h3>ジャンル一覧</h3>
-    <%# @genres.each do |genre| %>
-      <%#= link_to genre.name, items_path(genre_id: genre.id) %>
-    <%# end %>
-
     <table>
-      <tr>
-
-      <%# @items.each do |item| %>
-        <%#= link_to item_path(item) do %>
-          <th>
-          <%#= image_tag item.get_image %>
-          </th>
+      <% @genres.each do |genre| %>
+        <tr>
           <td>
-            <h5><%#= item.genre.name %></h5>
+            <%= genre.name %>
           </td>
-          <td>
-            <p><%#= item.name %></p>
-          </td>
-        <%# end %>
-      <%# end %>
-      </tr>
+        </tr>
+      <% end %>
     </table>
   </div>
 
@@ -48,76 +57,77 @@
   <div class="link">
 
     <% if user_signed_in? %>
-      <%= link_to items_path, class: 'nav-link text-light' do %>
-        <i class="fas fa-users"></i>
+      <%= link_to items_path do %>
+        <i class="fas fa-mitten"></i>
         作品一覧
       <% end %>
-      <%= link_to new_item_path, class: 'nav-link text-light' do %>
-        <i class="fas fa-users"></i>
+      <%= link_to new_item_path do %>
+        <i class="fa-regular fa-images"></i>
         作品登録
       <% end %>
-      <%= link_to user_path(current_user), class: 'nav-link text-light' do %>
-        <i class="fas fa-users"></i>
+      <%= link_to user_path(current_user) do %>
+        <i class="fa-solid fa-user"></i>
         マイページ
       <% end %>
-      <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link text-light' do %>
-        <i class="fas fa-users"></i>
+      <%= link_to destroy_user_session_path, method: :delete do %>
+        <i class="fa-solid fa-right-from-bracket"></i>
         ログアウト
       <% end %>
-        <%= link_to privacypolicy_path, class: 'nav-link text-light' do %>
-        <i class="fas fa-users"></i>
+        <%= link_to privacypolicy_path do %>
+        <i class="fa-solid fa-paw"></i>
         プライバシーポリシー
       <% end %>
-      <%= link_to information_path, class: 'nav-link text-light' do %>
-        <i class="fas fa-users"></i>
+      <%= link_to information_path do %>
+        <i class="fa-solid fa-paw"></i>
         お問い合わせ
       <% end %>
-      <%= link_to about_path, class: 'nav-link text-light' do %>
-        <i class="fas fa-users"></i>
+      <%= link_to about_path do %>
+        <i class="fa-solid fa-paw"></i>
         当サイトについて
       <% end %>
 
     <% elsif admin_signed_in? %>
-      <%= link_to admin_genres_path, class: 'nav-link text-light' do %>
-        <i class="fas fa-users"></i>
+      <%= link_to admin_genres_path do %>
+        <i class="fa-solid fa-star"></i>
         ジャンル一覧
       <% end %>
-      <%= link_to admin_items_path, class: 'nav-link text-light' do %>
-        <i class="fas fa-users"></i>
+      <%= link_to admin_items_path do %>
+        <i class="fas fa-mitten"></i>
         作品一覧
       <% end %>
-      <%= link_to admin_admin_top_path, class: 'nav-link text-light' do %>
-        <i class="fas fa-users"></i>
+      <%= link_to admin_admin_top_path do %>
+        <i class="fa-solid fa-users"></i>
         会員一覧
       <% end %>
-      <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-light' do %>
-        <i class="fas fa-users"></i>
+      <%= link_to destroy_admin_session_path, method: :delete do %>
+        <i class="fa-solid fa-right-from-bracket"></i>
         ログアウト
       <% end %>
 
       <% else %>
-      <%= link_to items_path, class: 'nav-link text-light' do %>
-        <i class="fas fa-users"></i>
+      <%= link_to items_path do %>
+        <i class="fas fa-mitten"></i>
+         <!--style="color:black;"-->
         作品一覧
       <% end %>
-      <%= link_to new_user_session_path, class: 'nav-link text-light' do %>
-        <i class="fas fa-users"></i>
+      <%= link_to new_user_session_path do %>
+        <i class="fa-solid fa-right-to-bracket"></i>
         ログイン
       <% end %>
-      <%= link_to new_user_registration_path, class: 'nav-link text-light' do %>
-        <i class="fas fa-users"></i>
+      <%= link_to new_user_registration_path do %>
+        <i class="fa-solid fa-address-card"></i>
         新規登録
       <% end %>
-      <%= link_to privacypolicy_path, class: 'nav-link text-light' do %>
-        <i class="fas fa-users"></i>
+      <%= link_to privacypolicy_path do %>
+        <i class="fa-solid fa-paw"></i>
         プライバシーポリシー
       <% end %>
-      <%= link_to information_path, class: 'nav-link text-light' do %>
-        <i class="fas fa-users"></i>
+      <%= link_to information_path do %>
+        <i class="fa-solid fa-paw"></i>
         お問い合わせ
       <% end %>
-      <%= link_to about_path, class: 'nav-link text-light' do %>
-        <i class="fas fa-users"></i>
+      <%= link_to about_path do %>
+        <i class="fa-solid fa-paw"></i>        <!--, class: 'nav-link text-light'-->
         当サイトについて
       <% end %>
     <% end %>

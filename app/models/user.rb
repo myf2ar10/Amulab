@@ -4,6 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  # belongs_to :user
+  has_many :favorites, dependent: :destroy
+
   validates :name, presence: true
 
   # def user_params

@@ -3,7 +3,14 @@ class Item < ApplicationRecord
   has_many_attached :images
   validate :validate_image_count
 
+  has_many :items, dependent: :destroy
+  has_many :favorites, dependent: :destroy
+
   belongs_to :genre
+
+  def favorited?(user)
+     favorites.where(user_id: user.id).exists?
+  end
 
   def get_image(*size)
     unless images.attached?
