@@ -8,16 +8,16 @@
 
         <tr>
           <td>
-            <%= f.label :メールアドレス %>
-            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+            <%= f.label :メールアドレス %><br>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email" %><br>
             <small>※登録済みメールアドレスを入力してください。</small><br>
           </td>
         </tr>
 
         <tr>
           <td>
-            <%= f.label :パスワード %>
-            <%= f.password_field :password, autocomplete: "current-password" %>
+            <%= f.label :パスワード %><br>
+            <%= f.password_field :password, autocomplete: "current-password" %><br>
             <small>※登録済みパスワード、6文字を入力してください。</small><br>
           </td>
         </tr>
@@ -33,9 +33,10 @@
             <%= render "public/shared/links" %>
           </td>
         </tr>
-      <% end %>
 
-    </table>
+      </table>
+
+    <% end %>
 
   </div>
 
