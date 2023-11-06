@@ -11,18 +11,22 @@
 
         <tr>
           <td>
-            <% item.images.each_with_index do |image, index| %>
-              <%= index + 1 %>
-              <%= link_to item_path(item) do %>
-                <% if image.blob.present? %>
-                  <%= image_tag image, style: "width: #{(1..4).include?(index) ? '40px' : '100px'};" %>
-                <% else %>
-                  <%= image_tag "images/no_image_BLU.jpg", style: "width: 100px;", alt: "no_image" %>
-                <% end %>
-              <% end %>
-            <% end %>
+
+<% if item.images.attached? %>
+  <div class="items_image">
+    <%= link_to item_path(item) do %>
+      <%= image_tag item.images.first, style: "width: 240px; height: 240px;" %>
+    <% end %>
+  </div>
+<% else %>
+  <%= link_to item_path(item) do %>
+    <%= image_tag "no_image_YEL.png", style: "width: 240px;", alt: "no_image" %>
+  <% end %>
+<% end %>
+
           </td>
         </tr>
+
 
         <tr>
           <td>
@@ -34,7 +38,19 @@
 
         <tr>
           <td>
-            <p><%= item.created_at.strftime("%Y/%m/%d") %></p>
+            <%= item.genre.name %></p>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <%= item.created_at.strftime("%Y/%m/%d") %>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            投稿者: <%#= item.user.name %>
           </td>
         </tr>
 

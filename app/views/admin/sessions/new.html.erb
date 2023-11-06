@@ -1,32 +1,36 @@
-<section class="inner">
+<section class="wrapper flex">
 
-  <h4>管理者ログイン</h4>
+  <div class="admin_sessions_new">
 
-  <%= form_with model: @admin, url: session_path(resource_name), local: true do |f| %>
-    <table>
+    <h4>管理者ログイン</h4>
 
-      <tr>
-        <td>
-          <%= f.label :email, "メールアドレス" %><br>
-          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-        </td>
-      </tr>
+    <%= form_with model: @admin, url: session_path(resource_name), local: true do |f| %>
+      <table>
 
-      <tr>
-        <td>
-          <%= f.label :password, "パスワード" %><br>
-          <%= f.password_field :password, autocomplete: "current-password" %>
-        </td>
-      </tr>
+        <tr>
+          <td>
+            <%= f.label :email, "メールアドレス" %><br>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          </td>
+        </tr>
 
-      <tr>
-        <td>
-            <%= f.submit "ログイン", class: "btn btn-primary" %>
-        </td>
-      </tr>
+        <tr>
+          <td>
+            <%= f.label :password, "パスワード" %><br>
+            <%= f.password_field :password, autocomplete: "current-password" %>
+          </td>
+        </tr>
 
-    </table>
-  <% end %>
+        <tr>
+          <td>
+              <%= f.submit "ログイン", class: "btn btn-primary" %>
+          </td>
+        </tr>
+
+      </table>
+    <% end %>
+
+  <div>
 
 </section>
 
