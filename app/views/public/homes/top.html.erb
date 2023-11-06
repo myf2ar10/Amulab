@@ -14,28 +14,27 @@
   <div class="new_item_list">
     <table>
 
-      <thead>
+    <thead>
+      <tr>
+        <td>
+          <h3>新着投稿作品</h3>
+        </td>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @items.order(created_at: :desc).limit(5).each do |item| %>
         <tr>
           <td>
-            <h3>新着作品</h3>
+            <%= link_to item_path(item) do %>
+              <% if item.images.attached? %>
+                <%= image_tag item.images.first, style: "width: 100px;" %>
+              <% else %>
+                <%= image_tag "gray_round.png", style: "width: 100px;", alt: "no_image" %>
+              <% end %>
+            <% end %>
           </td>
         </tr>
-      </thead>
-
-      <% @items.each do |item| %>
-        <tbody>
-
-          <tr>
-            <td>
-              <%= link_to item_path(item) do %>
-                <% if item.images.attached? %>
-                  <%= image_tag item.images.first, style: "width: 100px;" %>
-                <% else %>
-                  <%= image_tag "gray_round.png", style: "width: 100px;", alt: "no_image" %>
-                <% end %>
-              <% end %>
-            </td>
-          </tr>
 
           <tr>
             <td>
@@ -53,6 +52,12 @@
             </td>
           </tr>
 
+          <tr>
+            <td>
+              投稿者: <%#= item.user.name %>
+            </td>
+          </tr>
+
         </tbody>
       <% end %>
 
@@ -65,21 +70,21 @@
       <thead>
         <tr>
           <td>
-            <h3>ジャンル一覧</h3>
+            <h3>ジャンル例</h3>
           </td>
         </tr>
       </thead>
 
-      <% @genres.each do |genre| %>
-        <tbody>
+      <tbody>
+        <% @genres.order(created_at: :desc).limit(5).each do |genre| %>
           <tr>
             <td>
               <i class="fa-solid fa-paw"></i><br>
               <%= genre.name %>
             </td>
           </tr>
-        <tbody>
-      <% end %>
+        <% end %>
+      </tbody>
 
     </table>
   </div>

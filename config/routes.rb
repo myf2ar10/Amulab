@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     resources :items, except: [:destroy]
     resources :genres, only: [:index, :create, :edit, :update]
     resources :users, only: [:index, :show, :edit, :update]
-    end
+  end
 
   # 顧客用
   # URL /users/sign_in ...
@@ -34,11 +34,11 @@ Rails.application.routes.draw do
     resources :genres, only: [:index]
     resources :users, only: [:show]
 
-    resources :items do
-      resource :favorites, only: [:create, :destroy]
-    end
+      resources :items do
+        resource :favorites, only: [:create, :destroy]
+      end
   end
-
+end
   # namespace :admin do
   #   get 'users/show'
   #   get 'users/edit'
@@ -96,4 +96,3 @@ Rails.application.routes.draw do
   # }
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-end

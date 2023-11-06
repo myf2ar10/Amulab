@@ -40,7 +40,7 @@ User.create!(
    p n
     p User.create!(
       email: Faker::Internet.email,
-      name: Faker::Japanese::Name.name,
+      name: Faker::Japanese::Name.name + "さん",
       phone_number: "0123456789#{n + 1}",
       password: "123456",
     )
@@ -101,7 +101,7 @@ Genre.create!(
     p id
     p Genre.create!(
       id: id,
-      name: Faker::Games::SuperMario.character,
+      name: Faker::Games::SuperMario.character + "ジャンル"
       # Faker::Music.genre
       # Faker::ProgrammingLanguage.name,
     )
@@ -144,6 +144,10 @@ Item.create!(
   )
 item = Item.find_by(name: "テスト_作品4")
 p item.images.attach(io: File.open(Rails.root.join('app/assets/images/test.jpg')), filename: 'test_item')
+item = Item.find_by(name: "テスト_作品4")
+p item.images.attach(io: File.open(Rails.root.join('app/assets/images/test1.png')), filename: 'test_item')
+item = Item.find_by(name: "テスト_作品4")
+p item.images.attach(io: File.open(Rails.root.join('app/assets/images/test2.png')), filename: 'test_item')
 
 Item.create!(
   p id: 5,
@@ -205,8 +209,8 @@ p item.images.attach(io: File.open(Rails.root.join('app/assets/images/test3.png'
     p Item.create!(
       id: id,
       genre: Genre.find_by(id: 10 + n + 1),
-      name: Faker::Games::Pokemon.name,
-      description: Faker::Games::Pokemon.location,
+      name: Faker::Games::Pokemon.name + "作品",
+      description: Faker::Games::Pokemon.location + "みたいな作品です。",
     )
 end
 

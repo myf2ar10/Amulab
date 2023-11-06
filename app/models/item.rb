@@ -4,12 +4,13 @@ class Item < ApplicationRecord
   validate :validate_image_count
 
   has_many :items, dependent: :destroy
-  # has_many :favorites, dependent: :destroy
 
   belongs_to :genre
+  # belongs_to :user
+  has_many :favorites, dependent: :destroy
 
   def favorited?(user)
-     favorites.where(user_id: user.id).exists?
+    favorites.where(user_id: user.id).exists?
   end
 
   def get_image(*size)

@@ -13,10 +13,7 @@ import "popper.js";
 import "bootstrap";
 import "../stylesheets/application";
 
-// import "slick.js"
-// import 'slick-carousel';
 
-// require("./slick")
 
 Rails.start()
 Turbolinks.start()

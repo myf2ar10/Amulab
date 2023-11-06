@@ -8,7 +8,7 @@
             <% @item.images.each_with_index do |image, index| %>
               <%= index + 1 %>
                 <% if image.blob.present? %>
-                  <%= image_tag image, style: "width: #{(1..4).include?(index) ? '40px' : '100px'};" %>
+                  <%= image_tag image, style: "width: #{(1..4).include?(index) ? '100px' : '250px'};" %>
                 <% else %>
                   <%= image_tag "images/no_image_BLU.jpg", style: "width: 100px;", alt: "no_image" %>
                 <% end %>
