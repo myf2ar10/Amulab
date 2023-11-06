@@ -1,20 +1,42 @@
 <section class="wrapper flex">
 
-  <div class="image_tag">
-    <%= image_tag 'knitting is healing.png', width: 700 %>
+<div class="images">
+  <div class=”slider”>
+    <p><%= image_tag 'knitting is healing.png', class: 'slider-item rounded', width: "700px" %></p>
+    <p><%= image_tag 'knitting is healing_BLU.jpg', class: 'slider-item rounded', width: "700px" %></p>
+    <p><%= image_tag 'knitting is healing_GRN.jpg', class: 'slider-item rounded', width: "700px" %></p>
+    <p><%= image_tag 'knitting is healing_GRY.jpg', class: 'slider-item rounded', width: "700px" %></p>
+    <p><%= image_tag 'knitting is healing_PIK.jpg', class: 'slider-item rounded', width: "700px" %></p>
+    <p><%= image_tag 'knitting is healing_YEL.jpg', class: 'slider-item rounded', width: "700px" %></p>
   </div>
+</div>
 
   <div class="new_item_list">
-    <h3>新着作品</h3>
-      <table>
-        <% @items.each do |item| %>
+    <table>
+
+      <thead>
+        <tr>
+          <td>
+            <h3>新着作品</h3>
+          </td>
+        </tr>
+      </thead>
+
+      <% @items.each do |item| %>
+        <tbody>
+
           <tr>
             <td>
-              <%#= link_to item_path(item) do %>
-              <%#= image_tag @item.get_images %>
-              <%# end %>
+              <%= link_to item_path(item) do %>
+                <% if item.images.attached? %>
+                  <%= image_tag item.images.first, style: "width: 100px;" %>
+                <% else %>
+                  <%= image_tag "gray_round.png", style: "width: 100px;", alt: "no_image" %>
+                <% end %>
+              <% end %>
             </td>
           </tr>
+
           <tr>
             <td>
               <%= item.genre.name %>
@@ -22,24 +44,43 @@
           </tr>
           <tr>
             <td>
-              <p><%= item.name %></p>
+              <%= item.name %>
             </td>
           </tr>
-        <% end %>
-      </tr>
+          <tr>
+            <td>
+              <%= item.created_at.strftime("%Y/%m/%d") %>
+            </td>
+          </tr>
+
+        </tbody>
+      <% end %>
+
     </table>
   </div>
 
   <div class="genre_list">
-    <h3>ジャンル一覧</h3>
     <table>
-      <% @genres.each do |genre| %>
+
+      <thead>
         <tr>
           <td>
-            <%= genre.name %>
+            <h3>ジャンル一覧</h3>
           </td>
         </tr>
+      </thead>
+
+      <% @genres.each do |genre| %>
+        <tbody>
+          <tr>
+            <td>
+              <i class="fa-solid fa-paw"></i><br>
+              <%= genre.name %>
+            </td>
+          </tr>
+        <tbody>
       <% end %>
+
     </table>
   </div>
 
@@ -132,7 +173,7 @@
       <% end %>
     <% end %>
 
-    </div>
+  </div>
 
 </section>
 

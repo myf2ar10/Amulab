@@ -4,7 +4,7 @@ class Item < ApplicationRecord
   validate :validate_image_count
 
   has_many :items, dependent: :destroy
-  has_many :favorites, dependent: :destroy
+  # has_many :favorites, dependent: :destroy
 
   belongs_to :genre
 

@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   # belongs_to :user
-  has_many :favorites, dependent: :destroy
+  # has_many :favorites, dependent: :destroy
 
   validates :name, presence: true
 

@@ -7,7 +7,7 @@ class Public::ItemsController < ApplicationController
     @item = Item.find(params[:id])
 
     # @item_favorite を初期化
-    @item_favorite = Favorite.find_or_initialize_by(item: @item, user: current_user)
+    # @item_favorite = Favorite.find_or_initialize_by(item: @item, user: current_user)
 
     # if @item_favorite.favorite?(current_user)
     #   # すでにいいね済みの場合のコード

@@ -36,6 +36,16 @@ User.create!(
   password: "123456"
   )
 
+30.times do |n|
+   p n
+    p User.create!(
+      email: Faker::Internet.email,
+      name: Faker::Japanese::Name.name,
+      phone_number: "0123456789#{n + 1}",
+      password: "123456",
+    )
+end
+
 Genre.create!(
   p id: 1,
   name: "テスト_ジャンル"
@@ -86,15 +96,22 @@ Genre.create!(
   name: "テスト_ジャンル10"
   )
 
+30.times do |n|
+   id = 10 + n + 1
+    p id
+    p Genre.create!(
+      id: id,
+      name: Faker::Games::SuperMario.character,
+      # Faker::Music.genre
+      # Faker::ProgrammingLanguage.name,
+    )
+end
+
 Item.create!(
   p id: 1,
   genre: Genre.find_by(name: "テスト_ジャンル"),
-  # genre_id:1,
   name: "テスト_作品",
-  # item_id: 1,
   description: "テスト_作品説明文"
-  # user_id: "1",
-  # image_id: "1"
   )
 item = Item.find_by(name: "テスト_作品")
 p item.images.attach(io: File.open(Rails.root.join('app/assets/images/test.jpg')), filename: 'test_item')
@@ -106,7 +123,7 @@ Item.create!(
   description: "テスト_作品説明文2"
   )
 item = Item.find_by(name: "テスト_作品2")
-p item.images.attach(io: File.open(Rails.root.join('app/assets/images/test.jpg')), filename: 'test_item')
+p item.images.attach(io: File.open(Rails.root.join('app/assets/images/test1.png')), filename: 'test_item')
 item = Item.find_by(name: "テスト_作品2")
 p item.images.attach(io: File.open(Rails.root.join('app/assets/images/test2.png')), filename: 'test_item')
 
@@ -144,7 +161,7 @@ Item.create!(
   description: "テスト_作品説明文6"
   )
 item = Item.find_by(name: "テスト_作品6")
-p item.images.attach(io: File.open(Rails.root.join('app/assets/images/test.jpg')), filename: 'test_item')
+p item.images.attach(io: File.open(Rails.root.join('app/assets/images/test4.png')), filename: 'test_item')
 
 Item.create!(
   p id: 7,
@@ -162,7 +179,7 @@ Item.create!(
   description: "テスト_作品説明文8"
   )
 item = Item.find_by(name: "テスト_作品8")
-p item.images.attach(io: File.open(Rails.root.join('app/assets/images/test.jpg')), filename: 'test_item')
+p item.images.attach(io: File.open(Rails.root.join('app/assets/images/test4.png')), filename: 'test_item')
 
 Item.create!(
   p id: 9,
@@ -180,4 +197,21 @@ Item.create!(
   description: "テスト_作品説明文10"
   )
 item = Item.find_by(name: "テスト_作品10")
-p item.images.attach(io: File.open(Rails.root.join('app/assets/images/test.jpg')), filename: 'test_item')
+p item.images.attach(io: File.open(Rails.root.join('app/assets/images/test3.png')), filename: 'test_item')
+
+30.times do |n|
+    id = 10 + n + 1
+    p id
+    p Item.create!(
+      id: id,
+      genre: Genre.find_by(id: 10 + n + 1),
+      name: Faker::Games::Pokemon.name,
+      description: Faker::Games::Pokemon.location,
+    )
+end
+
+30.times do |n|
+  p n
+item = Item.find_by(id: 10 + n + 1)
+item.images.attach(io: File.open(Rails.root.join('app/assets/images/test3.png')), filename: 'test_item')
+end
