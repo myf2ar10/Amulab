@@ -40,7 +40,8 @@
   <div class="information_body">
 
     <% resource_name = :user %>
-    <%= form_with model: @customer, url: session_path(resource_name), local: true do |f| %>
+    <%#= form_for @information, url: information_send_path, method: :patch do |f| %>
+    <%= form_with model: @information, url: session_path(resource_name), local: true do |f| %>
 
       <table>
 

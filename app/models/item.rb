@@ -15,8 +15,8 @@ class Item < ApplicationRecord
 
   def get_image(*size)
     unless images.attached?
-      file_path = Rails.root.join('/app/assets/images/no_image_GRN.jpg')
-      images.attach(io: File.open(file_path), filename: 'no_image_GRN.jpg', content_type: 'no_image_GRN.jpg')
+      file_path = Rails.root.join('/app/assets/images/no_image_GRN.png')
+      images.attach(io: File.open(file_path), filename: 'no_image_GRN.png', content_type: 'no_image_GRN.png')
     end
 
     if !size.empty?

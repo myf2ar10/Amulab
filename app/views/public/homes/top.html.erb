@@ -17,7 +17,7 @@
     <thead>
       <tr>
         <td>
-          <h3>新着投稿作品</h3>
+          <h3>新着投稿作品（5作品）</h3>
         </td>
       </tr>
     </thead>
@@ -28,9 +28,9 @@
           <td>
             <%= link_to item_path(item) do %>
               <% if item.images.attached? %>
-                <%= image_tag item.images.first, style: "width: 100px;" %>
+                <%= image_tag item.images.first, style: "width: 240px;" %>
               <% else %>
-                <%= image_tag "gray_round.png", style: "width: 100px;", alt: "no_image" %>
+                <%= image_tag "no_image_YEL.png", style: "width: 240px;", alt: "no_image" %>
               <% end %>
             <% end %>
           </td>
@@ -38,12 +38,12 @@
 
           <tr>
             <td>
-              <%= item.genre.name %>
+              <%= item.name %>
             </td>
           </tr>
           <tr>
             <td>
-              <%= item.name %>
+              <%= item.genre.name %>
             </td>
           </tr>
           <tr>
@@ -70,7 +70,11 @@
       <thead>
         <tr>
           <td>
-            <h3>ジャンル例</h3>
+            <h3>ジャンル例（5種）</h3>
+            <p>他のジャンルについては
+            <%= link_to "こちら", new_user_registration_path, class: "underline" %>
+            から会員登録後、<br>
+            新規作品投稿ページにてプルダウンをご確認ください。</p>
           </td>
         </tr>
       </thead>
@@ -79,7 +83,7 @@
         <% @genres.order(created_at: :desc).limit(5).each do |genre| %>
           <tr>
             <td>
-              <i class="fa-solid fa-paw"></i><br>
+              <i class="fa-solid fa-paw fa-4x"></i><br>
               <%= genre.name %>
             </td>
           </tr>
@@ -90,14 +94,21 @@
   </div>
 
   <div class="about">
-    About<br>
-    当サイトにアクセス頂きありがとうございます。<br>
-    当サイトは「ハンドメイド品投稿サイト」です。<br>
-    手作りの作品が家に溜まっていませんか？<br>
-    ここでは自分が作った作品の写真を投稿することができます。<br>
-    投稿するには会員登録が必要です。<br>
-    いいね機能やコメント機能があるのでみんなでいいねし合いましょう。<br>
-    サイトに関するご意見・ご感想はお問い合わせまでご連絡ください。<br>
+    <table>
+      <tr>
+        <td>
+          Message<br>
+          当サイトにアクセス頂きありがとうございます。<br>
+          当サイトは「ハンドメイド作品投稿サイト」です。<br>
+          編み物だけに限りません！<br>
+          手作りの作品が家に溜まっていませんか？<br>
+          ここでは自分が作った作品の写真を投稿することができます。<br>
+          投稿するには会員登録が必要です。<br>
+          いいね機能やコメント機能があるのでみんなでいいねし合いましょう。<br>
+          サイトに関するご意見・ご感想は<%= link_to "こちら", information_path, class: "underline" %>のお問い合わせよりご連絡ください。<br>
+        </td>
+      </tr>
+    </table>
   </div>
 
   <div class="link">
@@ -109,7 +120,7 @@
       <% end %>
       <%= link_to new_item_path do %>
         <i class="fa-regular fa-images"></i>
-        作品登録
+        新規作品登録
       <% end %>
       <%= link_to user_path(current_user) do %>
         <i class="fa-solid fa-user"></i>

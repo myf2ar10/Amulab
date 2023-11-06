@@ -96,6 +96,11 @@
     /*052D37 紺 E6CFDB ピンク B8C8CC ブルーグレー f0f8ff アリスブルー eee9e6 淡いベージュ E5C58F ベージュ*/
   }
 
+  .items_image{
+    background-image: url('yellow_round.png');
+    /*background-size: 240px 240px;*/
+  }
+
   .new_item_list{
     display: flex;
   }
