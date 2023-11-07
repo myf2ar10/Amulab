@@ -5,19 +5,27 @@
     <%= f.submit '検索', class: "btn btn-primary" %>
   <% end %>
 
-  <% @records.each do |record| %>
+<% @records.each do |record| %>
+  <div>
     <% if record.user.present? %>
-      <div>作品ID: <%= record.id %></div>
-      <div>作品名: <%= record.name %></div>
-      <div>投稿者: <%= record.user.name %></div>
+      <%= link_to item_path(record) do %>
+        <%= image_tag record.images.first, style: "width: 100px;" if record.images.attached? %>
+      <% end %>
     <% else %>
-        <div>作品ID: <%= record.id %></div>
-        <div>作品名: <%= record.name %></div>
-        <div>投稿者: 管理者</div>
+      <div><%= record.images %></div>
     <% end %>
+  </div>
+  <div>作品ID: <%= record.id %></div>
+  <div>作品名: <%= record.name %></div>
+  <% if record.user.present? %>
+    <div>投稿者: <%= record.user.name %></div>
+  <% else %>
+    <div>投稿者: 管理者</div>
   <% end %>
+<% end %>
+
 
   <% if @records.empty? %>
-      見つかりませんでした。検索条件を変更して再度お試しください。
+    見つかりませんでした。検索条件を変更して再度お試しください。
   <% end %>
 </div>

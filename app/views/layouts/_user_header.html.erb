@@ -1,33 +1,82 @@
-<div class="user_header-welcome">
-  ようこそ、<%= current_user.name %>さん
+<div>
+  <i class="fa-solid fa-thumbs-up"></i>ようこそ、<%= current_user.name %>さん
 </div>
-<div class="user_header-link">
-  <div>
-    <%= link_to items_path do %>
-      <!--<i class="fa-solid fa-mitten fa-bounce"></i>-->
-      <i class="fas fa-mitten"></i>
-      作品一覧
-    <% end %>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+
+      <li class="nav-item active">
+        <a class="nav-link" href="<%= items_path %>">
+          <i class="fas fa-mitten"></i>  <!--<i class="fa-solid fa-mitten fa-bounce"></i>  -->
+          作品一覧
+          <!--<span class="sr-only">(current)</span>-->
+        </a>
+      </li>
+
+      <li class="nav-item active">
+        <a class="nav-link" href="<%= new_item_path %>">
+          <i class="fa-solid fa-image"></i>  <!--<i class="fa-solid fa-image fa-bounce"></i>-->
+          新規作品登録
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+
+      <li class="nav-item active">
+        <a class="nav-link" href="<%= user_path(current_user) %>">
+          <i class="fa-solid fa-user"></i>  <!--<i class="fa-solid fa-user fa-bounce"></i>-->
+          マイページ
+          <!--<span class="sr-only">(current)</span>-->
+        </a>
+      </li>
+
+      <li class="nav-item active">
+        <a class="nav-link" href="<%= destroy_user_session_path %>" data-method="delete">
+          <i class="fa-solid fa-right-from-bracket"></i>  <!--<i class="fa-solid fa-right-from-bracket fa-bounce"></i>-->
+          ログアウト
+        </a>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          その他
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+          <a class="dropdown-item" href="<%= genres_path %>">
+            <i class="fa-solid fa-paw"></i>
+            ジャンル一覧
+          </a>
+
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="<%= privacypolicy_path %>">
+            <i class="fa-solid fa-star"></i>
+            プライバシーポリシー
+          </a>
+
+          <a class="dropdown-item" href="<%= information_path %>">
+            <i class="fas fa-mitten"></i>
+            お問い合わせ
+          </a>
+
+          <a class="dropdown-item" href="<%= about_path %>">
+            <i class="fa-solid fa-paw"></i>
+            当サイトについて
+          </a>
+
+        </div>
+      </li>
+
+      <li class="nav-item active">
+        <!--<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">作品検索</a>-->
+      </li>
+
+    </ul>
+
+    <form class="form-inline my-2 my-lg-0" action="<%= search_path %>" method="get">
+      <input class="form-control mr-sm-2" type="search" placeholder="マフラー" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">検索</button>
+    </form>
   </div>
-  <div>
-    <%= link_to new_item_path do %>
-      <!--<i class="fa-regular fa-images fa-bounce"></i>-->
-      <i class="fa-regular fa-images"></i>
-      新規作品登録
-    <% end %>
-  </div>
-  <div>
-    <%= link_to user_path(current_user) do %>
-      <!--<i class="fa-solid fa-user fa-bounce"></i>-->
-      <i class="fa-solid fa-user"></i>
-      マイページ
-    <% end %>
-  </div>
-  <div>
-    <%= link_to destroy_user_session_path, method: :delete do %>
-      <!--<i class="fa-solid fa-right-from-bracket fa-bounce"></i>-->
-      <i class="fa-solid fa-right-from-bracket"></i>
-      ログアウト
-    <% end %>
-  </div>
-</div>

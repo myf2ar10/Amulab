@@ -1,15 +1,72 @@
-<%= link_to items_path do %>
-  <i class="fa-solid fa-mitten fa-bounce"></i>
-  <!--<i class="fas fa-mitten"></i>-->
-  作品一覧
-<% end %>
-<%= link_to new_user_session_path do %>
-  <i class="fa-solid fa-right-to-bracket fa-bounce"></i>
-  <!--<i class="fa-solid fa-right-to-bracket"></i>-->
-  ログイン
-<% end %>
-<%= link_to new_user_registration_path do %>
-  <i class="fa-solid fa-address-card fa-bounce"></i>
-  <!--<i class="fa-solid fa-address-card"></i>-->
-  新規登録
-<% end %>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+
+      <li class="nav-item active">
+        <a class="nav-link" href="<%= items_path %>">
+          <i class="fa-solid fa-mitten fa-bounce"></i>  <!--<i class="fas fa-mitten"></i>-->
+          作品一覧
+          <!--<span class="sr-only">(current)</span>-->
+        </a>
+      </li>
+
+      <li class="nav-item active">
+        <a class="nav-link" href="<%= new_user_session_path %>">
+          <i class="fa-solid fa-right-to-bracket fa-bounce"></i>  <!--<i class="fa-solid fa-right-to-bracket"></i>-->
+          ログイン
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+
+      <li class="nav-item active">
+        <a class="nav-link" href="<%= new_user_registration_path %>">
+          <i class="fa-solid fa-address-card fa-bounce"></i>  <!--<i class="fa-solid fa-address-card"></i>-->
+          新規会員登録
+          <!--<span class="sr-only">(current)</span>-->
+        </a>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          その他
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+          <a class="dropdown-item" href="<%= genres_path %>">
+            <i class="fa-solid fa-paw"></i>
+            ジャンル一覧
+          </a>
+
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="<%= privacypolicy_path %>">
+            <i class="fa-solid fa-star"></i>
+            プライバシーポリシー
+          </a>
+
+          <a class="dropdown-item" href="<%= information_path %>">
+            <i class="fa-solid fa-star"></i>
+            お問い合わせ
+          </a>
+
+          <a class="dropdown-item" href="<%= about_path %>">
+            <i class="fa-solid fa-star"></i>
+            当サイトについて
+          </a>
+
+        </div>
+      </li>
+
+      <li class="nav-item active">
+        <!--<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">作品検索</a>-->
+      </li>
+
+    </ul>
+
+    <form class="form-inline my-2 my-lg-0" action="<%= search_path %>" method="get">
+      <input class="form-control mr-sm-2" type="search" placeholder="マフラー" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">検索</button>
+    </form>
+  </div>

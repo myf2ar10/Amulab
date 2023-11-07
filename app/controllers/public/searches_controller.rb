@@ -1,10 +1,11 @@
 class Public::SearchesController < ApplicationController
-  def search
+	def search
+		@item =
 		@content = params[:content] || ''
 		if @content == ''
 		  @records = []
 		else
-		  @records = Item.search_for(@content)
+			@records = Item.search_for(@content)
 		end
-  end
+	end
 end

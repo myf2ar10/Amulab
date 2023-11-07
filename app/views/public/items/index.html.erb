@@ -9,21 +9,26 @@
     <table>
       <% @items.each do |item| %>
 
-        <tr>
-          <td>
-            <% if item.images.attached? %>
-              <div class="items_image">
-                <%= link_to item_path(item) do %>
-                  <%= image_tag item.images.first, style: "width: 240px; height: 240px;" %>
-                <% end %>
-              </div>
-            <% else %>
-              <%= link_to item_path(item) do %>
-                <%= image_tag "no_image_YEL.png", style: "width: 240px;", alt: "no_image" %>
-              <% end %>
-            <% end %>
-          </td>
-        </tr>
+<tr>
+  <td>
+    <% if item.images.attached? %>
+      <div class="items_image">
+        <%= link_to item_path(item) do %>
+          <%= image_tag item.images.first, style: "width: 240px; height: 240px;" %>
+      </div>
+          <% end %>
+          <% if item.images.count > 1 %>
+            <span class="image-count-mark">There's more image</span>
+
+        <% end %>
+
+    <% else %>
+      <%= link_to item_path(item) do %>
+        <%= image_tag "no_image_YEL.png", style: "width: 240px;", alt: "no_image" %>
+      <% end %>
+    <% end %>
+  </td>
+</tr>
 
         <tr>
           <td>
