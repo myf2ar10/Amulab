@@ -123,9 +123,9 @@ Item.create!(
   description: "テスト_作品説明文2"
   )
 item = Item.find_by(name: "テスト_作品2")
-p item.images.attach(io: File.open(Rails.root.join('app/assets/images/test1.png')), filename: 'test_item')
-item = Item.find_by(name: "テスト_作品2")
 p item.images.attach(io: File.open(Rails.root.join('app/assets/images/test2.png')), filename: 'test_item')
+item = Item.find_by(name: "テスト_作品2")
+p item.images.attach(io: File.open(Rails.root.join('app/assets/images/test2_2.png')), filename: 'test_item')
 
 Item.create!(
   p id: 3,
@@ -143,11 +143,11 @@ Item.create!(
   description: "テスト_作品説明文4"
   )
 item = Item.find_by(name: "テスト_作品4")
-p item.images.attach(io: File.open(Rails.root.join('app/assets/images/test.jpg')), filename: 'test_item')
+p item.images.attach(io: File.open(Rails.root.join('app/assets/images/test4.png')), filename: 'test_item')
 item = Item.find_by(name: "テスト_作品4")
-p item.images.attach(io: File.open(Rails.root.join('app/assets/images/test1.png')), filename: 'test_item')
+p item.images.attach(io: File.open(Rails.root.join('app/assets/images/test4.png')), filename: 'test_item')
 item = Item.find_by(name: "テスト_作品4")
-p item.images.attach(io: File.open(Rails.root.join('app/assets/images/test2.png')), filename: 'test_item')
+p item.images.attach(io: File.open(Rails.root.join('app/assets/images/test4.png')), filename: 'test_item')
 
 Item.create!(
   p id: 5,
@@ -156,7 +156,7 @@ Item.create!(
   description: "テスト_作品説明文5"
   )
 item = Item.find_by(name: "テスト_作品5")
-p item.images.attach(io: File.open(Rails.root.join('app/assets/images/test2.png')), filename: 'test_item')
+p item.images.attach(io: File.open(Rails.root.join('app/assets/images/test5.png')), filename: 'test_item')
 
 Item.create!(
   p id: 6,
@@ -165,7 +165,7 @@ Item.create!(
   description: "テスト_作品説明文6"
   )
 item = Item.find_by(name: "テスト_作品6")
-p item.images.attach(io: File.open(Rails.root.join('app/assets/images/test4.png')), filename: 'test_item')
+p item.images.attach(io: File.open(Rails.root.join('app/assets/images/test6.png')), filename: 'test_item')
 
 Item.create!(
   p id: 7,
@@ -174,7 +174,7 @@ Item.create!(
   description: "テスト_作品説明文7"
   )
 item = Item.find_by(name: "テスト_作品7")
-p item.images.attach(io: File.open(Rails.root.join('app/assets/images/test.jpg')), filename: 'test_item')
+p item.images.attach(io: File.open(Rails.root.join('app/assets/images/test7.png')), filename: 'test_item')
 
 Item.create!(
   p id: 8,
@@ -183,7 +183,9 @@ Item.create!(
   description: "テスト_作品説明文8"
   )
 item = Item.find_by(name: "テスト_作品8")
-p item.images.attach(io: File.open(Rails.root.join('app/assets/images/test4.png')), filename: 'test_item')
+p item.images.attach(io: File.open(Rails.root.join('app/assets/images/test8.png')), filename: 'test_item')
+item = Item.find_by(name: "テスト_作品8")
+p item.images.attach(io: File.open(Rails.root.join('app/assets/images/test8_2.png')), filename: 'test_item')
 
 Item.create!(
   p id: 9,
@@ -192,7 +194,7 @@ Item.create!(
   description: "テスト_作品説明文9"
   )
 item = Item.find_by(name: "テスト_作品9")
-p item.images.attach(io: File.open(Rails.root.join('app/assets/images/test.jpg')), filename: 'test_item')
+p item.images.attach(io: File.open(Rails.root.join('app/assets/images/test9.png')), filename: 'test_item')
 
 Item.create!(
   p id: 10,
@@ -201,7 +203,9 @@ Item.create!(
   description: "テスト_作品説明文10"
   )
 item = Item.find_by(name: "テスト_作品10")
-p item.images.attach(io: File.open(Rails.root.join('app/assets/images/test3.png')), filename: 'test_item')
+p item.images.attach(io: File.open(Rails.root.join('app/assets/images/test10.png')), filename: 'test_item')
+item = Item.find_by(name: "テスト_作品10")
+p item.images.attach(io: File.open(Rails.root.join('app/assets/images/test10_2.png')), filename: 'test_item')
 
 30.times do |n|
     id = 10 + n + 1

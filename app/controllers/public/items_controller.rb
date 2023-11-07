@@ -34,6 +34,7 @@ class Public::ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)  # 新しいアイテムを作成
+    @item.user_id = current_user.id
     if @item.save  # データベースに保存
       flash[:notice] = "作品が新規登録されました。"
       redirect_to items_path  # 一覧ページにリダイレクト
@@ -50,7 +51,7 @@ class Public::ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :description, images: [])
+    params.require(:item).permit(:name, :description, :genre_id, images: [])
   end
 
 end
