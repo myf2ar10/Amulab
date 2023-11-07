@@ -224,7 +224,7 @@ p item.images.attach(io: File.open(Rails.root.join('app/assets/images/test10_2.p
       id: id,
       user: User.find_by(name: "ユーザー2"),
       genre: Genre.find_by(id: 10 + n + 1),
-      name: Faker::Games::Pokemon.name + "作品",
+      name: Faker::Games::Pokemon.name + "って作品",
       description: Faker::Games::Pokemon.location + "みたいな作品です。ああああああああああああああああああああああああああああああ。",
     )
 end
@@ -242,7 +242,7 @@ end
       id: id,
       user: User.find_by(name: "ユーザー3"),
       genre: Genre.find_by(id: 15 + n + 1),
-      name: Faker::Games::Pokemon.name + "作品",
+      name: Faker::Games::Pokemon.name + "って作品",
       description: Faker::Games::Pokemon.location + "みたいな作品です。いいいいいいいいいいいいいいいいいいいいいいいいいいいいいい。",
     )
 end

@@ -7,24 +7,24 @@
   <div class="items">
     <% @items.each do |item| %>
       <table>
-        <tr>
-          <td>
-            <%= item.id %>
-              <% item.images.each_with_index do |image, index| %>
-                <% if image.blob.present? %>
-                  <div class="items_image_admin">
-                    <%= link_to admin_item_path(item) do %>
-                      <%= image_tag image, style: "width: #{(1..4).include?(index) ? '240px' : '240px'};" %>
-                    <% end %>
-                  </div>
-                <% else %>
-                  <%= link_to item_path(item) do %>
-                    <%= image_tag "no_image_BLU.png", style: "width: 240px;", alt: "no_image" %>
-                  <% end %>
-                <% end %>
-              <% end %>
-            </td>
-          </tr>
+<tr>
+  <td>
+    <%= item.id %>
+      <% item.images.each_with_index do |image, index| %>
+        <% if item.images.attached? %>
+          <div class="items_image_admin">
+            <%= link_to admin_item_path(item) do %>
+              <%= image_tag image, style: "width: #{(1..4).include?(index) ? '240px' : '240px'};" %>
+            <% end %>
+          </div>
+        <% else %>
+          <%= link_to item_path(item) do %>
+            <%= image_tag "no_image_BLU.png", style: "width: 240px;", alt: "no_image" %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </td>
+  </tr>
 
         <tr>
           <td>

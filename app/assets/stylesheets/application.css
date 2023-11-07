@@ -18,7 +18,7 @@
     position: fixed;
     width: 100%;
      /*ヘッダーの幅を100%に設定 */
-    background-color: #052D37;
+    background-color: #B8C8CC;
     padding: 8px 150px;
     height: 130px;
     position: fixed;
@@ -90,10 +90,10 @@
   }
   body {
     font-family: "Rounded Mplus 1c";
-    color: #fff;
+    color: #052D37;
     font-weight: bold;
-    background-color: #052D37;
-    /*052D37 紺 E6CFDB ピンク B8C8CC ブルーグレー f0f8ff アリスブルー eee9e6 淡いベージュ E5C58F ベージュ*/
+    background-color: #F5FCFD;
+    /*052D37 紺 E6CFDB ピンク B8C8CC ブルーグレー f0f8ff アリスブルー eee9e6 淡いベージュ E5C58F ベージュ F5FCFD ver.2*/
   }
 
   .items_image{

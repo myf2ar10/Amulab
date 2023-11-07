@@ -1,11 +1,12 @@
 class Public::ItemsController < ApplicationController
+  before_action :is_matching_login_user, only: [:edit, :update, :create]
   def index
     @items = Item.order(created_at: :desc).page(params[:page])    # ページネーションdesc => 大きい順asc  => 小さい順
   end
 
   def show
     @item = Item.find(params[:id])
-    
+
 
     # @item_favorite を初期化
     # @item_favorite = Favorite.find_or_initialize_by(item: @item, user: current_user)
@@ -31,6 +32,7 @@ class Public::ItemsController < ApplicationController
     else
       render :edit
     end
+
   end
 
   def create
@@ -53,6 +55,19 @@ class Public::ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:name, :description, :genre_id, images: [])
+  end
+
+  def is_matching_login_user
+    if current_user.nil?
+      redirect_to new_user_session_path, alert: "ログインしてください"
+    else
+      user = User.find_by(id: params[:id])
+      if user.nil?
+        redirect_to items_path, alert: "ユーザーが見つかりませんでした"
+      elsif user.id != current_user.id
+        redirect_to items_path, alert: "他のユーザーの編集は許可されていません"
+      end
+    end
   end
 
 end

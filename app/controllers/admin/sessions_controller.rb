@@ -3,8 +3,6 @@
 class Admin::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
 
-  # before_action :configure_sign_in_params, only: [:create]
-
 # Deviseのデフォルトの挙動も必要なため、super を呼び出すことで親クラスの new メソッドを実行。
   def new
     super
