@@ -3,11 +3,11 @@
 <div class="images">
   <div class=”slider”>
     <p><%= image_tag 'knitting is healing.png', class: 'slider-item rounded', width: "700px" %></p>
-    <p><%= image_tag 'knitting is healing_BLU.jpg', class: 'slider-item rounded', width: "700px" %></p>
-    <p><%= image_tag 'knitting is healing_GRN.jpg', class: 'slider-item rounded', width: "700px" %></p>
-    <p><%= image_tag 'knitting is healing_GRY.jpg', class: 'slider-item rounded', width: "700px" %></p>
-    <p><%= image_tag 'knitting is healing_PIK.jpg', class: 'slider-item rounded', width: "700px" %></p>
-    <p><%= image_tag 'knitting is healing_YEL.jpg', class: 'slider-item rounded', width: "700px" %></p>
+    <p><%#= image_tag 'knitting is healing_BLU.jpg', class: 'slider-item rounded', width: "700px" %></p>
+    <p><%#= image_tag 'knitting is healing_GRN.jpg', class: 'slider-item rounded', width: "700px" %></p>
+    <p><%#= image_tag 'knitting is healing_GRY.jpg', class: 'slider-item rounded', width: "700px" %></p>
+    <p><%#= image_tag 'knitting is healing_PIK.jpg', class: 'slider-item rounded', width: "700px" %></p>
+    <p><%#= image_tag 'knitting is healing_YEL.jpg', class: 'slider-item rounded', width: "700px" %></p>
   </div>
 </div>
 
@@ -17,19 +17,24 @@
     <thead>
       <tr>
         <td>
-          <h3>新着投稿作品（5作品）</h3>
+          <h3>新着投稿作品<br><h5>（5作品）</h5></h3>
         </td>
       </tr>
     </thead>
 
     <tbody>
       <% @items.order(created_at: :desc).limit(5).each do |item| %>
+
         <tr>
           <td>
-            <%= link_to item_path(item) do %>
-              <% if item.images.attached? %>
-                <%= image_tag item.images.first, style: "width: 240px;" %>
-              <% else %>
+            <% if item.images.attached? %>
+              <div class="items_image_top">
+                <%= link_to item_path(item) do %>
+                  <%= image_tag item.images.first, style: "width: 240px; height: 240px;" %>
+                <% end %>
+              </div>
+            <% else %>
+              <%= link_to item_path(item) do %>
                 <%= image_tag "no_image_YEL.png", style: "width: 240px;", alt: "no_image" %>
               <% end %>
             <% end %>
@@ -41,11 +46,13 @@
               <%= item.name %>
             </td>
           </tr>
+
           <tr>
             <td>
               <%= item.genre.name %>
             </td>
           </tr>
+
           <tr>
             <td>
               <%= item.created_at.strftime("%Y/%m/%d") %>
@@ -54,12 +61,12 @@
 
           <tr>
             <td>
-              投稿者: <%#= item.user.name %>
+              投稿者: <%= item.user.name %>
             </td>
           </tr>
 
-        </tbody>
-      <% end %>
+        <% end %>
+      </tbody>
 
     </table>
   </div>

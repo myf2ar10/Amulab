@@ -11,22 +11,19 @@
 
         <tr>
           <td>
-
-<% if item.images.attached? %>
-  <div class="items_image">
-    <%= link_to item_path(item) do %>
-      <%= image_tag item.images.first, style: "width: 240px; height: 240px;" %>
-    <% end %>
-  </div>
-<% else %>
-  <%= link_to item_path(item) do %>
-    <%= image_tag "no_image_YEL.png", style: "width: 240px;", alt: "no_image" %>
-  <% end %>
-<% end %>
-
+            <% if item.images.attached? %>
+              <div class="items_image">
+                <%= link_to item_path(item) do %>
+                  <%= image_tag item.images.first, style: "width: 240px; height: 240px;" %>
+                <% end %>
+              </div>
+            <% else %>
+              <%= link_to item_path(item) do %>
+                <%= image_tag "no_image_YEL.png", style: "width: 240px;", alt: "no_image" %>
+              <% end %>
+            <% end %>
           </td>
         </tr>
-
 
         <tr>
           <td>
@@ -50,7 +47,7 @@
 
         <tr>
           <td>
-            投稿者: <%#= item.user.name %>
+            投稿者: <%= item.user.name %>
           </td>
         </tr>
 

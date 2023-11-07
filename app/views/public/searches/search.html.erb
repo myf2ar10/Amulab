@@ -4,8 +4,6 @@
 <% end %>
 
 <% @records.each do |record| %>
-  <!--<div>作品ID: <%#= record.id %></div>-->
-  <!--<div>作品名: <%#= record.name %></div>-->
 <% if record.user.present? %>
   <div>作品ID: <%= record.id %></div>
   <div>作品名: <%= record.name %></div>
@@ -13,6 +11,6 @@
 <% else %>
   <div>作品ID: <%= record.id %></div>
   <div>作品名: <%= record.name %></div>
-  <div>投稿者: 未知のユーザー</div>
+  <div>投稿者: 管理者</div>
 <% end %>
 <% end %>

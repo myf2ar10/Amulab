@@ -98,7 +98,14 @@
 
   .items_image{
     background-image: url('yellow_round.png');
-    /*background-size: 240px 240px;*/
+  }
+
+  .items_image_top{
+    background-image: url('pink_round.png');
+  }
+
+  .items_image_admin{
+    background-image: url('blue_round.png');
   }
 
   .new_item_list{

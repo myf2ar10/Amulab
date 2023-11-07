@@ -27,6 +27,7 @@ class Item < ApplicationRecord
   end
 
   def self.search_for(content)
+    # アプリケーションに合わせた実装にするためシンプル化
     # if method == 'perfect'
     #   User.where(name: content)
     # elsif method == 'forward'
@@ -36,7 +37,6 @@ class Item < ApplicationRecord
     # else
       Item.where('name LIKE ?', '%' + content + '%')
     # end
-# 検索シンプル化, method
   end
 
   private
