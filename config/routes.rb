@@ -29,6 +29,7 @@ Rails.application.routes.draw do
     get 'information', to: 'homes#create', as: 'information'
     patch 'information/:id', to: 'homes#information', as: 'information_send'
     get 'complition', to: 'homes#complition', as: 'complition'
+    get '/search', to: 'searches#search'
 
     resources :items, only: [:index, :show, :edit, :update, :create, :new]
     resources :genres, only: [:index]
@@ -38,6 +39,7 @@ Rails.application.routes.draw do
         resource :favorites, only: [:create, :destroy]
       end
   end
+
 end
   # namespace :admin do
   #   get 'users/show'

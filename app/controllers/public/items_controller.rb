@@ -1,10 +1,11 @@
 class Public::ItemsController < ApplicationController
   def index
-    @items = Item.all.page(params[:page])    # ページネーション
+    @items = Item.order(created_at: :desc).page(params[:page])    # ページネーションdesc => 大きい順asc  => 小さい順
   end
 
   def show
     @item = Item.find(params[:id])
+    
 
     # @item_favorite を初期化
     # @item_favorite = Favorite.find_or_initialize_by(item: @item, user: current_user)

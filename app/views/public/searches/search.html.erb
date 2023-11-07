@@ -1,0 +1,18 @@
+<%= form_with url: search_path, method: :get, local: true do |f| %>
+  <%= f.text_field :content %>
+  <%= f.submit '検索' %>
+<% end %>
+
+<% @records.each do |record| %>
+  <!--<div>作品ID: <%#= record.id %></div>-->
+  <!--<div>作品名: <%#= record.name %></div>-->
+<% if record.user.present? %>
+  <div>作品ID: <%= record.id %></div>
+  <div>作品名: <%= record.name %></div>
+  <div>投稿者: <%= record.user.name %></div>
+<% else %>
+  <div>作品ID: <%= record.id %></div>
+  <div>作品名: <%= record.name %></div>
+  <div>投稿者: 未知のユーザー</div>
+<% end %>
+<% end %>

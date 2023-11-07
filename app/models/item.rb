@@ -6,7 +6,7 @@ class Item < ApplicationRecord
   has_many :items, dependent: :destroy
 
   belongs_to :genre
-  # belongs_to :user
+  belongs_to :user
   has_many :favorites, dependent: :destroy
 
   def favorited?(user)
@@ -24,6 +24,19 @@ class Item < ApplicationRecord
     else
       images
     end
+  end
+
+  def self.search_for(content)
+    # if method == 'perfect'
+    #   User.where(name: content)
+    # elsif method == 'forward'
+    #   User.where('name LIKE ?', content + '%')
+    # elsif method == 'backward'
+    #   User.where('name LIKE ?', '%' + content)
+    # else
+      Item.where('name LIKE ?', '%' + content + '%')
+    # end
+# 検索シンプル化, method
   end
 
   private
