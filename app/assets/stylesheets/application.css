@@ -65,7 +65,7 @@
   }
   .user_header-welcome {
     padding: auto;
-    color: white;
+    color: #052D37;
     font-weight: bold;
     font-size: 30px;
      /*任意のフォントサイズを指定 */
@@ -128,6 +128,19 @@
   .complition {
     text-align: left;
   }
+
+  .search {
+    text-align: center;
+  }
+
+  .record {
+    text-align: center;
+  }
+
+   .no_record {
+    text-align: center;
+   }
+
   footer{
     width: 100%;
      /*横幅を100%に設定 */
