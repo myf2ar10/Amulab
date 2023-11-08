@@ -28,8 +28,16 @@ Rails.application.routes.draw do
     get 'privacypolicy', to: 'homes#index', as: 'privacypolicy'
     get 'information', to: 'homes#create', as: 'information'
     patch 'information/:id', to: 'homes#information', as: 'information_send'
-    get 'complition', to: 'homes#complition', as: 'complition'
+    # get 'complition', to: 'homes#complition', as: 'complition'
     get '/search', to: 'searches#search'
+
+
+    resources :contacts, only: [:new, :create]
+    get 'complition', to: 'contacts#complition'
+    post 'contacts/confirm', to: 'contacts#confirm', as: 'confirm'
+    post 'contacts/back', to: 'contacts#back', as: 'back'
+    get 'done', to: 'contacts#done', as: 'done'
+
 
     resources :items, only: [:index, :show, :edit, :update, :create, :new]
     resources :genres, only: [:index]
@@ -39,6 +47,9 @@ Rails.application.routes.draw do
         resource :favorites, only: [:create, :destroy]
       end
   end
+
+
+
 
 end
   # namespace :admin do

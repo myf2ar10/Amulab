@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-7  img-hidden-m">
+      <%= image_tag("knitting is healing1", alt: "knitting is healing1", width: "100%") %>
+    </div>
+
+    <div class="col-md-5 home_create">
+      <h4>お問い合わせ</h4>
+      <div class="col-md-12 item_edit_form">
+        <p>下記フォームにご入力の上送信ください。<br>
+        管理者にて確認後、追ってご連絡いたします。<br>
+        確認には5日程度いただく場合がございます。<br>
+        ご了承ください。</p>
+      </div>
+      <div>
+
+<%= form_for(@contact, url: confirm_path) do |f| %>
+  <div class="form-group">
+    <%= f.label :name, 'お名前*' %>
+    <%= f.text_field :name, autofocus: true, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :phone_number, '電話番号*' %>
+    <%= f.text_field :phone_number, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :email, 'メールアドレス*' %>
+    <%= f.text_field :email, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :message, 'お問い合わせ内容*' %>
+    <%= f.text_area :message, style: "width: 400px; height: 200px;", class: 'form-control' %>
+  </div>
+
+  <div>
+    <%= f.submit "入力内容確認", class: "btn btn-primary" %><br>
+    <small>
+      ※*は入力必須項目です。<br>
+    </smaill>
+  </div>
+<% end %>
+
+  </div>
+</div>
