@@ -1,48 +1,38 @@
 <div class="container-fluid img-hidden">
-
-<!--<section class="wrapper flex">-->
-
-<!--<div class="images">-->
-  <!--<div class=”slider”>-->
-    <%#= image_tag 'knitting is healing1.jpg', class: 'slider-item rounded', width: "700px" %>
-    <%#= image_tag 'knitting is healing_BLU.jpg', class: 'slider-item rounded', width: "700px" %>
-    <%#= image_tag 'knitting is healing_GRN.jpg', class: 'slider-item rounded', width: "700px" %>
-    <%#= image_tag 'knitting is healing_GRY.jpg', class: 'slider-item rounded', width: "700px" %>
-    <%#= image_tag 'knitting is healing_PIK.jpg', class: 'slider-item rounded', width: "700px" %>
-    <%#= image_tag 'knitting is healing_YEL.jpg', class: 'slider-item rounded', width: "700px" %>
-  <!--</div>-->
-
-<!--  </div>-->
-  <!--<p><img src="../2top.jpg" class="img-fulied" alt="top"></p>うまくいかない-->
 </div>
-<p><img src="https://github.com/myf2ar10/Amulab/assets/141298495/e6b3e6cb-3589-4e1e-9824-13b0a765df35" class="img-fulied" alt="top"></p>
+
+  <!--<p><img src="../2top.jpg" class="img-fulied" alt="top"></p>うまくいかない-->
+
+<%= image_tag("2top---.jpg", class: "img-fluid", alt: "top") %>
 
 <div class="container container-m">
   <div class="card-deck">
 
     <div class="card">
-      <!--<img class="card-img-top" src="2top.jpg/100px200/" alt="Card image cap">-->
-      <img class="card-img-top" src="2top.jpg" width="100" height="200" alt="Card image cap">
+      <!--<img class="card-img-top" src="card_knit1.jpg" width="100" height="200" alt="Card image cap">-->
+      <%#= link_to(image_tag("card_knit1.jpg", alt: "card_knit1", style: "margin: 0; padding: 0;"), items_path) %>
+      <%= image_tag("card_knit1.jpg", alt: "card_knit1") %>
       <div class="card-body">
-        <h5 class="card-title">作品一覧</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        <h5 class="card-title"><%= link_to "作品一覧", items_path, class: "card_title_underline" %></h5>
+        <p class="card-text"><%= link_to "このページ", items_path, class: "underline" %>では会員が投稿した作品を一覧で見ることができます。最新の投稿順に並んでいます。会員登録をしないと投稿はできませんが、閲覧のみであれば非会員でも可能です。</p>
+        <p class="card-text"><small class="text-muted">Function added on November 1, 2023</small></p>
       </div>
     </div>
     <div class="card">
-      <img class="card-img-top" src="2top.jpg" width="100" height="200" alt="Card image cap">
+      <%= image_tag("card_knit2.jpg", alt: "card_knit2") %>
+      <%#= link_to(image_tag("card_knit2.jpg", alt: "card_knit1"), new_user_registration_path) %>
       <div class="card-body">
-        <h5 class="card-title">新規会員登録</h5>
-        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        <h5 class="card-title"><%= link_to "新規会員登録", new_user_registration_path, class: "card_title_underline" %></h5>
+        <p class="card-text">会員登録をご希望の際は<%= link_to "こちら", new_user_registration_path, class: "underline" %>からご登録ください。<br><br><br><br></p>
+        <p class="card-text"><small class="text-muted">Function added on November 1, 2023</small></p>
       </div>
     </div>
     <div class="card">
-      <img class="card-img-top" src="2top.jpg" width="100" height="200" alt="Card image cap">
+      <%= image_tag("card_knit3.jpg", alt: "card_knit3") %>
       <div class="card-body">
-        <h5 class="card-title">当サイトについて</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        <h5 class="card-title"><%= link_to "当サイトについて", about_path, class: "card_title_underline" %></h5>
+        <p class="card-text">リリース予定機能を時系列にて記載しています。お知らせも<%= link_to "こちら", about_path, class: "underline" %>で行いますので気になる方はアクセスください。<br><br><br></p>
+        <p class="card-text"><small class="text-muted">Function added on November 1, 2023</small></p>
       </div>
     </div>
 
@@ -51,244 +41,220 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-4  img-hidden-m">
-      <img src="https://github.com/myf2ar10/Amulab/assets/141298495/e6b3e6cb-3589-4e1e-9824-13b0a765df35" alt="img" class="img-fulied">
+
+    <div class="col-md-7  img-hidden-m">
+      <%= image_tag("knitting is healing1", alt: "card_collar1", width: "100%") %>
+      <%= image_tag("knitting is healing_BLU", alt: "card_collar1", width: "100%") %>
+      <%= image_tag("knitting is healing_GRN", alt: "card_collar1", width: "100%") %>
+      <%= image_tag("knitting is healing_GRY", alt: "card_collar1", width: "100%") %>
+      <%= image_tag("knitting is healing_PIK", alt: "card_collar1", width: "100%") %>
+      <%= image_tag("knitting is healing_YEL", alt: "card_collar1", width: "100%") %>
+
     </div>
-    <div class="col-md-8">
-      <h1>Message</h1>
+    <div class="col-md-5">
+      <h1>Welcome to Amulab !!</h1>
       <p>
         当サイトにアクセス頂きありがとうございます。<br>
-        当サイトは「ハンドメイド作品投稿サイト」です。<br>
-        編み物だけに限りません！<br>
+        当サイトは「ハンドメイド作品投稿サイト」です。
+      </p>
+      <p>
+        編み物だけに限りません！
+      </p>
+      <p>
         手作りの作品が家に溜まっていませんか？<br>
-        ここでは自分が作った作品の写真を投稿することができます。<br>
+        ここでは自分が作った作品の写真を投稿できます。<br>
         投稿するには会員登録が必要です。<br>
-        いいね機能やコメント機能があるのでみんなでいいねし合いましょう。<br>
-        サイトに関するご意見・ご感想は<%= link_to "こちら", information_path, class: "underline" %>のお問い合わせよりご連絡ください。
+        いいね機能やコメント機能があるので<br>
+        みんなでいいねし合いましょう。
+      </p>
+      <p>
+        サイトに関するご意見・ご感想は<br>
+        <%= link_to "こちら", information_path, class: "underline" %>
+        のお問い合わせよりご連絡ください。
+      </p>
+      <p>
+        Amulab管理者より
       </p>
     </div>
+
   </div>
 </div>
-
-<!--<div class="container container-m">-->
-<!--  <div class="row">-->
-<!--    <div class="col-md-4  img-hidden">-->
-<!--      <img src="image/c.jpg" alt="img" class="img-fulied">-->
-<!--    </div>    </div>    </div>-->
 
 <div class="container　container-m">
   <div class="row">
     <div class="col-md-4  img-hidden">
-      <img src="images/Amulab4.jpg" alt="img" class="img-fulied">
+      <%= image_tag("card_collar2.jpg", alt: "card_collar1", style: "width: 100%; height: 300px;") %>
     </div>
     <div class="col-md-4  img-hidden">
-      <img src="images/Amulab4.jpg" alt="img" class="img-fulied">
+      <%= image_tag("card_collar1.jpg", alt: "card_collar1", style: "width: 100%; height: 300px;") %>
     </div>
     <div class="col-md-4  img-hidden">
-      <img src="images/Amulab4.jpg" alt="img" class="img-fulied">
+      <%= image_tag("card_collar3.jpg", alt: "card_collar1", style: "width: 100%; height: 300px;") %>
     </div>
   </div>
 </div>
-<!--<footer class=”footer”>© 2018 Bootstrap test</footer>-->
+
+
+<!-------------------------------------------------------->
 
 
 
-  <div class="new_item_list">
-    <table>
+<div class="container new_item_list">
+  <div class="row">
 
-    <thead>
-      <tr>
-        <td>
-          <h3>新着投稿作品<br><h5>（5作品）</h5></h3>
-        </td>
-      </tr>
-    </thead>
+    <div class="col-md-12 new_item_title">
+      <p><h3>新着投稿作品（5作品）</h5></p>
+    </div>
 
-    <tbody>
-      <% @items.order(created_at: :desc).limit(5).each do |item| %>
-
-        <tr>
-          <td>
-            <% if item.images.attached? %>
-              <div class="items_image_top">
-                <%= link_to item_path(item) do %>
-                  <%= image_tag item.images.first, style: "width: 240px; height: 240px;" %>
-                <% end %>
-              </div>
-            <% else %>
-              <%= link_to item_path(item) do %>
-                <%= image_tag "no_image_YEL.png", style: "width: 240px;", alt: "no_image" %>
-              <% end %>
+    <% @items.order(created_at: :desc).limit(5).each do |item| %>
+      <div class="col-md-4 new_item_body_image">
+        <% if item.images.attached? %>
+            <%= link_to item_path(item) do %>
+              <%= image_tag item.images.first, style: "width: 240px; height: 240px;" %>
             <% end %>
-          </td>
-        </tr>
-
-          <tr>
-            <td>
-              <%= item.name %>
-            </td>
-          </tr>
-
-          <tr>
-            <td>
-              <%= item.genre.name %>
-            </td>
-          </tr>
-
-          <tr>
-            <td>
-              <%= item.created_at.strftime("%Y/%m/%d") %>
-            </td>
-          </tr>
-
-          <tr>
-            <td>
-              投稿者: <%= item.user.name %>
-            </td>
-          </tr>
-
+          <% else %>
+            <%= link_to item_path(item) do %>
+              <%= image_tag "no_image_YEL.png", style: "width: 240px;", alt: "no_image" %>
+            <% end %>
         <% end %>
-      </tbody>
+        <div class="col-md-8 new_item_body_body">
+            <%= item.name %><br>
+            <%= item.genre.name %><br>
+            <%= item.created_at.strftime("%Y/%m/%d") %><br>
+            投稿者: <%= item.user.name %>
+        </div>
+      </div>
+    <% end %>
 
-    </table>
   </div>
+</div>
 
-  <div class="genre_list">
-    <table>
-
-      <thead>
-        <tr>
-          <td>
-            <h3>ジャンル例（5種）</h3>
-            <p>他のジャンルについては
-            <%= link_to "こちら", new_user_registration_path, class: "underline" %>
-            から会員登録後、<br>
-            新規作品投稿ページにてプルダウンをご確認ください。</p>
-          </td>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% @genres.order(created_at: :desc).limit(5).each do |genre| %>
-          <tr>
-            <td>
-              <i class="fa-solid fa-paw fa-4x"></i><br>
-              <%= genre.name %>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-
-    </table>
+<div class="container genre_list">
+  <div class="row">
+    <div class="col-md-12 genre_list_title">
+      <p><h3>ジャンル例（5種）</h5></p>
+      <p>
+        他のジャンルについては
+        <%= link_to "こちら", new_user_registration_path, class: "underline" %>
+        から会員登録後、<br>
+        新規作品投稿ページにてプルダウンをご確認ください。
+      </p>
+    </div>
+    <% @genres.order(created_at: :desc).limit(5).each do |genre| %>
+      <div class="col-md-2 genre_list_body_title">
+        <i class="fa-solid fa-paw fa-4x"></i><br>
+          <%= genre.name %>
+      </div>
+    <% end %>
   </div>
+</div>
 
-  <div class="about">
-    <table>
-      <tr>
-        <td>
-          Message<br>
-          当サイトにアクセス頂きありがとうございます。<br>
-          当サイトは「ハンドメイド作品投稿サイト」です。<br>
-          編み物だけに限りません！<br>
-          手作りの作品が家に溜まっていませんか？<br>
-          ここでは自分が作った作品の写真を投稿することができます。<br>
-          投稿するには会員登録が必要です。<br>
-          いいね機能やコメント機能があるのでみんなでいいねし合いましょう。<br>
-          サイトに関するご意見・ご感想は<%= link_to "こちら", information_path, class: "underline" %>のお問い合わせよりご連絡ください。<br>
-        </td>
-      </tr>
-    </table>
-  </div>
+<div class="container link_list">
+  <div class="row">
 
-  <div class="link">
 
+    <div class="col-md-12 link_list_body">
     <% if user_signed_in? %>
+    <div class="col-md-12 link_list_title">
+      <p><h3>リンク一覧（会員様用）</h5></p>
+    </div>
       <%= link_to items_path do %>
         <i class="fas fa-mitten"></i>
-        作品一覧
+        作品一覧<br>
       <% end %>
       <%= link_to genres_path do %>
         <i class="fa-solid fa-paw"></i>
-        ジャンル一覧
+        ジャンル一覧<br>
       <% end %>
       <%= link_to search_path do %>
         <i class="fa-solid fa-magnifying-glass"></i>
-        作品検索
+        作品検索<br>
       <% end %>
       <%= link_to new_item_path do %>
         <i class="fa-solid fa-image"></i>
-        新規作品登録
+        新規作品登録<br>
       <% end %>
       <%= link_to user_path(current_user) do %>
         <i class="fa-solid fa-user"></i>
-        マイページ
+        マイページ<br>
       <% end %>
       <%= link_to destroy_user_session_path, method: :delete do %>
         <i class="fa-solid fa-right-from-bracket"></i>
-        ログアウト
+        ログアウト<br>
       <% end %>
         <%= link_to privacypolicy_path do %>
         <i class="fa-solid fa-star"></i>
-        プライバシーポリシー
+        プライバシーポリシー<br>
       <% end %>
       <%= link_to information_path do %>
         <i class="fa-solid fa-star"></i>
-        お問い合わせ
+        お問い合わせ<br>
       <% end %>
       <%= link_to about_path do %>
         <i class="fa-solid fa-star"></i>
-        当サイトについて
+        当サイトについて<br>
       <% end %>
 
+
     <% elsif admin_signed_in? %>
+    <div class="col-md-12 link_list_title">
+      <p><h3>リンク一覧（管理者用）</h5></p>
+    </div>
       <%= link_to admin_genres_path do %>
         <i class="fa-solid fa-paw"></i>
-        ジャンル一覧
+        ジャンル一覧<br>
       <% end %>
       <%= link_to admin_items_path do %>
         <i class="fas fa-mitten"></i>
-        作品一覧
+        作品一覧<br>
       <% end %>
       <%= link_to admin_admin_top_path do %>
         <i class="fa-solid fa-users"></i>
-        会員一覧
+        会員一覧<br>
       <% end %>
       <%= link_to destroy_admin_session_path, method: :delete do %>
         <i class="fa-solid fa-right-from-bracket"></i>
-        ログアウト
+        ログアウト<br>
       <% end %>
 
+
       <% else %>
+    <div class="col-md-12 link_list_title">
+      <p><h3>リンク一覧（閲覧者様用）</h5></p>
+    </div>
       <%= link_to items_path do %>
         <i class="fas fa-mitten"></i>
-         <!--style="color:black;"-->
-        作品一覧
+        作品一覧<br>
       <% end %>
       <%= link_to new_user_session_path do %>
         <i class="fa-solid fa-right-to-bracket"></i>
-        ログイン
+        ログイン<br>
       <% end %>
       <%= link_to new_user_registration_path do %>
         <i class="fa-solid fa-address-card"></i>
-        新規会員登録
+        新規会員登録<br>
+      <% end %>
+      <%= link_to search_path do %>
+        <i class="fa-solid fa-magnifying-glass"></i>
+        作品検索<br>
       <% end %>
       <%= link_to privacypolicy_path do %>
         <i class="fa-solid fa-star"></i>
-        プライバシーポリシー
+        プライバシーポリシー<br>
       <% end %>
       <%= link_to information_path do %>
         <i class="fa-solid fa-star"></i>
-        お問い合わせ
+        お問い合わせ<br>
       <% end %>
       <%= link_to about_path do %>
-        <i class="fa-solid fa-star"></i>        <!--, class: 'nav-link text-light'-->
-        当サイトについて
+        <i class="fa-solid fa-star"></i>
+        当サイトについて<br>
       <% end %>
     <% end %>
+    </div>
 
-  <!--</div>-->
-
-<!--</section>-->
+  </div>
+</div>
 
 <!--<h1>Public::Homes#top</h1>-->
 <!--<p>Find me in app/views/public/homes/top.html.erb</p>-->

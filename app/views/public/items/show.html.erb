@@ -1,61 +1,33 @@
-<section class="wrapper flex">
+<div class="container">
+  <div class="row">
 
-  <div class="item_show">
-
-    <div class="items">
-      <%#= image_tag @item.get_image, fallback: "/amulab/app/assets/images/no_image_BLU.png" %>
+    <div class="col-md-7  img-hidden-m">
+      <%= image_tag("knitting is healing1", alt: "knitting is healing1", width: "100%") %>
     </div>
 
-    <div class="item_body">
-      <table>
-        <tr>
-          <td>
-            <% @item.images.each_with_index do |image, index| %>
-              <%= index + 1 %>
-              <% if image.blob.present? %>
-                <%= image_tag image, style: "width: #{(1..4).include?(index) ? '300px' : '300px'};" %>
-              <% else %>
-                <%= image_tag "no_image_BLU.png", style: "width: 100px;", alt: "no_image" %>
-              <% end %>
-            <% end %>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <h5><%= @item.name %></h5>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <%= @item.genre.name %>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <%= @item.description %>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <%= @item.created_at.strftime("%Y/%m/%d") %>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            投稿者: <%= @item.user.name %>
-          </td>
-        </tr>
-      </table>
+    <div class="col-md-5 item_show">
+      <h4>作品詳細画面</h4>
+      <div class="col-md-12 item_edit_form">
+          <b><%= label :画像, "画像" %></b><br>
+        <% @item.images.each_with_index do |image, index| %>
+          <%= index + 1 %><br>
+          <% if image.blob.present? %>
+            <%= image_tag image, style: "width: #{(1..4).include?(index) ? '300px' : '300px'};" %><br>
+          <% else %>
+            <%= image_tag "no_image_YEL.png", style: "width: 240px;", alt: "no_image" %><br>
+          <% end %>
+        <% end %>
 
-    </div>
-
-    <div class="signed_if_edit">
-      <% if user_signed_in? %>
-        <%= link_to "編集", edit_item_path(@item), class: "btn btn-primary" %>
-      <% else %>
-        <p></p>
-      <% end %>
-    </div>
+        <b><%= label :作品名, "作品名" %></b><br>
+        <%= @item.name %><br>
+        <b><%= label :ジャンル, "ジャンル" %></b><br>
+        <%= @item.genre.name %><br>
+        <b><%= label :作品説明, "作品説明" %></b><br>
+        <%= @item.description %><br>
+        <b><%= label :投稿日, "投稿日" %></b><br>
+        <%= @item.created_at.strftime("%Y/%m/%d") %><br>
+        <p><b><%= label :投稿者, "投稿者" %></b><br>
+        投稿者: <%= @item.user.name %><br></p>
 
 <%# if @item_favorite.favorite?(current_user) %>
     <!--# 一致するレコードが存在する＝すでにいいね済みの場合はdestroyアクションへ-->
@@ -69,25 +41,22 @@
     <%# end %>
 <%# end %>
 
-
-    <div class="signed_if">
-<table><tr><td>
       <% if user_signed_in? %>
-        <p class="bold">【実装中】いいね・コメント機能を利用できます。</p>
+        <p><%= link_to "編集", edit_item_path(@item), class: "btn btn-primary" %></p>
+        <p><%= link_to "一覧に戻る", items_path, class: "btn btn-primary" %><br>
+        【実装中】いいね・コメント機能を利用できます。</p>
       <% else %>
         <p>いいね・コメント機能をご利用いただくには、<br>
         <%= link_to "こちら", new_user_registration_path, class: "underline" %>から新規登録を行なってください。</p>
         <p>会員登録済みの方は、<br>
         <%= link_to "こちら", new_user_session_path, class: "underline" %>からログインできます。</p>
+        <p><%= link_to "一覧に戻る", items_path, class: "btn btn-primary" %></p>
       <% end %>
-      </td></tr></table>
+
     </div>
 
   </div>
-
-  <%= link_to "一覧に戻る", items_path, class: "btn btn-primary" %>
-
-</section>
+</div>
 
 <!--<h1>Public::Items#show</h1>-->
 <!--<p>Find me in app/views/public/items/show.html.erb</p>-->

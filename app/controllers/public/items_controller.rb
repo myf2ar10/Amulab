@@ -28,8 +28,10 @@ class Public::ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id]) # アイテムをIDで取得
     if @item.update(item_params)
+      flash[:notice] = "作品が更新されました。"
       redirect_to item_path(@item)
     else
+      flash.now[:alert] = "作品の更新に失敗しました。"
       render :edit
     end
 
@@ -42,7 +44,7 @@ class Public::ItemsController < ApplicationController
       flash[:notice] = "作品が新規登録されました。"
       redirect_to items_path  # 一覧ページにリダイレクト
     else
-      flash[:alert] = "作品が新規登録されませんでした。"
+      flash.now[:alert] = "作品が新規登録されませんでした。"
       render :new
     end
   end
@@ -58,16 +60,24 @@ class Public::ItemsController < ApplicationController
   end
 
   def is_matching_login_user
-    if current_user.nil?
-      redirect_to new_user_session_path, alert: "ログインしてください"
-    else
-      user = User.find_by(id: params[:id])
-      if user.nil?
-        redirect_to items_path, alert: "ユーザーが見つかりませんでした"
-      elsif user.id != current_user.id
-        redirect_to items_path, alert: "他のユーザーの編集は許可されていません"
-      end
+    # if current_user.nil?
+    #   redirect_to new_user_session_path, alert: "ログインしてください"
+    # else
+    #   user = User.find_by(id: params[:id])
+    #   if user.nil?
+    #     redirect_to items_path, alert: "ユーザーが見つかりませんでした"
+    #   elsif user.id != current_user.id
+    #     redirect_to items_path, alert: "他のユーザーの編集は許可されていません"
+    #   end
+    # end
+  if current_user.nil?
+    redirect_to new_user_session_path, alert: "ログインしてください"
+  else
+    @item = Item.find(params[:id])  # 編集対象のアイテムを特定
+    if @item.user_id != current_user.id
+      redirect_to items_path, alert: "他のユーザーの編集は許可されていません"
     end
+  end
   end
 
 end
