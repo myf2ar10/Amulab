@@ -1,15 +1,97 @@
-<section class="wrapper flex">
+<div class="container-fluid img-hidden">
 
-<div class="images">
-  <div class=”slider”>
-    <p><%= image_tag 'knitting is healing1.jpg', class: 'slider-item rounded', width: "700px" %></p>
-    <p><%#= image_tag 'knitting is healing_BLU.jpg', class: 'slider-item rounded', width: "700px" %></p>
-    <p><%#= image_tag 'knitting is healing_GRN.jpg', class: 'slider-item rounded', width: "700px" %></p>
-    <p><%#= image_tag 'knitting is healing_GRY.jpg', class: 'slider-item rounded', width: "700px" %></p>
-    <p><%#= image_tag 'knitting is healing_PIK.jpg', class: 'slider-item rounded', width: "700px" %></p>
-    <p><%#= image_tag 'knitting is healing_YEL.jpg', class: 'slider-item rounded', width: "700px" %></p>
+<!--<section class="wrapper flex">-->
+
+<!--<div class="images">-->
+  <!--<div class=”slider”>-->
+    <%#= image_tag 'knitting is healing1.jpg', class: 'slider-item rounded', width: "700px" %>
+    <%#= image_tag 'knitting is healing_BLU.jpg', class: 'slider-item rounded', width: "700px" %>
+    <%#= image_tag 'knitting is healing_GRN.jpg', class: 'slider-item rounded', width: "700px" %>
+    <%#= image_tag 'knitting is healing_GRY.jpg', class: 'slider-item rounded', width: "700px" %>
+    <%#= image_tag 'knitting is healing_PIK.jpg', class: 'slider-item rounded', width: "700px" %>
+    <%#= image_tag 'knitting is healing_YEL.jpg', class: 'slider-item rounded', width: "700px" %>
+  <!--</div>-->
+
+<!--  </div>-->
+  <!--<p><img src="../2top.jpg" class="img-fulied" alt="top"></p>うまくいかない-->
+</div>
+<p><img src="https://github.com/myf2ar10/Amulab/assets/141298495/e6b3e6cb-3589-4e1e-9824-13b0a765df35" class="img-fulied" alt="top"></p>
+
+<div class="container container-m">
+  <div class="card-deck">
+
+    <div class="card">
+      <!--<img class="card-img-top" src="2top.jpg/100px200/" alt="Card image cap">-->
+      <img class="card-img-top" src="2top.jpg" width="100" height="200" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">作品一覧</h5>
+        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      </div>
+    </div>
+    <div class="card">
+      <img class="card-img-top" src="2top.jpg" width="100" height="200" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">新規会員登録</h5>
+        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      </div>
+    </div>
+    <div class="card">
+      <img class="card-img-top" src="2top.jpg" width="100" height="200" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">当サイトについて</h5>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      </div>
+    </div>
+
   </div>
 </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4  img-hidden-m">
+      <img src="https://github.com/myf2ar10/Amulab/assets/141298495/e6b3e6cb-3589-4e1e-9824-13b0a765df35" alt="img" class="img-fulied">
+    </div>
+    <div class="col-md-8">
+      <h1>Message</h1>
+      <p>
+        当サイトにアクセス頂きありがとうございます。<br>
+        当サイトは「ハンドメイド作品投稿サイト」です。<br>
+        編み物だけに限りません！<br>
+        手作りの作品が家に溜まっていませんか？<br>
+        ここでは自分が作った作品の写真を投稿することができます。<br>
+        投稿するには会員登録が必要です。<br>
+        いいね機能やコメント機能があるのでみんなでいいねし合いましょう。<br>
+        サイトに関するご意見・ご感想は<%= link_to "こちら", information_path, class: "underline" %>のお問い合わせよりご連絡ください。
+      </p>
+    </div>
+  </div>
+</div>
+
+<!--<div class="container container-m">-->
+<!--  <div class="row">-->
+<!--    <div class="col-md-4  img-hidden">-->
+<!--      <img src="image/c.jpg" alt="img" class="img-fulied">-->
+<!--    </div>    </div>    </div>-->
+
+<div class="container　container-m">
+  <div class="row">
+    <div class="col-md-4  img-hidden">
+      <img src="images/Amulab4.jpg" alt="img" class="img-fulied">
+    </div>
+    <div class="col-md-4  img-hidden">
+      <img src="images/Amulab4.jpg" alt="img" class="img-fulied">
+    </div>
+    <div class="col-md-4  img-hidden">
+      <img src="images/Amulab4.jpg" alt="img" class="img-fulied">
+    </div>
+  </div>
+</div>
+<!--<footer class=”footer”>© 2018 Bootstrap test</footer>-->
+
+
 
   <div class="new_item_list">
     <table>
@@ -204,9 +286,9 @@
       <% end %>
     <% end %>
 
-  </div>
+  <!--</div>-->
 
-</section>
+<!--</section>-->
 
 <!--<h1>Public::Homes#top</h1>-->
 <!--<p>Find me in app/views/public/homes/top.html.erb</p>-->
