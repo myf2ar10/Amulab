@@ -110,11 +110,11 @@
       <div class="col-md-4 new_item_body_image">
         <% if item.images.attached? %>
             <%= link_to item_path(item) do %>
-              <%= image_tag item.images.first, style: "width: 240px; height: 240px;" %>
+              <%= image_tag item.images.first, style: "width: 240px; height: 240px;", class: "top_item_back" %>
             <% end %>
           <% else %>
             <%= link_to item_path(item) do %>
-              <%= image_tag "no_image_YEL.png", style: "width: 240px;", alt: "no_image" %>
+              <%= image_tag "no_image_YEL.png", style: "width: 240px;", alt: "no_image", class: "top_item_back" %>
             <% end %>
         <% end %>
         <div class="col-md-8 new_item_body_body">
@@ -142,7 +142,7 @@
     </div>
     <% @genres.order(created_at: :desc).limit(5).each do |genre| %>
       <div class="col-md-2 genre_list_body_title">
-        <i class="fa-solid fa-paw fa-4x"></i><br>
+        <i class="fa-solid fa-paw fa-4x genre_list_back"></i><br>
           <%= genre.name %>
       </div>
     <% end %>
