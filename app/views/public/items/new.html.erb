@@ -1,60 +1,36 @@
-<section class="wrapper flex">
+<div class="container">
+  <div class="row">
+    <div class="col-md-7  img-hidden-m">
+      <%= image_tag("knitting is healing1", alt: "knitting is healing1", width: "100%") %>
+    </div>
 
-  <div class="item_create">
-
-  <h4>新規作品登録</h4>
-
-    <table>
-      <%= form_with model: @item, url: items_path, local: true, html: { enctype: 'multipart/form-data' } do |f| %>
-
-        <tr>
-          <td>
-            <%= f.label :name, "作品名*" %><br>
-            <%= f.text_field :name %>
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            <%= f.label :images, "画像" %><br>
-            <%= f.file_field :images, accept: "image/*", multiple: true %><br>
-            <small>
-              ※なし可能。2枚以上可能。
-            </small><br>
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            <%= f.label :genre_id, "ジャンル" %><br>
-            <%= f.collection_select :genre_id, Genre.all, :id, :name %>
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            <%= f.label :description, "作品説明文" %><br>
-            <%= f.text_area :description, rows: 3 %><br>
-            <small>
-              ※なし可能。
-            </small><br>
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            <%= f.submit "新規作品登録", class: "btn btn-primary" %><br>
-            <small>
-              ※誠に恐れ入りますが確認画面のご用意がございません。<br>
-      　      最後にご入力内容をご確認ください。<br>
-              ※*は入力必須項目です。<br>
-            </small>
-          </td>
-        </tr>
-
+    <div class="col-md-5 new_item_add">
+      <h4>新規作品登録</h4>
+      <%= form_with model: @item, local: true, html: { enctype: 'multipart/form-data' } do |f| %>
+        <div class="col-md-12 item_edit_form">
+          <%= f.label :name, "作品名*" %><br>
+          <%= f.text_field :name %><br>
+          <%= f.label :images, "画像" %><br>
+          <%= f.file_field :images, accept: "image/*", multiple: true %><br>
+          <small>
+            ※なし可能。2枚以上可能。
+          </small><br>
+          <%= f.label :genre_id, "ジャンル" %><br>
+          <%= f.collection_select :genre_id, Genre.all, :id, :name %><br>
+          <%= f.label :description, "作品説明文" %><br>
+          <%= f.text_area :description, rows: 3 %><br>
+          <small>
+            ※なし可能。
+          </small><br>
+          <%= f.submit "新規作品登録", class: "btn btn-primary" %><br>
+          <small>
+            ※誠に恐れ入りますが確認画面のご用意がございません。<br>
+    　      最後にご入力内容をご確認ください。<br>
+            ※*は入力必須項目です。<br>
+          </small>
+        </div>
       <% end %>
-    </table>
+    </div>
 
   </div>
-
-</section>
+</div>

@@ -1,4 +1,5 @@
 class Admin::UsersController < ApplicationController
+  before_action :authenticate_admin # ログインしていてかつ管理者である
   def show
     @user = User.find(params[:id])
   end
@@ -21,6 +22,12 @@ class Admin::UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:email, :name, :phone_number, :password, :password_confirmation)
+  end
+
+  def authenticate_admin
+    unless admin_signed_in? # 管理者としてログインしているか確認
+      redirect_to public_root_path, alert: "管理者としてログインしていません"
+    end
   end
 
 end

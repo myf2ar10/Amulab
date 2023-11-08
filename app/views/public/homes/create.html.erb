@@ -1,110 +1,54 @@
-<section class="wrapper flex">
+<div class="container">
+  <div class="row">
 
-  <div class="image_tag">
-    <%= image_tag 'knitting is healing.png', width: 700 %>
-  </div>
+    <div class="col-md-7  img-hidden-m">
+      <%= image_tag("knitting is healing1", alt: "knitting is healing1", width: "100%") %>
+    </div>
 
-  <div class="information">
-    <table>
-      <thead>
-      <tr>
-        <td>
-          <h4>お問い合わせ</h4>
-        </td>
-      </tr>
-      <tbody>
-        <tr>
-          <td>
-            下記フォームにご入力の上送信ください。
-          </td>
-        </tr>
-        <tr>
-          <td>
-            管理者にて確認後、追ってご連絡いたします。
-          </td>
-        </tr>
-        <tr>
-          <td>
-            確認には5日程度いただく場合がございます。
-          </td>
-        </tr>
-        <tr>
-          <td>
-            ご了承ください。
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="information_body">
-
-    <% resource_name = :user %>
-    <%#= form_for @information, url: information_send_path, method: :patch do |f| %>
-    <%= form_with model: @information, url: session_path(resource_name), local: true do |f| %>
-
-      <table>
-
-        <tr>
-          <td>
-            <%= f.label :"メールアドレス*" %><br>
-            <%= f.text_field :email, autocomplete: "email" %><br>
-            <small>
-              ※存在するメールアドレスを登録してください。
-            </small>
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            <!-- 名前と電話番号のフィールドを追加 -->
-            <%= f.label :"名前*" %><br>
-            <%= f.text_field :name, autocomplete: "name" %><br>
-            <small>
-              ※ご連絡の際にお呼びいたします。
-            </small>
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            <%= f.label :"電話番号*" %><br>
-            <%= f.text_field :phone_number, autocomplete: "phone_number" %><br>
-            <small>
-              ※存在する電話番号を登録してください。
-            </small>
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            <!-- お問い合わせ内容のフィールドを追加 -->
-            <%= f.label :"お問い合わせ内容*" %><br>
-            <%= f.text_area :message, autocomplete: "message" %><br>
-            <small>
-              ※000文字以内でご入力ください。
-            </small>
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            <%= f.submit "送信", class: "btn btn-primary" %>【実装中】<br>
-            <small>
-              ※誠に恐れ入りますが確認画面のご用意がございません。<br>
-              最後にご入力内容をご確認ください。<br>
-              ※*は入力必須項目です。<br>
-            </smaill>
-          </td>
-        </tr>
-
-      </table>
-
-    <% end %>
+    <div class="col-md-5 home_create">
+      <h4>お問い合わせ</h4>
+      <div class="col-md-12 item_edit_form">
+        下記フォームにご入力の上送信ください。<br>
+        管理者にて確認後、追ってご連絡いたします。<br>
+        確認には5日程度いただく場合がございます。<br>
+        ご了承ください。<br>
+      </div>
+      <div>
+      <% resource_name = :user %>
+        <%= form_with model: @information, url: session_path(resource_name), local: true do |f| %>
+        <%= f.label :"メールアドレス*" %><br>
+        <small>
+          ※存在するメールアドレスを登録してください。
+        </small><br>
+        <%= f.text_field :email, autocomplete: "email" %><br>
+        <!-- 名前と電話番号のフィールドを追加 -->
+        <%= f.label :"名前*" %><br>
+        <small>
+          ※ご連絡の際に使用します。
+        </small><br>
+        <%= f.text_field :name, autocomplete: "name" %><br>
+        <%= f.label :"電話番号*" %><br>
+        <small>
+          ※存在する電話番号を登録してください。
+        </small><br>
+        <%= f.text_field :phone_number, autocomplete: "phone_number" %><br>
+        <!-- お問い合わせ内容のフィールドを追加 -->
+        <%= f.label :"お問い合わせ内容*" %><br>
+        <small>
+          ※256字以内でご入力ください。
+        </small><br>
+        <%= f.text_area :message, autocomplete: "message", style: "width: 400px; height: 200px;" %><br>
+        <%= f.submit "送信", class: "btn btn-primary" %>【実装中】<br>
+        <small>
+          ※誠に恐れ入りますが確認画面のご用意がございません。<br>
+          最後にご入力内容をご確認ください。<br>
+          ※*は入力必須項目です。<br>
+        </smaill>
+      <% end %>
+    </div>
 
   </div>
-
-</section>
+</div>
 
 <!--<h1>Public::Homes#create</h1>-->
 <!--<p>Find me in app/views/public/homes/create.html.erb</p>-->

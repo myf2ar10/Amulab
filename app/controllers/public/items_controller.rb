@@ -1,10 +1,12 @@
 class Public::ItemsController < ApplicationController
+  before_action :is_matching_login_user, only: [:edit, :update]
   def index
-    @items = Item.all.page(params[:page])    # ページネーション
+    @items = Item.order(created_at: :desc).page(params[:page])    # ページネーションdesc => 大きい順asc  => 小さい順
   end
 
   def show
     @item = Item.find(params[:id])
+
 
     # @item_favorite を初期化
     # @item_favorite = Favorite.find_or_initialize_by(item: @item, user: current_user)
@@ -26,19 +28,23 @@ class Public::ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id]) # アイテムをIDで取得
     if @item.update(item_params)
+      flash[:notice] = "作品が更新されました。"
       redirect_to item_path(@item)
     else
+      flash.now[:alert] = "作品の更新に失敗しました。"
       render :edit
     end
+
   end
 
   def create
     @item = Item.new(item_params)  # 新しいアイテムを作成
+    @item.user_id = current_user.id
     if @item.save  # データベースに保存
       flash[:notice] = "作品が新規登録されました。"
       redirect_to items_path  # 一覧ページにリダイレクト
     else
-      flash[:alert] = "作品が新規登録されませんでした。"
+      flash.now[:alert] = "作品が新規登録されませんでした。"
       render :new
     end
   end
@@ -50,7 +56,28 @@ class Public::ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :description, images: [])
+    params.require(:item).permit(:name, :description, :genre_id, images: [])
+  end
+
+  def is_matching_login_user
+    # if current_user.nil?
+    #   redirect_to new_user_session_path, alert: "ログインしてください"
+    # else
+    #   user = User.find_by(id: params[:id])
+    #   if user.nil?
+    #     redirect_to items_path, alert: "ユーザーが見つかりませんでした"
+    #   elsif user.id != current_user.id
+    #     redirect_to items_path, alert: "他のユーザーの編集は許可されていません"
+    #   end
+    # end
+  if current_user.nil?
+    redirect_to new_user_session_path, alert: "ログインしてください"
+  else
+    @item = Item.find(params[:id])  # 編集対象のアイテムを特定
+    if @item.user_id != current_user.id
+      redirect_to items_path, alert: "他のユーザーの編集は許可されていません"
+    end
+  end
   end
 
 end
