@@ -1,38 +1,25 @@
-<section class="wrapper flex">
+<div class="container">
+  <div class="row">
 
-  <div class="admin_sessions_new">
+    <div class="col-md-7  img-hidden-m">
+      <%= image_tag("knitting is healing1", alt: "knitting is healing1", width: "100%") %>
+    </div>
 
-    <h4>管理者ログイン</h4>
+    <div class="col-md-5">
+      <h4>管理者ログイン</h4>
+      <div class="col-md-12 admin_login_form">
+        <%= form_with model: @admin, url: session_path(resource_name), local: true do |f| %>
+          <%= f.label :email, "メールアドレス" %><br>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %><br>
+          <%= f.label :password, "パスワード" %><br>
+          <p><%= f.password_field :password, autocomplete: "current-password" %></p>
+          <%= f.submit "ログイン", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
 
-    <%= form_with model: @admin, url: session_path(resource_name), local: true do |f| %>
-      <table>
-
-        <tr>
-          <td>
-            <%= f.label :email, "メールアドレス" %><br>
-            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            <%= f.label :password, "パスワード" %><br>
-            <%= f.password_field :password, autocomplete: "current-password" %>
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-              <%= f.submit "ログイン", class: "btn btn-primary" %>
-          </td>
-        </tr>
-
-      </table>
-    <% end %>
-
-  <div>
-
-</section>
+  </div>
+</div>
 
 <!--<h2>Log in</h2>-->
 

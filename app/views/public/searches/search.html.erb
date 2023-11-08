@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-12 search_title">
+      <h4>作品検索</h4>
+    </div>
+
+    <div class="col-md-12 search_form">
+      <%= form_with url: search_path, method: :get, local: true do |f| %>
+        <%= f.text_field :content %>
+        <%= f.submit '検索', class: "btn btn-primary" %>
+      <% end %>
+    </div>
+
+    <% @records.each do |record| %>
+      <div class="col-md-4 search_form">
+        <p>
+          <% if record.user.present? %>
+            <%= link_to item_path(record) do %>
+              <%= image_tag record.images.first, style: "width: 100px;" if record.images.attached? %><br>
+            <% end %>
+          <% else %>
+            <%= record.images %><br>
+          <% end %>
+        </p>
+
+        <p>
+          作品ID：<%= record.id %><br>
+          作品名：<%= record.name %><br>
+          投稿日：<%= record.created_at.strftime("%Y/%m/%d") %><br>
+          <% if record.user.present? %>
+            投稿者：<%= record.user.name %><br>
+          <% else %>
+            投稿者：管理者<br>
+          <% end %>
+        </p>
+      </div>
+    <% end %>
+
+    <% if @records.empty? %>
+      <p>見つかりませんでした。検索条件を変更して再度お試しください。</p>
+    <% end %>
+
+  </div>
+</div>

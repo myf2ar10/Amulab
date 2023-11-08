@@ -1,4 +1,5 @@
 class Admin::GenresController < ApplicationController
+  before_action :authenticate_admin # ログインしていてかつ管理者である
   def index
     Kaminari.config.default_per_page = 20# 特定のアクションでKaminariの設定を変更
     @genres = Genre.all.page(params[:page])
@@ -34,6 +35,12 @@ class Admin::GenresController < ApplicationController
 
   def genre_params
     params.require(:genre).permit(:name)
+  end
+
+  def authenticate_admin
+    unless admin_signed_in? # 管理者としてログインしているか確認
+      redirect_to public_root_path, alert: "管理者としてログインしていません"
+    end
   end
 
 end

@@ -1,31 +1,23 @@
-<section class="wrapper flex">
+<div class="container">
+  <div class="row">
 
-  <div class="user_index">
+    <div class="col-md-12 users">
+      <h4>会員一覧（ID順／全て）</h4>
+    </div>
 
-  <h4>会員一覧（ID順／全て）</h4>
-
-  <div class="users">
-
-<table>
     <% @users.each do |user| %>
-      <tr>
-        <td>
-          <%= link_to admin_user_path(user) do %>
-            <h5><%= user.name %></h5>
-          <% end %>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <p><%= user.phone_number %></p>
-        </td>
-      </tr>
+      <div class="col-md-2 users">
+        <%= user.id %><br>
+        <i class="fa-solid fa-user fa-4x"></i><br>
+        <%= link_to admin_user_path(user) do %>
+          <b><%= user.name %></b><br>
+        <% end %>
+        <p><%= user.phone_number %></p>
+      </div>
     <% end %>
-  </table>
 
   </div>
-
-</section>
+</div>
 
 <!--<h1>Admin::Homes#top</h1>-->
 <!--<p>Find me in app/views/admin/homes/top.html.erb</p>-->

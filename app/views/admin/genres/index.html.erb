@@ -1,33 +1,34 @@
-<section class="wrapper flex">
+<div class="container">
+  <div class="row">
 
-  <div class="admin_genre_index">
+    <div class="col-md-12 genre_title">
+      <h4>ジャンル一覧（管理者用・登録含む）</h4>
+    </div>
 
-    <table>
-        <% @genres.each do |genre| %>
-      <tr>
-        <td>
-          <p><%= genre.name %></p>
-        </td>
-        <tr>
-          <td>
-          <%= link_to "編集", edit_admin_genre_path(genre), class: "btn btn-primary" %>
-          </td>
-        </tr>
-        <% end %>
-    </table>
-
-    <div class="mb3">
+    <div class="col-md-12 add_genre">
       <%= form_with model: @genre, url: admin_genres_path, method: :post do |f| %>
-        <%= f.label :name, "ジャンル名:" %>
+        <br><p><%= f.label :name, "ジャンル名:" %>
         <%= f.text_field :name %>
-        <%= f.submit "登録", class: "btn btn-primary ml2" %>
+        <%= f.submit "登録", class: "btn btn-primary ml2" %><br></p>
       <% end %>
     </div>
+
+    <% @genres.each do |genre| %>
+      <div class="col-md-4 admin_genre">
+        <p>
+          <%= genre.id %><br>
+          <i class="fa-solid fa-paw fa-4x"></i><br>
+          <b><%= genre.name %></b><br>
+          <%= genre.created_at.strftime("%Y/%m/%d %H:%M:%S") %>
+        </p>
+        <%= link_to "編集", edit_admin_genre_path(genre), class: "btn btn-primary" %>
+      </div>
+    <% end %>
+
     <%= paginate @genres %>
 
   </div>
-
-</section>
+</div>
 
 <!--<h1>Admin::Genres#index</h1>-->
 <!--<p>Find me in app/views/admin/genres/index.html.erb</p>-->
