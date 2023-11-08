@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-7  img-hidden-m">
+      <%= image_tag("knitting is healing1", alt: "knitting is healing1", width: "100%") %>
+    </div>
+
+    <div class="col-md-5 home_create">
+      <h4>お問い合わせ*</h4>
+      <div class="col-md-12 item_edit_form">
+        <p>下記フォームにご入力の上送信ください。<br>
+        管理者にて確認後、追ってご連絡いたします。<br>
+        確認には5日程度いただく場合がございます。<br>
+        ご了承ください。</p>
+      </div>
+      <div>
+      <b>お名前*</b><br>
+      <%= @contact.name %><br>
+      <b>メールアドレス*</b><br>
+      <%= @contact.email %><br>
+      <b>電話番号*</b><br>
+      <%= @contact.phone_number %><br>
+      <b>お問い合わせ内容*</b><br>
+      <p><%= @contact.message %></p>
+
+      <%= form_for(@contact) do |f| %>
+        <%= f.hidden_field :name %>
+        <%= f.hidden_field :email %>
+        <%= f.hidden_field :phone_number %>
+        <%#= f.hidden_field :subject %>
+        <%= f.hidden_field :message %>
+        <div><%= f.submit "送信", class: "btn btn-primary" %></div><br>
+      <% end %>
+      <%= form_for @contact, url: back_path do |f| %>
+        <%= f.hidden_field :name %>
+        <%= f.hidden_field :email %>
+        <%= f.hidden_field :phone_number %>
+        <%#= f.hidden_field :subject %>
+        <%= f.hidden_field :message %>
+        <div><%= f.submit "入力画面に戻る", class: "btn btn-primary" %></div>
+      <% end %>
+    </div>
+
+  </div>
+<div>
