@@ -29,6 +29,41 @@
         <p><b><%= label :投稿者, "投稿者" %></b><br>
         投稿者: <%= @item.user.name %><br></p>
 
+
+
+<table>
+  <tbody>
+      <% @item.item_comments.each do |item_comment| %>
+      <tr>
+
+        <td>
+          <%= link_to user_path(item_comment.user) do %>
+            <%#= image_tag item_comment.user.get_profile_image, size: "100x100" %><br>
+            <%= item_comment.user.name %>
+          <% end %>
+        </td>
+        <td><%= item_comment.comment %></td>
+        <td>
+          <% if item_comment.user == current_user %>
+            <%= link_to "Destroy", item_item_comment_path(@item, item_comment), method: :delete, class: "btn btn-danger pull-right" %>
+          <% end %>
+        </td>
+      </tr>
+      <% end %>
+  </tbody>
+</table>
+
+
+
+
+
+<%= form_with(model:[@item, @item_comment], local: true) do |f| %>
+  <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに", class: "w-100" %>
+  <%= f.submit "送信" %>
+<% end %>
+
+
+
 <%# if @item_favorite.favorite?(current_user) %>
     <!--# 一致するレコードが存在する＝すでにいいね済みの場合はdestroyアクションへ-->
     <%#= link_to item_favorite_path(@item.id), method: :delete do %>
@@ -41,17 +76,39 @@
     <%# end %>
 <%# end %>
 
-      <% if user_signed_in? %>
-        <p><%= link_to "編集", edit_item_path(@item), class: "btn btn-primary" %></p>
-        <p><%= link_to "一覧に戻る", items_path, class: "btn btn-primary" %><br>
-        【実装中】いいね・コメント機能を利用できます。</p>
-      <% else %>
-        <p>いいね・コメント機能をご利用いただくには、<br>
-        <%= link_to "こちら", new_user_registration_path, class: "underline" %>から新規登録を行なってください。</p>
-        <p>会員登録済みの方は、<br>
-        <%= link_to "こちら", new_user_session_path, class: "underline" %>からログインできます。</p>
-        <p><%= link_to "一覧に戻る", items_path, class: "btn btn-primary" %></p>
-      <% end %>
+      <!--<%# if user_signed_in? %>-->
+      <!--  <p><%#= link_to "編集", edit_item_path(@item), class: "btn btn-primary" %></p>-->
+      <!--  <p><%#= link_to "一覧に戻る", items_path, class: "btn btn-primary" %><br>-->
+      <!--  【実装中】いいね・コメント機能を利用できます。</p>-->
+      <!--<%# else %>-->
+      <!--  <p>いいね・コメント機能をご利用いただくには、<br>-->
+      <!--  <%#= link_to "こちら", new_user_registration_path, class: "underline" %>から新規登録を行なってください。</p>-->
+      <!--  <p>会員登録済みの方は、<br>-->
+      <!--  <%#= link_to "こちら", new_user_session_path, class: "underline" %>からログインできます。</p>-->
+      <!--  <p><%#= link_to "一覧に戻る", items_path, class: "btn btn-primary" %></p>-->
+      <!--<%# end %>-->
+
+
+
+
+<% if user_signed_in? || admin_signed_in? %>
+  <!-- ユーザーまたは管理者がログインしている場合の表示 -->
+  <p><%= link_to "編集", edit_item_path(@item), class: "btn btn-primary" %></p>
+  <p><%= link_to "一覧に戻る", items_path, class: "btn btn-primary" %><br>
+  &#8203;``【oaicite:0】``&#8203;いいね・コメント機能を利用できます。</p>
+<% else %>
+  <!-- ユーザーまたは管理者がログインしていない場合の表示 -->
+  <p>いいね・コメント機能をご利用いただくには、<br>
+  <%= link_to "こちら", new_user_registration_path, class: "underline" %>から新規登録を行なってください。</p>
+  <p>会員登録済みの方は、<br>
+  <%= link_to "こちら", new_user_session_path, class: "underline" %>からログインできます。</p>
+  <p><%= link_to "一覧に戻る", items_path, class: "btn btn-primary" %></p>
+<% end %>
+
+
+
+
+
 
     </div>
 

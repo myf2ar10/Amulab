@@ -278,6 +278,12 @@
     background-repeat: no-repeat; /* 繰り返しを無効にする */
   }
 
+  a:hover {
+  opacity: 0.5;
+  transition: 0.3s;
+}
+
+
     footer{
     width: 100%;
      /*横幅を100%に設定 */

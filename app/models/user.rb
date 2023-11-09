@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :items
   # belongs_to :user
   # has_many :favorites, dependent: :destroy
+  has_many :item_comments, dependent: :destroy
 
   validates :name, presence: true
 
