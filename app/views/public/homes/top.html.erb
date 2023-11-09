@@ -137,7 +137,7 @@
         他のジャンルについては
         <%= link_to "こちら", new_user_registration_path, class: "underline" %>
         から会員登録後、<br>
-        新規作品投稿ページにてプルダウンをご確認ください。
+        ジャンル一覧ページにてご確認ください。
       </p>
     </div>
     <% @genres.order(created_at: :desc).limit(5).each do |genre| %>
