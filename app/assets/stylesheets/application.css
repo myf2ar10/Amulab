@@ -14,31 +14,9 @@
  *= require_self
  */
 
-  /*header{*/
-  /*  position: fixed;*/
-  /*  width: 100%;*/
-     /*ヘッダーの幅を100%に設定 */
-  /*  background-color: #B8C8CC;*/
-  /*  padding: 8px 150px;*/
-  /*  height: 130px;*/
-  /*  position: fixed;*/
-     /*ヘッダーを固定位置に設定 */
-  /*  top: 0;*/
-     /*上に固定 */
-  /*}*/
-  /*.header-logo {*/
-  /*  display: flex;*/
-  /*  position: fixed;*/
-  /*  align-items: center;*/
-     /*垂直方向の中央揃え */
-  /*}*/
   .logo {
     display: flex;
-  /*  max-width: 300px;*/
-     /*任意の適切な幅を設定 */
-  /*  flex: 1;*/
-     /*ロゴが可変幅で残りのスペースを占める */
-    text-align: left;
+    text-align: center;
      /*ロゴを左寄せに */
   }
 
@@ -169,16 +147,6 @@
     border: none;
     color: #696969;
   }
-
-  /*.pagination>.active>a {*/
-  /*  background: #93c9ff;*/
-  /*  border-radius: 15px;*/
-  /*}*/
-
-  /*.pagination>li>a:hover {*/
-  /*  border-radius: 15px;*/
-  /*}*/
-
   .pagination {
   justify-content: center;
   }
