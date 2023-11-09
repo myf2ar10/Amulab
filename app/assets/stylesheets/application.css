@@ -252,9 +252,37 @@
     display: flex;
   }
 
-.add_genre{
-  text-align: center;
+  .add_genre{
+    text-align: center;
+  }
+
+  .top_item_back{
+    background-image: url('pink_round.png');
+    background-size: cover; /* 画像を要素に合わせて調整 */
+    background-repeat: no-repeat; /* 繰り返しを無効にする */
+  }
+  .genre_list_back{
+    background-image: url('blue_round.png');
+    background-size: cover; /* 画像を要素に合わせて調整 */
+    background-repeat: no-repeat; /* 繰り返しを無効にする */
+  }
+
+  .admin_back{
+    background-image: url('green_round.png');
+    background-size: cover; /* 画像を要素に合わせて調整 */
+    background-repeat: no-repeat; /* 繰り返しを無効にする */
+  }
+  .item_list_back{
+    background-image: url('yellow_round.png');
+    background-size: cover; /* 画像を要素に合わせて調整 */
+    background-repeat: no-repeat; /* 繰り返しを無効にする */
+  }
+
+  a:hover {
+  opacity: 0.5;
+  transition: 0.3s;
 }
+
 
     footer{
     width: 100%;

@@ -1,12 +1,12 @@
 class Public::ItemsController < ApplicationController
-  before_action :is_matching_login_user, only: [:edit, :update]
+  before_action :is_matching_login_user, only: [:edit, :update], unless: :current_admin
   def index
     @items = Item.order(created_at: :desc).page(params[:page])    # ページネーションdesc => 大きい順asc  => 小さい順
   end
 
   def show
     @item = Item.find(params[:id])
-
+    @item_comment = ItemComment.new
 
     # @item_favorite を初期化
     # @item_favorite = Favorite.find_or_initialize_by(item: @item, user: current_user)
@@ -76,6 +76,8 @@ class Public::ItemsController < ApplicationController
     @item = Item.find(params[:id])  # 編集対象のアイテムを特定
     if @item.user_id != current_user.id
       redirect_to items_path, alert: "他のユーザーの編集は許可されていません"
+    # elsif current_admin.nil?
+    # redirect_to new_admin_session_path, alert: "ログインしてください"
     end
   end
   end

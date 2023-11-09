@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  namespace :public do
+    get 'item_comments/create'
+    get 'item_comments/destroy'
+  end
   # 管理者用
   # URL /admin/sign_in ...
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
@@ -39,7 +43,13 @@ Rails.application.routes.draw do
     get 'done', to: 'contacts#done', as: 'done'
 
 
-    resources :items, only: [:index, :show, :edit, :update, :create, :new]
+
+
+
+
+    resources :items, only: [:index, :show, :edit, :update, :create, :new] do
+      resources :item_comments,only: [:create, :destroy]
+      end
     resources :genres, only: [:index]
     resources :users, only: [:show]
 

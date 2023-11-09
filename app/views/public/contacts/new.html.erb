@@ -13,36 +13,39 @@
         確認には5日程度いただく場合がございます。<br>
         ご了承ください。</p>
       </div>
+
       <div>
+        <%= form_for(@contact, url: confirm_path) do |f| %>
+          <div class="form-group">
+            <%= f.label :name, 'お名前*' %>
+            <%= f.text_field :name, autofocus: true, class: 'form-control' %>
+          </div>
 
-<%= form_for(@contact, url: confirm_path) do |f| %>
-  <div class="form-group">
-    <%= f.label :name, 'お名前*' %>
-    <%= f.text_field :name, autofocus: true, class: 'form-control' %>
-  </div>
+          <div class="form-group">
+            <%= f.label :phone_number, '電話番号*' %>
+            <%= f.text_field :phone_number, class: 'form-control' %>
+          </div>
 
-  <div class="form-group">
-    <%= f.label :phone_number, '電話番号*' %>
-    <%= f.text_field :phone_number, class: 'form-control' %>
-  </div>
+          <div class="form-group">
+            <%= f.label :email, 'メールアドレス*' %>
+            <%= f.text_field :email, class: 'form-control' %>
+          </div>
 
-  <div class="form-group">
-    <%= f.label :email, 'メールアドレス*' %>
-    <%= f.text_field :email, class: 'form-control' %>
-  </div>
+          <div class="form-group">
+            <%= f.label :message, 'お問い合わせ内容*' %>
+            <%= f.text_area :message, style: "width: 400px; height: 200px;", class: 'form-control' %>
+          </div>
 
-  <div class="form-group">
-    <%= f.label :message, 'お問い合わせ内容*' %>
-    <%= f.text_area :message, style: "width: 400px; height: 200px;", class: 'form-control' %>
-  </div>
+          <div>
+            <%= f.submit "入力内容確認", class: "btn btn-primary" %><br>
+            <small>
+              ※*は入力必須項目です。<br>
+            </smaill>
+          </div>
+        <% end %>
 
-  <div>
-    <%= f.submit "入力内容確認", class: "btn btn-primary" %><br>
-    <small>
-      ※*は入力必須項目です。<br>
-    </smaill>
-  </div>
-<% end %>
+      </div>
+    </div>
 
   </div>
 </div>
