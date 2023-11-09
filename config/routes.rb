@@ -25,6 +25,15 @@ Rails.application.routes.draw do
     sessions: 'public/sessions'
   }
 
+
+  # ゲストユーザーログイン
+  devise_scope :user do
+    post 'users/guest_sign_in', to: 'public/sessions#guest_sign_in'
+  end
+    post "users/guest_sign_in", to: "users/sessions#guest_sign_in"
+
+
+
   scope module: :public do
     root 'homes#top', as: 'public_root'
 
@@ -42,20 +51,17 @@ Rails.application.routes.draw do
     post 'contacts/back', to: 'contacts#back', as: 'back'
     get 'done', to: 'contacts#done', as: 'done'
 
-
-
-
-
-
     resources :items, only: [:index, :show, :edit, :update, :create, :new] do
       resources :item_comments,only: [:create, :destroy]
       end
+
     resources :genres, only: [:index]
     resources :users, only: [:show]
 
-      resources :items do
-        resource :favorites, only: [:create, :destroy]
-      end
+    resources :items do
+      resource :favorites, only: [:create, :destroy]
+    end
+
   end
 
 

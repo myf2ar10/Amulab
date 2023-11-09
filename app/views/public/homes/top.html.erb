@@ -83,14 +83,14 @@
 <div class="container container-m">
   <div class="row">
     <div class="col-md-4  img-hidden">
-      <a href="/admin/items"><%= image_tag("slim1.jpg", alt: "card_collar1", style: "width: 100%") %></a>
+      <a href="/items"><%= image_tag("slim1.jpg", alt: "card_collar1", style: "width: 100%") %></a>
     </div>
     <div class="col-md-4  img-hidden">
-      <a href="/admin/items"><%= image_tag("slim2.jpg", alt: "card_collar1", style: "width: 100%") %></a>
+      <a href="/items"><%= image_tag("slim2.jpg", alt: "card_collar1", style: "width: 100%") %></a>
       <%#= image_tag("card_collar1.jpg", alt: "card_collar1", style: "width: 100%; height: 300px;") %>
     </div>
     <div class="col-md-4  img-hidden">
-      <a href="/admin/items"><%= image_tag("slim3.jpg", alt: "card_collar1", style: "width: 100%") %></a>
+      <a href="/items"><%= image_tag("slim3.jpg", alt: "card_collar1", style: "width: 100%") %></a>
       <%#= image_tag("card_collar3.jpg", alt: "card_collar1", style: "width: 100%; height: 300px;") %>
     </div>
   </div>
@@ -154,13 +154,11 @@
 <div class="container link_list">
   <div class="row">
 
-
-    <div class="col-md-12 link_list_body">
     <% if user_signed_in? %>
     <div class="col-md-12 link_list_title">
       <p><h3>リンク一覧（会員様用）</h5></p>
     </div>
-      <%= link_to items_path do %>
+      <%= link_to items_path do %><br>
         <i class="fas fa-mitten"></i>
         作品一覧<br>
       <% end %>

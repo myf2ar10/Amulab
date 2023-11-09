@@ -32,15 +32,15 @@
   /*  align-items: center;*/
      /*垂直方向の中央揃え */
   /*}*/
-  /*.logo {*/
-  /*  display: flex;*/
+  .logo {
+    display: flex;
   /*  max-width: 300px;*/
      /*任意の適切な幅を設定 */
   /*  flex: 1;*/
      /*ロゴが可変幅で残りのスペースを占める */
-  /*  text-align: left;*/
+    text-align: left;
      /*ロゴを左寄せに */
-  /*}*/
+  }
 
   /*.header-content {*/
   /*  display: flex;*/
@@ -170,37 +170,40 @@
     color: #696969;
   }
 
-  .pagination>.active>a
-    background: #93c9ff;
-    border-radius: 15px;
-  }
+  /*.pagination>.active>a {*/
+  /*  background: #93c9ff;*/
+  /*  border-radius: 15px;*/
+  /*}*/
 
-  .pagination>li>a:hover {
-    border-radius: 15px;
-  }
+  /*.pagination>li>a:hover {*/
+  /*  border-radius: 15px;*/
+  /*}*/
+
   .pagination {
   justify-content: center;
   }
   /*******************************************************/
   /*******************************************************/
   /*フラッシュメッセージ*/
-  .flash-message {
-    border-radius: 5px;
-    padding: 16px 24px;
-    margin: 16px 0px;
-  }
+.flash-message {
+  border-radius: 5px;
+  padding: 16px 24px;
+  margin: 16px 0px;
+  /*display: flex;*/
+  align-items: center;
+}
 
-  .flash-message.notice {
-    background-color: #bcdfff;
-    color: #0067C0;
-    border: solid 1px #0067C0;
-  }
+.flash-message.notice {
+  background-color: #bcdfff;
+  color: #0067C0;
+  border: solid 1px #0067C0;
+}
 
-  .flash-message.alert {
-    background-color: #ffd4d1;
-    color: #930403;
-    border: solid 1px #930403;
-  }
+.flash-message.alert {
+  background-color: #ffd4d1;
+  color: #930403;
+  border: solid 1px #930403;
+}
   /*******************************************************/
 
 

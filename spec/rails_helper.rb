@@ -60,4 +60,23 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+
+  config.include FactoryBot::Syntax::Methods
+
+Capybara.register_driver :selenium do |app|
+  Capybara::Selenium::Driver.new(app, browser: :chrome, options: options)
+end
+
+Capybara.server_host = '0.0.0.0'
+Capybara.server_port = 3000
+Capybara.app_host = "http://#{Capybara.server_host}:#{Capybara.server_port}"
+
+Capybara.register_driver :selenium_chrome do |app|
+  options = Selenium::WebDriver::Chrome::Options.new
+  options.binary = 'C:\Program Files\Google\Chrome\Application\chrome.exe'  # ここにChromeのバイナリのパスを指定
+  Capybara::Selenium::Driver.new(app, browser: :chrome, options: options)
+end
+
+Capybara.javascript_driver = :selenium_chrome
 end
