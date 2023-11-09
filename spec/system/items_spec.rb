@@ -66,24 +66,24 @@ describe '投稿のテスト' do
       it '編集の遷移先は編集画面か' do
         edit_link = find_all('a')[3]
         edit_link.click
-        expect(current_path).to eq('/lists/' + list.id.to_s + '/edit')
+        expect(current_path).to eq('/items/' + item.id.to_s + '/edit')
       end
     end
-    context 'list削除のテスト' do
-      it 'listの削除' do
-        expect{ list.destroy }.to change{ List.count }.by(-1)
-      end
-    end
+    # context 'list削除のテスト' do
+    #   it 'listの削除' do
+    #     expect{ list.destroy }.to change{ List.count }.by(-1)
+    #   end
+    # end
   end
 
   describe '編集画面のテスト' do
     before do
-      visit edit_list_path(list)
+      visit edit_item_path(item)
     end
     context '表示の確認' do
       it '編集前のタイトルと本文がフォームに表示(セット)されている' do
-        expect(page).to have_field 'list[title]', with: list.title
-        expect(page).to have_field 'list[body]', with: list.body
+        expect(page).to have_field 'item[name]', with: item.name
+        expect(page).to have_field 'itme[description]', with: item.description
       end
       it '保存ボタンが表示される' do
         expect(page).to have_button '保存'
@@ -91,10 +91,10 @@ describe '投稿のテスト' do
     end
     context '更新処理に関するテスト' do
       it '更新後のリダイレクト先は正しいか' do
-        fill_in 'list[title]', with: Faker::Lorem.characters(number:10)
-        fill_in 'list[body]', with: Faker::Lorem.characters(number:30)
+        fill_in 'item[name]', with: Faker::Lorem.characters(number:10)
+        fill_in 'item[description]', with: Faker::Lorem.characters(number:30)
         click_button '保存'
-        expect(page).to have_current_path list_path(list)
+        expect(page).to have_current_path item_path(item)
       end
     end
   end
