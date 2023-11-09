@@ -65,8 +65,13 @@
 
     </ul>
 
-    <form class="form-inline my-2 my-lg-0" action="<%= search_path %>" method="get">
-      <input class="form-control mr-sm-2" type="search" placeholder="マフラー" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">検索</button>
-    </form>
+    <!--<form class="form-inline my-2 my-lg-0" action="<%#= search_path %>" method="get">-->
+    <!--  <input class="form-control mr-sm-2" type="search" placeholder="マフラー" aria-label="Search">-->
+    <!--  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">検索</button>-->
+    <!--</form>-->
+
+<%= form_with url: search_path, method: :get, local: true do |f| %>
+  <%= f.search_field :content, class: "form-control mr-sm-2", placeholder: "作品名を入力してください", aria_label: "Search" %>
+  <%= f.submit "検索", class: "btn btn-outline-success my-2 my-sm-0" %>
+<% end %>
   </div>
