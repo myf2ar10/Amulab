@@ -21,5 +21,8 @@ module Amulab
 
     config.i18n.default_locale = :ja
 
+config.autoload_paths += %W(#{config.root}/app/models)
   end
+
+
 end
