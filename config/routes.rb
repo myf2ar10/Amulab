@@ -28,9 +28,9 @@ Rails.application.routes.draw do
 
   # ゲストユーザーログイン
   devise_scope :user do
-    post 'users/guest_sign_in', to: 'public/sessions#guest_sign_in'
+    post "users/guest_sign_in", to: "public/users/sessions#guest_sign_in"
   end
-    post "users/guest_sign_in", to: "users/sessions#guest_sign_in"
+
 
 
 
@@ -39,9 +39,9 @@ Rails.application.routes.draw do
 
     get 'about', to: 'homes#about', as: 'about'
     get 'privacypolicy', to: 'homes#index', as: 'privacypolicy'
-    get 'information', to: 'homes#create', as: 'information'
+    # get 'information', to: 'homes#create', as: 'information'コメントアウト
     patch 'information/:id', to: 'homes#information', as: 'information_send'
-    # get 'complition', to: 'homes#complition', as: 'complition'
+    # get 'complition', to: 'homes#complition', as: 'complition'コメントアウト
     get '/search', to: 'searches#search'
 
 
@@ -53,14 +53,15 @@ Rails.application.routes.draw do
 
     resources :items, only: [:index, :show, :edit, :update, :create, :new] do
       resources :item_comments,only: [:create, :destroy]
+      resource :favorites, only: [:create, :destroy]
       end
 
     resources :genres, only: [:index]
     resources :users, only: [:show]
 
-    resources :items do
-      resource :favorites, only: [:create, :destroy]
-    end
+    # resources :item_images, only: [:new, :create, :index, :show, :destroy] do
+    #     resource :favorites, only: [:create, :destroy]
+    # end
 
   end
 
