@@ -8,14 +8,14 @@
     <div class="col-md-5 item_show">
       <h4>作品詳細画面</h4>
       <div class="col-md-12 item_edit_form">
-          <b><%= label :画像, "画像" %></b><br>
-        <% @item.images.each_with_index do |image, index| %>
-          <%= index + 1 %><br>
-          <% if image.blob.present? %>
+        <b><%= label :画像, "画像" %></b><br>
+        <% if @item.images.attached? %>
+          <% @item.images.each_with_index do |image, index| %>
+            <%= index + 1 %><br>
             <%= image_tag image, style: "width: #{(1..4).include?(index) ? '300px' : '300px'};" %><br>
-          <% else %>
-            <%= image_tag "no_image_YEL.png", style: "width: 240px;", alt: "no_image" %><br>
           <% end %>
+        <% else %>
+          <%= image_tag "no_image_YEL.png", style: "width: 240px;", alt: "no_image" %><br>
         <% end %>
 
         <b><%= label :作品名, "作品名" %></b><br>

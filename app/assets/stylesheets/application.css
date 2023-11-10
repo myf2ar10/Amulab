@@ -155,3 +155,10 @@
     body {
       font-family: "Rounded Mplus 1c";
     }
+  .logo{
+   width: 20%;
+   margin-right: 50px;
+  }
+  .search_wrapper{
+    display: flex;
+  }
