@@ -9,6 +9,8 @@ class User < ApplicationRecord
   has_many :item_comments, dependent: :destroy
 
   validates :name, presence: true
+  validates :phone_number, presence: true
+  validates :email, presence: true
 
 
   GUEST_USER_EMAIL = "guest@example.com"
@@ -16,6 +18,7 @@ class User < ApplicationRecord
   def self.guest
     find_or_create_by!(email: GUEST_USER_EMAIL) do |user|
       user.password = SecureRandom.urlsafe_base64
+      user.phone_number = "00000000000"
       user.name = "guestuser"
     end
   end
