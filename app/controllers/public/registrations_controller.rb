@@ -15,7 +15,7 @@ class Public::RegistrationsController < Devise::RegistrationsController
       flash[:notice] = "ユーザーを作成しました。"
       redirect_to user_path(@user)  # 登録後にユーザーページにリダイレクト
     else
-      flash.now[:alert] = "ユーザーの作成に失敗しました。"
+      flash.now[:alert] = "ユーザーの作成に失敗しました。<エラーコード[11]>"
       render :new
     end
   end

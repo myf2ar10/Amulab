@@ -11,7 +11,7 @@
 
         <%= form_for @user do |f| %>
           <b><%= f.label :メールアドレス %></b><br>
-          <p><%= @user.email %><></p>
+          <p><%= @user.email %></p>
           <b><%= f.label :ニックネーム %></b><br>
           <p><%= @user.name %></p>
           <b><%= f.label :電話番号 %></b><br>
@@ -21,8 +21,8 @@
         <% end %>
         <small>
           ※誠に恐れ入りますが編集画面のご用意がございません。<br>
-          修正・削除の際は<a href="/information">お問い合わせ</a>より、<br>
-          管理者宛にご連絡いただきますようお願いします。<br>
+          　修正・削除の際は<a href="/information">お問い合わせ</a>より、<br>
+          　管理者宛にご連絡いただきますようお願いします。<br>
         </small><br>
         <%= link_to "トップ", public_root_path, class: "btn btn-primary" %>
         <%= link_to "作品一覧", items_path, class: "btn btn-primary" %>

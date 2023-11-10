@@ -19,16 +19,16 @@
             <%= image_tag "no_image_YEL.png", style: "width: 240px;", alt: "no_image", class: "item_list_back" %><br>
           <% end %>
         <% end %>
-      <%= link_to item_path(item) do %>
+        <%= link_to item_path(item) do %>
           <%= item.name %><br>
-          <% end %>
-          <%= item.genre.name %><br>
-          <%= item.created_at.strftime("%Y/%m/%d") %><br>
-          投稿者: <%= item.user.name %><br>
-        </div>
-      <% end %>
+        <% end %>
+        <%= item.genre.name %><br>
+        <%= item.created_at.strftime("%Y/%m/%d") %><br>
+        投稿者: <%= item.user.name %><br>
+      </div>
+    <% end %>
   </div>
-        <%= paginate @items %>
+  <%= paginate @items %>
 </div>
 
 <!--<h1>Public::Items#index</h1>-->

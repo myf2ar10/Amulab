@@ -1,16 +1,17 @@
 class Public::FavoritesController < ApplicationController
 
   def create
-  @item_favorite = Favorite.new(user_id: current_user.id, item_id: params[:item_id])
-  @item_favorite.save
-    render 'replace_btn'
-    # redirect_to item_path(params[:item_id])
+    @item = Item.find(params[:item_id])
+    @favorite = current_user.favorites.new(item_id: @item.id)
+    @favorite.save
+    redirect_to request.referer
   end
 
   def destroy
-    @item_favorite = Favorite.find_by(user_id: current_user.id, item_id: params[:item_id])
-    @item_favorite.destroy
-    redirect_to 'replace_btn'
+    @item = Item.find(params[:item_id])
+    @favorite = current_user.favorites.find_by(item_id: @item.id)
+    @favorite.destroy
+    redirect_to request.referer
   end
 
 end

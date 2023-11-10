@@ -9,6 +9,7 @@ class Public::ContactsController < ApplicationController
   def confirm
     @contact = Contact.new(contact_params)
     if @contact.invalid?
+      flash.now[:alert] = "入力内容に誤りがあります。修正してください。<エラーコード[1]>"
       render :new
     end
   end
@@ -40,7 +41,7 @@ class Public::ContactsController < ApplicationController
       flash[:notice] = "お問い合わせが正常に送信されました。"
       redirect_to done_path  # リダイレクト先を指定
     else
-      flash.now[:alert] = "お問い合わせの送信に失敗しました。"
+      flash.now[:alert] = "お問い合わせの送信に失敗しました。<エラーコード[2]>"
       # 情報の保存に失敗した場合の処理
       render :new  # 新規作成ページを再表示
     end

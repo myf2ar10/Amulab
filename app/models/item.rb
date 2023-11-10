@@ -3,8 +3,6 @@ class Item < ApplicationRecord
   has_many_attached :images
   validate :validate_image_count
 
-  # has_many :items, dependent: :destroy
-
   belongs_to :genre
   belongs_to :user
   has_many :favorites, dependent: :destroy
