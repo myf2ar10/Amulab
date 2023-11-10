@@ -58,26 +58,17 @@
     </div>
     <div class="col-md-12 comment_wrapper">
       <% @item.item_comments.each_with_index do |item_comment, index| %>
-        <div class="col-md-2 comment_show">
+        <div class="col-md-3 comment_show">
           <div>
             <small><b>No.<%= 1 + index %></small></b><br>
-          </div>
-          <div>
             <b>コメント：</b><br>
-          </div>
-          <div>
             <%= item_comment.comment %><br>
           </div>
-          <div>
+          <div class="aaa">
             <%#= link_to user_path(item_comment.user) do %>
-              <%= item_comment.user.name %>
+              <%= item_comment.user.name %>より<br>
             <%# end %>
-            より
-          </div>
-          <div>
             （<%= item_comment.created_at.strftime("%Y/%m/%d/%H:%M") %>）<br>
-          </div>
-          <div>
             <% if item_comment.user == current_user %>
               <%= link_to "削除", item_item_comment_path(@item, item_comment), method: :delete, class: "btn btn-danger comment_delete_button" %>
             <% end %>

@@ -151,7 +151,7 @@
   body {
     font-family: "Rounded Mplus 1c";
   }
-    
+
   .logo{
    width: 20%;
    margin-right: 20px;
@@ -168,7 +168,29 @@
 
 
 
-  .comment_wrapper {
-    display: flex;
-    flex-wrap: wrap;
-  }
+.comment_wrapper {
+  display: flex;
+  flex-wrap: wrap;
+    border: 1px solid #ccc; /* 枠線を追加 */
+  padding: 10px; /* コメントブロックの内部に余白を追加 */
+}
+
+
+.comment_show {
+  display: flex;
+  flex-direction: column;
+  position: relative; /* 相対位置指定 */
+  padding: 10px; /* コメントブロックの内部に余白を追加 */
+}
+
+.comment_show:after {
+  content: "";
+  display: block;
+  border-top: 1px solid #ccc; /* 疑似要素による横線 */
+  margin-top: 10px; /* 線とコメントブロックの間隔 */
+}
+
+.aaa {
+  margin-top: auto;
+  align-self: flex-end;
+}
