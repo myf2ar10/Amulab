@@ -11,9 +11,8 @@ class Favorite < ApplicationRecord
     end
   end
 
-
-  def favorite?(user)
-    self.user == user
+  # 特定のユーザーが特定のアイテムにいいねをしているかどうかを判定するメソッド
+  def favorite?(user, item)
+    self.user == user && self.item == item
   end
-
 end
