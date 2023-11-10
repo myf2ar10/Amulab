@@ -1,6 +1,6 @@
 class Favorite < ApplicationRecord
 
-  # belongs_to :user
+  belongs_to :user
   belongs_to :item
 
   def change
@@ -10,4 +10,10 @@ class Favorite < ApplicationRecord
       t.timestamps
     end
   end
+
+
+  def favorite?(user)
+    self.user == user
+  end
+
 end

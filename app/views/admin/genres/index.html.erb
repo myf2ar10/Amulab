@@ -24,8 +24,9 @@
         <%= link_to "編集", edit_admin_genre_path(genre), class: "btn btn-primary" %>
       </div>
     <% end %>
-
-    <%= paginate @genres %>
+    <div class="col-md-12 admin_genre">
+      <%= paginate @genres %>
+    </div>
 
   </div>
 </div>

@@ -27,6 +27,49 @@
         <%= @item.created_at.strftime("%Y/%m/%d %H:%M:%S") %><br>
         <p><b><%= label :投稿者, "投稿者" %></b><br>
         投稿者: <%= @item.user.name %><br></p>
+
+
+
+
+        <% @item.item_comments.each_with_index do |item_comment, index| %>
+          <small><b>No.<%= 1 + index %></small></b><br>
+          <%= item_comment.comment %><br>
+          <%= link_to user_path(item_comment.user) do %>
+            <%= item_comment.user.name %>
+          <% end %>
+          より （<%= item_comment.created_at.strftime("%Y/%m/%d/%H:%M") %>）<br>
+          <% if item_comment.user == current_user %>
+            <p><%= link_to "削除", item_item_comment_path(@item, item_comment), method: :delete, class: "btn btn-danger pull-right" %></p>
+          <% end %>
+        <% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <%= link_to "一覧に戻る", admin_items_path, class: "btn btn-primary" %>
       </div>
 

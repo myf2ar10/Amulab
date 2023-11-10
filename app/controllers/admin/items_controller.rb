@@ -16,7 +16,7 @@ class Admin::ItemsController < ApplicationController
 
   def authenticate_admin
     unless admin_signed_in? # 管理者としてログインしているか確認
-      redirect_to public_root_path, alert: "管理者としてログインしていません"
+      redirect_to public_root_path, alert: "管理者としてログインしていません<エラーコード[5]>"
     end
   end
 
