@@ -34,18 +34,18 @@
           <!-- ユーザーまたは管理者がログインしている場合の表示 -->
           <p><%= link_to "編集", edit_item_path(@item), class: "btn btn-primary" %>
           <%= link_to "一覧に戻る", items_path, class: "btn btn-primary" %><br></p>
-          <p><b>↓いいね・コメント機能を利用できます。</b></p>
+          <p>---------------------------------<br><b>↓いいね・コメント機能を利用できます。<br></b>---------------------------------<br></p>
                   <!-- 一致するレコードが存在する＝すでにいいね済みの場合はdestroyアクションへ -->
         <% if @item.favorited?(current_user) %>
-          いいね<br>
+          いいね：済<br>
           <%= link_to item_favorites_path(@item.id), method: :delete do %>
-            <span style="color:red;"><i class="fa-solid fa-thumbs-up fa-5x"></i>︎</span><br>
+            <i class="fa-solid fa-thumbs-up fa-5x" style="color: #052D37;"></i><br>
           <% end %>
           <!--一致するレコードが存在しない＝まだいいねしていない場合はcreateアクションへ-->
         <% else %>
-          いいね<br>
+          いいね：未<br>
           <%= link_to item_favorites_path(@item.id), method: :post do %>
-            <span><i class="fa-solid fa-thumbs-up fa-5x"></i>︎</span><br>
+            <i class="fa-regular fa-thumbs-up fa-beat fa-5x" style="color: #052D37;"></i><br>
           <% end %>
         <% end %>
 
@@ -54,32 +54,45 @@
           <%= f.text_area :comment, rows:'5',placeholder: "例）とてもすてきな作品ですね。", class: "w-100" %>
           <p><%= f.submit "送信", class: "btn btn-primary" %></p>
         <% end %>
-        <% @item.item_comments.each_with_index do |item_comment, index| %>
-          <small><b>No.<%= 1 + index %></small></b><br>
-          <%= item_comment.comment %><br>
-          <%= link_to user_path(item_comment.user) do %>
-            <%= item_comment.user.name %>
-          <% end %>
-          より （<%= item_comment.created_at.strftime("%Y/%m/%d/%H:%M") %>）<br>
-          <% if item_comment.user == current_user %>
-            <p><%= link_to "削除", item_item_comment_path(@item, item_comment), method: :delete, class: "btn btn-danger pull-right" %></p>
-          <% end %>
-        <% end %>
-        <% else %>
-          <!-- ユーザーまたは管理者がログインしていない場合の表示 -->
-          <p><b>いいね・コメント機能をご利用いただくには、<br>
-          <%= link_to "こちら", new_user_registration_path, class: "underline" %>から新規登録を行なってください。</p>
-          <p>会員登録済みの方は、<br>
-          <%= link_to "こちら", new_user_session_path, class: "underline" %>からログインできます。</b></p>
-          <p><%= link_to "一覧に戻る", items_path, class: "btn btn-primary" %></p>
-        <% end %>
-
-
-
-
-
       </div>
+    </div>
+    <div class="col-md-12 comment_wrapper">
+      <% @item.item_comments.each_with_index do |item_comment, index| %>
+        <div class="col-md-2 comment_show">
+          <div>
+            <small><b>No.<%= 1 + index %></small></b><br>
+          </div>
+          <div>
+            <b>コメント：</b><br>
+          </div>
+          <div>
+            <%= item_comment.comment %><br>
+          </div>
+          <div>
+            <%#= link_to user_path(item_comment.user) do %>
+              <%= item_comment.user.name %>
+            <%# end %>
+            より
+          </div>
+          <div>
+            （<%= item_comment.created_at.strftime("%Y/%m/%d/%H:%M") %>）<br>
+          </div>
+          <div>
+            <% if item_comment.user == current_user %>
+              <%= link_to "削除", item_item_comment_path(@item, item_comment), method: :delete, class: "btn btn-danger comment_delete_button" %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
 
+      <% else %>
+        <!-- ユーザーまたは管理者がログインしていない場合の表示 -->
+        <p><b>いいね・コメント機能をご利用いただくには、<br>
+        <%= link_to "こちら", new_user_registration_path, class: "underline" %>から新規登録を行なってください。</p>
+        <p>会員登録済みの方は、<br>
+        <%= link_to "こちら", new_user_session_path, class: "underline" %>からログインできます。</b></p>
+        <p><%= link_to "一覧に戻る", items_path, class: "btn btn-primary" %></p>
+      <% end %>
     </div>
 
   </div>

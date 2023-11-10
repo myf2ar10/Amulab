@@ -128,37 +128,47 @@
 }
 
 
-    footer{
-    width: 100%;
-     /*横幅を100%に設定 */
-    height: 80px;
-     /*フッターの高さを設定 */
-    background-color: #B8C8CC;
-    color: #052D37;
-    text-align: center;
-    /*padding: 5px 0;*/
-    position: fixed;
-     /*フッターを固定位置に設定 */
-    z-index: 1000;
-     /*必要に応じて他の要素より手前に表示 */
-    bottom: 0
+  footer{
+  width: 100%;
+   /*横幅を100%に設定 */
+  height: 80px;
+   /*フッターの高さを設定 */
+  background-color: #B8C8CC;
+  color: #052D37;
+  text-align: center;
+  /*padding: 5px 0;*/
+  position: fixed;
+   /*フッターを固定位置に設定 */
+  z-index: 1000;
+   /*必要に応じて他の要素より手前に表示 */
+  bottom: 0
   }
 
-    main {
-    /*padding: 10px 0;*/
-    /*margin-top: 130px;*/
-     /*メインコンテンツをヘッダーの下に配置するためのマージン設定*/
-    margin-bottom: 100px;
-     /*フッターの高さと同じマージンを設定*/
+  main {
+  margin-bottom: 100px;
+   /*フッターの高さと同じマージンを設定*/
   }
-
-    body {
-      font-family: "Rounded Mplus 1c";
-    }
+  body {
+    font-family: "Rounded Mplus 1c";
+  }
+    
   .logo{
    width: 20%;
-   margin-right: 50px;
+   margin-right: 20px;
+   margin-left: 30px;
   }
+
+
+
   .search_wrapper{
     display: flex;
+    margin-right: 30px;
+  }
+
+
+
+
+  .comment_wrapper {
+    display: flex;
+    flex-wrap: wrap;
   }
