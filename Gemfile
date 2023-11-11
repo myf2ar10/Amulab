@@ -71,14 +71,9 @@ gem 'devise'
 gem "enum_help"
 gem 'kaminari','~> 1.2.1'
 gem 'image_processing', '~>1.2'
-# gem 'faker'# seed用
 gem 'faker-japanese'# seed用
 gem 'gimei'# seed用
 
 gem "dotenv-rails"# お問い合わせメール用
-
-# gem 'rspec-rails'
-
-# gem 'factory_bot_rails'
 
 gem 'net-smtp'
