@@ -41,5 +41,5 @@
 yarn-debug.log*
 .yarn-integrity
 
-/.env
+; /.env
 my_memo.md
