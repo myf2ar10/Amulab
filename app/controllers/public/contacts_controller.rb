@@ -6,13 +6,13 @@ class Public::ContactsController < ApplicationController
   # 確認画面を作成する場合
   # newアクションから入力内容を受け取り、
   # 送信ボタンを押されたらcreateアクションを実行します。
-  def confirm
-    @contact = Contact.new(contact_params)
-    if @contact.invalid?
-      flash.now[:alert] = "入力内容に誤りがあります。修正してください。<エラーコード[1]>"
-      render :new
-    end
+def confirm
+  @contact = Contact.new(contact_params)
+  if @contact.invalid?
+    flash.now[:alert] = "入力内容に誤りがあります。修正してください。<エラーコード[1]>"
+    render :new
   end
+end
 
   # 入力内容に誤りがあった場合、
   # 入力内容を保持したまま前のページに戻る
@@ -50,13 +50,8 @@ class Public::ContactsController < ApplicationController
   private
 
   def contact_params
-    params.require(:contact)
-          .permit(:email,
-                  :name,
-                  :phone_number,
-                  # :subject,
-                  :message
-                 )
+    params.require(:contact).permit(:name, :email, :phone_number, :message)
+          # ,:subject
   end
 
 end
