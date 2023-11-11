@@ -1,5 +1,5 @@
 <div>
-  <i class="fa-solid fa-thumbs-up"></i>ようこそ、<%= current_user.name %>さん
+  <i class="fa-solid fa-door-open fa-xl"></i>ようこそ、<b><%= current_user.name %></b>さん
 </div>
 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
   <span class="navbar-toggler-icon"></span>
@@ -10,7 +10,7 @@
 
     <li class="nav-item active">
       <a class="nav-link" href="<%= items_path %>">
-        <i class="fas fa-mitten"></i>  <!--<i class="fa-solid fa-mitten fa-bounce"></i>  -->
+        <i class="fas fa-mitten fa-xl"></i>  <!--<i class="fa-solid fa-mitten fa-bounce"></i>  -->
         作品一覧
         <!--<span class="sr-only">(current)</span>-->
       </a>
@@ -18,7 +18,7 @@
 
     <li class="nav-item active">
       <a class="nav-link" href="<%= new_item_path %>">
-        <i class="fa-solid fa-image"></i>  <!--<i class="fa-solid fa-image fa-bounce"></i>-->
+        <i class="fa-solid fa-image fa-xl"></i>  <!--<i class="fa-solid fa-image fa-bounce"></i>-->
         新規作品登録
         <span class="sr-only">(current)</span>
       </a>
@@ -26,7 +26,7 @@
 
     <li class="nav-item active">
       <a class="nav-link" href="<%= user_path(current_user) %>">
-        <i class="fa-solid fa-user"></i>  <!--<i class="fa-solid fa-user fa-bounce"></i>-->
+        <i class="fa-solid fa-user fa-xl"></i>  <!--<i class="fa-solid fa-user fa-bounce"></i>-->
         マイページ
         <!--<span class="sr-only">(current)</span>-->
       </a>
@@ -34,7 +34,7 @@
 
     <li class="nav-item active">
       <a class="nav-link" href="<%= destroy_user_session_path %>" data-method="delete">
-        <i class="fa-solid fa-right-from-bracket"></i>  <!--<i class="fa-solid fa-right-from-bracket fa-bounce"></i>-->
+        <i class="fa-solid fa-right-from-bracket fa-xl"></i>  <!--<i class="fa-solid fa-right-from-bracket fa-bounce"></i>-->
         ログアウト
       </a>
     </li>
@@ -43,43 +43,46 @@
       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         その他
       </a>
+
       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
+        <a class="dropdown-item" href="<%= search_path %>">
+          <i class="fa-solid fa-magnifying-glass fa-xl"></i>
+          検索
+        </a>
+
         <a class="dropdown-item" href="<%= genres_path %>">
-          <i class="fa-solid fa-paw"></i>
+          <i class="fa-solid fa-paw fa-xl"></i>
           ジャンル一覧
         </a>
 
         <div class="dropdown-divider"></div>
         <a class="dropdown-item" href="<%= privacypolicy_path %>">
-          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star fa-xl"></i>
           プライバシーポリシー
         </a>
 
         <a class="dropdown-item" href="<%= new_contact_path %>">
-          <i class="fas fa-mitten"></i>
+          <i class="fas fa-mitten fa-xl"></i>
           お問い合わせ
         </a>
 
         <a class="dropdown-item" href="<%= about_path %>">
-          <i class="fa-solid fa-paw"></i>
+          <i class="fa-solid fa-paw fa-xl"></i>
           当サイトについて
         </a>
 
       </div>
     </li>
 
-    <!--<li class="nav-item active">-->
-      <!--<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">作品検索</a>-->
-    <!--</li>-->
-
   </ul>
 
-    <%= form_with url: search_path, method: :get, local: true do |f| %>
-      <div class="search_wrapper">
-        <%= f.search_field :content, class: "form-control mr-1", placeholder: "例）座布団", aria_label: "Search" %>
-        <%= f.submit "検索", class: "btn btn-primary" %>
-</div>
-    <% end %>
+  <%= form_with url: search_path, method: :get, local: true do |f| %>
+    <div class="search_wrapper">
+      <%= f.search_field :content, class: "form-control mr-1", placeholder: "例）座布団", aria_label: "Search" %>
+      <%= f.submit "検索", class: "btn btn-primary" %>
+    </div>
+  <% end %>
 
   </div>
+</div>

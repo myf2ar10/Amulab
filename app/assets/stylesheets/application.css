@@ -14,10 +14,6 @@
  *= require_self
  */
 
-  /*.search {*/
-  /*  text-align: center;*/
-  /*}*/
-
   /*******************************************************/
   /*kaminariレイアウト変更*/
   .pagination>li>a {
@@ -53,7 +49,7 @@
 
 
   /*******************************************************/
-  /*書き直し*/
+  /*view*/
   .card_title_underline{
     color: #052D37;
   }
@@ -105,6 +101,7 @@
     background-size: cover; /* 画像を要素に合わせて調整 */
     background-repeat: no-repeat; /* 繰り返しを無効にする */
   }
+
   .genre_list_back{
     background-image: url('blue_round.png');
     background-size: cover; /* 画像を要素に合わせて調整 */
@@ -116,6 +113,7 @@
     background-size: cover; /* 画像を要素に合わせて調整 */
     background-repeat: no-repeat; /* 繰り返しを無効にする */
   }
+
   .item_list_back{
     background-image: url('yellow_round.png');
     background-size: cover; /* 画像を要素に合わせて調整 */
@@ -125,7 +123,7 @@
   a:hover {
   opacity: 0.5;
   transition: 0.3s;
-}
+  }
 
 
   footer{
@@ -171,7 +169,7 @@
 .comment_wrapper {
   display: flex;
   flex-wrap: wrap;
-    border: 1px solid #ccc; /* 枠線を追加 */
+  border: 1px solid #ccc; /* 枠線を追加 */
   padding: 10px; /* コメントブロックの内部に余白を追加 */
 }
 
@@ -181,16 +179,20 @@
   flex-direction: column;
   position: relative; /* 相対位置指定 */
   padding: 10px; /* コメントブロックの内部に余白を追加 */
+  word-break: break-all; /* 半角英字でも折り返し */
 }
 
 .comment_show:after {
   content: "";
   display: block;
-  border-top: 1px solid #ccc; /* 疑似要素による横線 */
-  margin-top: 10px; /* 線とコメントブロックの間隔 */
+  border-top: 2px solid #ccc;
+  /* 疑似要素による横線 */
+  margin-top: 10px;
+  /* 線とコメントブロックの間隔 */
 }
 
-.aaa {
+.write_user {
+  border-top: 1px solid #ccc; /* 疑似要素による横線 */
   margin-top: auto;
-  align-self: flex-end;
+  align-self: flex-start; /* 左側に配置 */
 }

@@ -7,7 +7,7 @@
 
     <li class="nav-item active">
       <a class="nav-link" href="<%= items_path %>">
-        <i class="fa-solid fa-mitten fa-bounce"></i>  <!--<i class="fas fa-mitten"></i>-->
+        <i class="fa-solid fa-mitten fa-bounce fa-xl"></i>  <!--<i class="fas fa-mitten"></i>-->
         作品一覧
         <!--<span class="sr-only">(current)</span>-->
       </a>
@@ -15,7 +15,7 @@
 
     <li class="nav-item active">
       <a class="nav-link" href="<%= new_user_session_path %>">
-        <i class="fa-solid fa-right-to-bracket fa-bounce"></i>  <!--<i class="fa-solid fa-right-to-bracket"></i>-->
+        <i class="fa-solid fa-right-to-bracket fa-bounce fa-xl"></i>  <!--<i class="fa-solid fa-right-to-bracket"></i>-->
         ログイン
         <span class="sr-only">(current)</span>
       </a>
@@ -23,7 +23,7 @@
 
     <li class="nav-item active">
       <a class="nav-link" href="<%= new_user_registration_path %>">
-        <i class="fa-solid fa-address-card fa-bounce"></i>  <!--<i class="fa-solid fa-address-card"></i>-->
+        <i class="fa-solid fa-address-card fa-bounce fa-xl"></i>  <!--<i class="fa-solid fa-address-card"></i>-->
         新規会員登録
         <!--<span class="sr-only">(current)</span>-->
       </a>
@@ -35,44 +35,42 @@
       </a>
       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
+        <a class="dropdown-item" href="<%= search_path %>">
+          <i class="fa-solid fa-magnifying-glass fa-xl fa-xl"></i>
+          検索
+        </a>
+
         <a class="dropdown-item" href="<%= genres_path %>">
-          <i class="fa-solid fa-paw"></i>
+          <i class="fa-solid fa-paw fa-xl"></i>
           ジャンル一覧
         </a>
 
         <div class="dropdown-divider"></div>
         <a class="dropdown-item" href="<%= privacypolicy_path %>">
-          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star fa-xl"></i>
           プライバシーポリシー
         </a>
 
         <a class="dropdown-item" href="<%= new_contact_path %>">
-          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star fa-xl"></i>
           お問い合わせ
         </a>
 
         <a class="dropdown-item" href="<%= about_path %>">
-          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star fa-xl"></i>
           当サイトについて
         </a>
 
       </div>
     </li>
 
-    <!--<li class="nav-item active">-->
-      <!--<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">作品検索</a>-->
-    <!--</li>-->
-
   </ul>
 
-  <!--<form class="form-inline my-2 my-lg-0" action="<%#= search_path %>" method="get">-->
-  <!--  <input class="form-control mr-sm-2" type="search" placeholder="マフラー" aria-label="Search">-->
-  <!--  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">検索</button>-->
-  <!--</form>-->
-
   <%= form_with url: search_path, method: :get, local: true do |f| %>
-    <%= f.search_field :content, class: "form-control mr-sm-2", placeholder: "例）座布団", aria_label: "Search" %>
-    <%= f.submit "検索", class: "btn btn-primary my-2 my-sm-1" %>
+    <div class="search_wrapper">
+      <%= f.search_field :content, class: "form-control mr-1", placeholder: "例）座布団", aria_label: "Search" %>
+      <%= f.submit "検索", class: "btn btn-primary" %>
+    </div>
   <% end %>
 
 </div>
