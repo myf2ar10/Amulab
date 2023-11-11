@@ -92,9 +92,9 @@
     display: flex;
   }
 
-  .add_genre{
-    text-align: center;
-  }
+  /*.add_genre{*/
+  /*  text-align: center;*/
+  /*}*/
 
   .top_item_back{
     background-image: url('pink_round.png');

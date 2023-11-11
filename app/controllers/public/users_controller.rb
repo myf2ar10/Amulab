@@ -11,8 +11,6 @@ class Public::UsersController < ApplicationController
     @user = current_user
   end
 
-  def user_params
-    params.require(:user).permit(:email, :name, :phone_number, :password, :password_confirmation)
-  end
+
 
 end
