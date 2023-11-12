@@ -33,6 +33,21 @@ class Admin::UsersController < ApplicationController
     end
   end
 
+
+# 利用停止
+  def suspend
+    @user = User.find(params[:id])
+    @user.update(status: 'suspended')
+    redirect_to admin_user_path, notice: 'ユーザーアカウントを一時停止しました。'
+  end
+
+# 利用再開
+  def unsuspend
+    @user = User.find(params[:id])
+    @user.update(status: 'active')
+    redirect_to admin_user_path, notice: 'ユーザーアカウントの一時停止を解除しました。'
+  end
+
   def user_params
     params.require(:user).permit(:email, :name, :phone_number, :password, :password_confirmation)
 
