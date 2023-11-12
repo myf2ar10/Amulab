@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     get 'top' => 'homes#top', as: 'admin_top'
     resources :items, except: [:destroy]
     resources :genres, only: [:index, :create, :edit, :update]
-    resources :users, only: [:index, :show, :edit, :update]
+    resources :users, only: [:index, :show, :edit, :update, :destroy]
   end
 
   # 顧客用

@@ -5,27 +5,12 @@ class Public::ItemsController < ApplicationController
   end
 
   def show
-  @item = Item.find(params[:id])
-  @item_comment = ItemComment.new
+    @item = Item.find(params[:id])
+    @item_comment = ItemComment.new
 
-  # @item_favorite を初期化
-  @item_favorite = Favorite.find_or_initialize_by(item: @item, user: current_user)
+    # @item_favorite を初期化
+    @item_favorite = Favorite.find_or_initialize_by(item: @item, user: current_user)
 
-  # if @item_favorite.favorited?(current_user, @item)
-  #   # すでにいいね済みの場合のコード
-    # flash.now[:notice] = "このアイテムはいいねされています。"
-  # # else
-  # #   # いいねしていない場合のコード
-  # #   flash.now[:notice] = "このアイテムはいいねされていません。"
-  # end
-  # if @favorite
-  #   @favorite.destroy
-  #   flash[:notice] = "いいねを取り消しました。"
-  # else
-  #   flash[:alert] = "いいねが見つかりませんでした。"
-  # end
-
-  # redirect_to request.referer
   end
 
   def edit

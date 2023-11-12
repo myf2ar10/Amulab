@@ -13,6 +13,7 @@
           <b><%= user.name %></b><br>
         <% end %>
         <p><%= user.phone_number %></p>
+        <%= link_to '退会させる', admin_user_path(user), method: :delete, data: { confirm: '本当に退会させますか？' }, class: 'btn btn-primary' %>
       </div>
     <% end %>
 
