@@ -48,8 +48,7 @@
             <i class="fa-regular fa-thumbs-up fa-beat fa-5x" style="color: #052D37;"></i><br>
           <% end %>
         <% end %>
-
-        コメント欄
+        <p>---------------------------------<br><b>↓コメント入力欄<small>※200文字以内</small><br></b>---------------------------------<br></p>
         <%= form_with(model:[@item, @item_comment], local: true) do |f| %>
           <%= f.text_area :comment, rows:'5',placeholder: "例）とてもすてきな作品ですね。", class: "w-100" %>
           <p><%= f.submit "送信", class: "btn btn-primary" %></p>
@@ -57,24 +56,27 @@
       </div>
     </div>
     <div class="col-md-12 comment_wrapper">
-      <% @item.item_comments.each_with_index do |item_comment, index| %>
-        <div class="col-md-3 comment_show">
-          <div>
-            <small><b>No.<%= 1 + index %></small></b><br>
-            <b>コメント：</b><br>
-            <%= item_comment.comment %><br>
+      <div class="col-md-12">
+        <p>---------------------------------<br><b>↓コメント一覧<br></b>---------------------------------<br></p>
+      </div>
+        <% @item.item_comments.each_with_index do |item_comment, index| %>
+          <div class="col-md-3 comment_show">
+            <div>
+              <small><b>No.<%= 1 + index %></small></b><br>
+              <b>コメント：</b><br>
+              <%= item_comment.comment %><br>
+            </div>
+            <div class="write_user">
+              <%#= link_to user_path(item_comment.user) do %>
+                <%= item_comment.user.name %>より<br>
+              <%# end %>
+              （<%= item_comment.created_at.strftime("%Y/%m/%d/%H:%M") %>）<br>
+              <% if item_comment.user == current_user %>
+                <%= link_to "削除", item_item_comment_path(@item, item_comment), method: :delete, class: "btn btn-danger comment_delete_button" %>
+              <% end %>
+            </div>
           </div>
-          <div class="write_user">
-            <%#= link_to user_path(item_comment.user) do %>
-              <%= item_comment.user.name %>より<br>
-            <%# end %>
-            （<%= item_comment.created_at.strftime("%Y/%m/%d/%H:%M") %>）<br>
-            <% if item_comment.user == current_user %>
-              <%= link_to "削除", item_item_comment_path(@item, item_comment), method: :delete, class: "btn btn-danger comment_delete_button" %>
-            <% end %>
-          </div>
-        </div>
-      <% end %>
+        <% end %>
 
       <% else %>
         <!-- ユーザーまたは管理者がログインしていない場合の表示 -->

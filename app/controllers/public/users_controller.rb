@@ -3,6 +3,8 @@ class Public::UsersController < ApplicationController
   before_action :set_current_user
 
   def show
+    @favorited_items = current_user.favorited_items
+    @item_commented_items = @user.item_commented_items
   end
 
   private

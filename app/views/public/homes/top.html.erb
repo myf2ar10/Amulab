@@ -5,40 +5,6 @@
 
 <%= image_tag("slim.jpg", class: "img-fluid", alt: "top") %><!--2top---.jpg-->
 
-<div class="container container-m">
-  <div class="card-deck">
-
-    <div class="card">
-      <!--<img class="card-img-top" src="card_knit1.jpg" width="100" height="200" alt="Card image cap">-->
-      <%#= link_to(image_tag("card_knit1.jpg", alt: "card_knit1", style: "margin: 0; padding: 0;"), items_path) %>
-      <%= image_tag("card_knit1.jpg", alt: "card_knit1") %>
-      <div class="card-body">
-        <h5 class="card-title"><%= link_to "作品一覧", items_path, class: "card_title_underline" %></h5>
-        <p class="card-text"><%= link_to "このページ", items_path, class: "underline" %>では会員が投稿した作品を一覧で見ることができます。最新の投稿順に並んでいます。会員登録をしないと投稿はできませんが、閲覧のみであれば非会員でも可能です。</p>
-        <p class="card-text"><small class="text-muted">Function added on November 1, 2023</small></p>
-      </div>
-    </div>
-    <div class="card">
-      <%= image_tag("card_knit2.jpg", alt: "card_knit2") %>
-      <%#= link_to(image_tag("card_knit2.jpg", alt: "card_knit1"), new_user_registration_path) %>
-      <div class="card-body">
-        <h5 class="card-title"><%= link_to "新規会員登録", new_user_registration_path, class: "card_title_underline" %></h5>
-        <p class="card-text">会員登録をご希望の際は<%= link_to "こちら", new_user_registration_path, class: "underline" %>からご登録ください。<br><br><br><br></p>
-        <p class="card-text"><small class="text-muted">Function added on November 1, 2023</small></p>
-      </div>
-    </div>
-    <div class="card">
-      <%= image_tag("card_knit3.jpg", alt: "card_knit3") %>
-      <div class="card-body">
-        <h5 class="card-title"><%= link_to "当サイトについて", about_path, class: "card_title_underline" %></h5>
-        <p class="card-text">リリース予定機能を時系列にて記載しています。お知らせも<%= link_to "こちら", about_path, class: "underline" %>で行いますので気になる方はアクセスください。<br><br><br></p>
-        <p class="card-text"><small class="text-muted">Function added on November 1, 2023</small></p>
-      </div>
-    </div>
-
-  </div>
-</div>
-
 <div class="container">
   <div class="row">
 
@@ -79,6 +45,40 @@
 
   </div>
 </div>
+<div class="container container-m">
+  <div class="card-deck">
+
+    <div class="card">
+      <!--<img class="card-img-top" src="card_knit1.jpg" width="100" height="200" alt="Card image cap">-->
+      <%#= link_to(image_tag("card_knit1.jpg", alt: "card_knit1", style: "margin: 0; padding: 0;"), items_path) %>
+      <%= image_tag("card_knit1.jpg", alt: "card_knit1") %>
+      <div class="card-body">
+        <h5 class="card-title"><%= link_to "作品一覧", items_path, class: "card_title_underline" %></h5>
+        <p class="card-text"><%= link_to "このページ", items_path, class: "underline" %>では会員が投稿した作品を一覧で見ることができます。最新の投稿順に並んでいます。会員登録をしないと投稿はできませんが、閲覧のみであれば非会員でも可能です。</p>
+        <p class="card-text"><small class="text-muted">Function added on November 1, 2023</small></p>
+      </div>
+    </div>
+    <div class="card">
+      <%= image_tag("card_knit2.jpg", alt: "card_knit2") %>
+      <%#= link_to(image_tag("card_knit2.jpg", alt: "card_knit1"), new_user_registration_path) %>
+      <div class="card-body">
+        <h5 class="card-title"><%= link_to "新規会員登録", new_user_registration_path, class: "card_title_underline" %></h5>
+        <p class="card-text">会員登録をご希望の際は<%= link_to "こちら", new_user_registration_path, class: "underline" %>からご登録ください。<br><br><br><br></p>
+        <p class="card-text"><small class="text-muted">Function added on November 1, 2023</small></p>
+      </div>
+    </div>
+    <div class="card">
+      <%= image_tag("card_knit3.jpg", alt: "card_knit3") %>
+      <div class="card-body">
+        <h5 class="card-title"><%= link_to "当サイトについて", about_path, class: "card_title_underline" %></h5>
+        <p class="card-text">リリース予定機能を時系列にて記載しています。お知らせも<%= link_to "こちら", about_path, class: "underline" %>で行いますので気になる方はアクセスください。<br><br><br></p>
+        <p class="card-text"><small class="text-muted">Function added on November 1, 2023</small></p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
 
 <div class="container container-m">
   <div class="row">
@@ -157,7 +157,6 @@
     <% if user_signed_in? %>
     <div class="col-md-12 link_list_title">
       <p><h3>リンク一覧（会員様用）</h5></p>
-    </div>
       <%= link_to items_path do %>
         <i class="fas fa-mitten"></i>
         作品一覧<br>
@@ -193,13 +192,13 @@
       <%= link_to about_path do %>
         <i class="fa-solid fa-star"></i>
         当サイトについて<br>
+        </div>
       <% end %>
 
 
     <% elsif admin_signed_in? %>
     <div class="col-md-12 link_list_title">
       <p><h3>リンク一覧（管理者用）</h5></p>
-    </div>
       <%= link_to admin_genres_path do %>
         <i class="fa-solid fa-paw"></i>
         ジャンル一覧<br>
@@ -215,13 +214,13 @@
       <%= link_to destroy_admin_session_path, method: :delete do %>
         <i class="fa-solid fa-right-from-bracket"></i>
         ログアウト<br>
+      </div>
       <% end %>
 
 
       <% else %>
     <div class="col-md-12 link_list_title">
       <p><h3>リンク一覧（閲覧者様用）</h5></p>
-    </div>
       <%= link_to items_path do %>
         <i class="fas fa-mitten"></i>
         作品一覧<br>
@@ -251,6 +250,7 @@
         当サイトについて<br>
       <% end %>
     <% end %>
+        </div>
     </div>
 
   </div>
@@ -289,12 +289,15 @@
     <%= image_tag("slide5", alt: "23", width: "100%", class: "slide") %>
     <%= image_tag("slide6", alt: "24", width: "100%", class: "slide") %>
   </div>
+  <div class="slide-wrapper">
+    <%= image_tag("slide1", alt: "25", width: "100%", class: "slide") %>
+    <%= image_tag("slide2", alt: "26", width: "100%", class: "slide") %>
+    <%= image_tag("slide3", alt: "27", width: "100%", class: "slide") %>
+    <%= image_tag("slide4", alt: "28", width: "100%", class: "slide") %>
+    <%= image_tag("slide5", alt: "29", width: "100%", class: "slide") %>
+    <%= image_tag("slide6", alt: "30", width: "100%", class: "slide") %>
+  </div>
 </div>
-<!--<img class="slide" src="knitting is healing1" alt="京都">-->
-      <!--<img class="slide" src="knitting is healing_BLU" alt="横浜">-->
-      <!--<img class="slide" src="knitting is healing1" alt="良い街">-->
-
-
 
 <!--<h1>Public::Homes#top</h1>-->
 <!--<p>Find me in app/views/public/homes/top.html.erb</p>-->
