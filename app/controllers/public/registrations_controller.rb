@@ -15,11 +15,16 @@ class Public::RegistrationsController < Devise::RegistrationsController
       flash[:notice] = "ユーザーを作成しました。"
       redirect_to user_path(@user)  # 登録後にユーザーページにリダイレクト
     else
-      flash.now[:alert] = "ユーザーの作成に失敗しました。<エラーコード[11]>"
+      flash.now[:alert] = "ユーザーの作成に失敗しました。<エラーコード[15]>"
       render :new
     end
   end
 
+  def user_params
+    params.require(:user).permit(:email, :name, :phone_number, :password, :password_confirmation)
+  end
+
+end
   # GET /resource/sign_up
   # def new
   #   super
@@ -75,9 +80,3 @@ class Public::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
-
-  def user_params
-    params.require(:user).permit(:email, :name, :phone_number, :password, :password_confirmation)
-  end
-
-end

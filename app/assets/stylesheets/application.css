@@ -92,9 +92,9 @@
     display: flex;
   }
 
-  .add_genre{
-    text-align: center;
-  }
+  /*.add_genre{*/
+  /*  text-align: center;*/
+  /*}*/
 
   .top_item_back{
     background-image: url('pink_round.png');
@@ -196,3 +196,32 @@
   margin-top: auto;
   align-self: flex-start; /* 左側に配置 */
 }
+
+
+
+
+
+
+/*******************************************************/
+/*画像のスライド*/
+
+.slide-container {
+    width: 100%;
+    margin: 50px auto;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+.slide-wrapper {
+  display: flex;
+  animation: slide-flow 20s infinite linear 1s both;
+}
+.slide{
+  width: 100px;
+  object-fit:cover;
+}
+@keyframes slide-flow {
+     0% {transform: translateX(0);}
+ 100% {transform: translateX(-100%);}
+}
+/*******************************************************/

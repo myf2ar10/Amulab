@@ -14,6 +14,7 @@ ja: # 日本語の設定を行う
         # email: Eメール
         email: メールアドレス
         name: ニックネーム
+        phone_number: 電話番号
         #
 
         encrypted_password: 暗号化パスワード
@@ -156,4 +157,5 @@ ja: # 日本語の設定を行う
       not_locked: はロックされていません。
       not_saved:
         one: エラーが発生したため %{resource} は保存されませんでした。
-        other: "%{count} 件のエラーが発生したため %{resource} は保存されませんでした。"
+        # other: "%{count} 件のエラーが発生したため %{resource} は保存されませんでした。"アプリケーションに合わせた定義に変更
+        other: "%{count} 件のエラーが発生したため 会員 は保存されませんでした。"
