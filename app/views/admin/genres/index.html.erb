@@ -7,9 +7,9 @@
 
     <div class="col-md-12 add_genre">
       <%= form_with model: @genre, url: admin_genres_path, method: :post do |f| %>
-        <br><p><%= f.label :name, "ジャンル名:" %>
+        <%= f.label :name, "ジャンル名:" %>
         <%= f.text_field :name %>
-        <%= f.submit "登録", class: "btn btn-primary ml2" %><br></p>
+        <%= f.submit "登録", class: "btn btn-primary ml2" %>
       <% end %>
     </div>
 

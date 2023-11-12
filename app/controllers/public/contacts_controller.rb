@@ -4,8 +4,7 @@ class Public::ContactsController < ApplicationController
     @contact = Contact.new
   end
   # 確認画面を作成する場合
-  # newアクションから入力内容を受け取り、
-  # 送信ボタンを押されたらcreateアクションを実行します。
+  # newアクションから入力内容を受け取り、送信ボタンを押されたらcreateアクションを実行
 def confirm
   @contact = Contact.new(contact_params)
   if @contact.invalid?
@@ -14,16 +13,14 @@ def confirm
   end
 end
 
-  # 入力内容に誤りがあった場合、
-  # 入力内容を保持したまま前のページに戻る
-  # backアクションを定義することで可能
+  # 入力内容に誤りがあった場合
+  # 入力内容を保持したまま前のページに戻るbackアクションを定義することで可能
   def back
     @contact = Contact.new(contact_params)
     render :new
   end
   # 実際に送信するアクション
-  # ここで初めて入力内容を保存
-  # セキュリティーのためにも一定時間で入力内容の削除？
+  # ここで入力内容を保存。セキュリティーのためにも一定時間で入力内容を削除するか
   def create
     @contact = Contact.new(contact_params)
     if @contact.save

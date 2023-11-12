@@ -2,6 +2,7 @@ class Public::SearchesController < ApplicationController
   def search
     @content = params[:content] || ''
     if @content == ''
+      # flash.now[:alert] = "検索キーワードを入力してください。<エラーコード[14]>"
       @records = []
     else
       @records = Item.search_for(@content)
@@ -13,8 +14,7 @@ class Public::SearchesController < ApplicationController
   private
 
   def calculate_all_records_count
-    # ここに全てのレコード数を計算するロジックを実装
-    # 例: モデル名.count などを使用して全てのレコード数を取得
+    # 全てのレコード数を計算するロジックを実装
     Item.count
   end
 
