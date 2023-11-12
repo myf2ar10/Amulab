@@ -1,7 +1,7 @@
 class Public::ItemsController < ApplicationController
   before_action :is_matching_login_user, only: [:edit, :update], unless: :current_admin
   def index
-    @items = Item.order(created_at: :desc).page(params[:page])    # ページネーションdesc => 大きい順asc  => 小さい順
+    @items = Item.order(created_at: :desc).page(params[:page])    # ページネーション desc => 大きい順 asc  => 小さい順
   end
 
   def show
@@ -65,19 +65,6 @@ class Public::ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:name, :description, :genre_id, images: [])
   end
-
-#   def is_matching_login_user
-#     if current_user.nil?
-#       redirect_to new_user_session_path, alert: "ログインしてください<エラーコード[9]>"
-#     else
-#       @item = Item.find(params[:id])  # 編集対象のアイテムを特定
-#       if @item.user_id != current_user.id
-#         redirect_to items_path, alert: "他のユーザーの編集は許可されていません<エラーコード[10]>"
-#       end
-#     end
-#   end
-
-# end
 
   def is_matching_login_user
     @item = Item.find(params[:id])
