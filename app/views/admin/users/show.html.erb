@@ -28,10 +28,16 @@
       </div>
 
     </div>
-
+    <div>
+    <%= @user.name %> さんが投稿した作品<br>
+      <% @user_items.each do |item| %>
+        <%= link_to admin_item_path(item) do %>
+          <li><%= item.name %></li>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
-
 
 <!--<h1>Admin::Users#show</h1>-->
 <!--<p>Find me in app/views/admin/users/show.html.erb</p>-->

@@ -35,7 +35,7 @@
           <p><%= link_to "編集", edit_item_path(@item), class: "btn btn-primary" %>
           <%= link_to "一覧に戻る", items_path, class: "btn btn-primary" %><br></p>
           <p>---------------------------------<br><b>↓いいね・コメント機能を利用できます。<br></b>---------------------------------<br></p>
-                  <!-- 一致するレコードが存在する＝すでにいいね済みの場合はdestroyアクションへ -->
+          <!-- 一致するレコードが存在する＝すでにいいね済みの場合はdestroyアクションへ -->
         <% if @item.favorited?(current_user) %>
           いいね：済<br>
           <%= link_to item_favorites_path(@item.id), method: :delete do %>

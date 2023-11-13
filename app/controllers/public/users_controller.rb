@@ -5,6 +5,7 @@ class Public::UsersController < ApplicationController
   def show
     @favorited_items = current_user.favorited_items
     @item_commented_items = @user.item_commented_items
+    @user_items = @user.items
   end
 
   private

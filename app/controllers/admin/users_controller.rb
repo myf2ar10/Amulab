@@ -4,6 +4,7 @@ class Admin::UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @users = User.all
+    @user_items = @user.items
   end
 
   def edit
