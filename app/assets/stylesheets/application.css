@@ -131,7 +131,6 @@
    /*横幅を100%に設定 */
   height: 80px;
    /*フッターの高さを設定 */
-  background-color: #B8C8CC;
   color: #052D37;
   text-align: center;
   /*padding: 5px 0;*/
@@ -141,6 +140,18 @@
    /*必要に応じて他の要素より手前に表示 */
   bottom: 0
   }
+  /*******************************************************/
+  /*パターンごとにフッターの背景色を変更*/
+  .footer{
+  background-color: #B8C8CC;
+  }
+  .user_footer{
+  background-color: #eee9e6;
+  }
+  .admin_footer{
+  background-color: #DFA4A4;
+  }
+  /*******************************************************/
 
   main {
   margin-bottom: 100px;

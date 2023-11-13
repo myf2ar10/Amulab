@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   namespace :admin do
     get 'top' => 'homes#top', as: 'admin_top'
     resources :items, except: [:destroy]
-    resources :genres, only: [:index, :create, :edit, :update]
+    resources :genres, except: [:show]
     resources :users, only: [:index, :show, :edit, :update, :destroy] do
 
       member do

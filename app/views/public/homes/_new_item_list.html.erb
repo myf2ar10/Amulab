@@ -1,0 +1,23 @@
+<div class="col-md-12 new_item_title">
+  <p><h3>新着投稿作品（5作品）</h5></p>
+</div>
+
+<% @items.order(created_at: :desc).limit(5).each do |item| %>
+  <div class="col-md-4 new_item_body_image">
+    <% if item.images.attached? %>
+        <%= link_to item_path(item) do %>
+          <%= image_tag item.images.first, style: "width: 240px; height: 240px;", class: "top_item_back" %>
+        <% end %>
+      <% else %>
+        <%= link_to item_path(item) do %>
+          <%= image_tag "no_image_YEL.png", style: "width: 240px;", alt: "no_image", class: "top_item_back" %>
+        <% end %>
+    <% end %>
+    <div class="col-md-8 new_item_body_body">
+        <%= item.name %><br>
+        <%= item.genre.name %><br>
+        <%= item.created_at.strftime("%Y/%m/%d") %><br>
+        投稿者: <%= item.user.name %>
+    </div>
+  </div>
+<% end %>

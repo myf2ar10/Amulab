@@ -37,7 +37,7 @@ end
     @contact = Contact.new
     if @contact.save  # 情報の保存に成功した場合
       flash[:notice] = "お問い合わせが正常に送信されました。"
-      redirect_to done_path  # リダイレクト先を指定
+      redirect_to complition_path  # リダイレクト先を指定
     else
       flash.now[:alert] = "お問い合わせの送信に失敗しました。<エラーコード[2]>"
       # 情報の保存に失敗した場合の処理
