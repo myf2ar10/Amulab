@@ -118,7 +118,7 @@ ActiveRecord::Schema.define(version: 2023_11_12_170813) do
     t.string "phone_number", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "status"
+    t.string "status", default: "active"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["name"], name: "index_users_on_name"
     t.index ["phone_number"], name: "index_users_on_phone_number"

@@ -29,8 +29,4 @@ class User < ApplicationRecord
     email == GUEST_USER_EMAIL
   end
 
-  def change
-    add_column :users, :status, :string, default: 'active'
-  end
-
 end
