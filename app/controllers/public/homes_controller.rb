@@ -10,9 +10,9 @@ class Public::HomesController < ApplicationController
   def index
   end
 
-  def create
-  end
+  # def create
+  # end
 
-  def complition
-  end
+  # def complition
+  # end
 end

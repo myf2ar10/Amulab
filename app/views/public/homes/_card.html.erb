@@ -1,0 +1,29 @@
+<div class="card">
+  <!--<img class="card-img-top" src="card_knit1.jpg" width="100" height="200" alt="Card image cap">-->
+  <%#= link_to(image_tag("card_knit1.jpg", alt: "card_knit1", style: "margin: 0; padding: 0;"), items_path) %>
+  <%= image_tag("card_knit1.jpg", alt: "card_knit1") %>
+  <div class="card-body">
+    <h5 class="card-title"><%= link_to "作品一覧", items_path, class: "card_title_underline" %></h5>
+    <p class="card-text"><%= link_to "このページ", items_path, class: "underline" %>では会員が投稿した作品を一覧で見ることができます。最新の投稿順に並んでいます。会員登録をしないと投稿はできませんが、閲覧のみであれば非会員でも可能です。</p>
+    <p class="card-text"><small class="text-muted">Function added on November 1, 2023</small></p>
+  </div>
+</div>
+
+<div class="card">
+  <%= image_tag("card_knit2.jpg", alt: "card_knit2") %>
+  <%#= link_to(image_tag("card_knit2.jpg", alt: "card_knit1"), new_user_registration_path) %>
+  <div class="card-body">
+    <h5 class="card-title"><%= link_to "新規会員登録", new_user_registration_path, class: "card_title_underline" %></h5>
+    <p class="card-text">会員登録をご希望の際は<%= link_to "こちら", new_user_registration_path, class: "underline" %>からご登録ください。<br><br><br><br></p>
+    <p class="card-text"><small class="text-muted">Function added on November 1, 2023</small></p>
+  </div>
+</div>
+
+<div class="card">
+  <%= image_tag("card_knit3.jpg", alt: "card_knit3") %>
+  <div class="card-body">
+    <h5 class="card-title"><%= link_to "当サイトについて", about_path, class: "card_title_underline" %></h5>
+    <p class="card-text">リリース予定機能を時系列にて記載しています。お知らせも<%= link_to "こちら", about_path, class: "underline" %>で行いますので気になる方はアクセスください。<br><br><br></p>
+    <p class="card-text"><small class="text-muted">Function added on November 1, 2023</small></p>
+  </div>
+</div>

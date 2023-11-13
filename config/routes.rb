@@ -13,8 +13,14 @@ Rails.application.routes.draw do
   namespace :admin do
     get 'top' => 'homes#top', as: 'admin_top'
     resources :items, except: [:destroy]
-    resources :genres, only: [:index, :create, :edit, :update]
-    resources :users, only: [:index, :show, :edit, :update]
+    resources :genres, except: [:show]
+    resources :users, only: [:index, :show, :edit, :update, :destroy] do
+
+      member do
+        patch :suspend
+        patch :unsuspend
+      end
+    end
   end
 
   # 顧客用
@@ -39,12 +45,13 @@ Rails.application.routes.draw do
 
     get 'about', to: 'homes#about', as: 'about'
     get 'privacypolicy', to: 'homes#index', as: 'privacypolicy'
-    # get 'information', to: 'homes#create', as: 'information'コメントアウト
     patch 'information/:id', to: 'homes#information', as: 'information_send'
-    # get 'complition', to: 'homes#complition', as: 'complition'コメントアウト
+    get 'question', to: 'homes#question', as: 'question'
+    # get 'information', to: 'homes#create', as: 'information'=>contactで作成のためコメントアウト
+    # get 'complition', to: 'homes#complition', as: 'complition'=>contactで作成のためコメントアウト
     get '/search', to: 'searches#search'
 
-
+# お問い合わせ用
     resources :contacts, only: [:new, :create]
     get 'complition', to: 'contacts#complition'
     post 'contacts/confirm', to: 'contacts#confirm', as: 'confirm'

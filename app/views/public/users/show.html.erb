@@ -29,9 +29,46 @@
         <%= link_to "作品登録", new_item_path, class: "btn btn-primary" %>
       </div>
     </div>
+    <div class="col-md-12 item_edit_form">
+    ---------------------------------<br>
+    ↓あなたがいいねした作品<br>
+    ---------------------------------<br>
+    <% if @favorited_items.present? %>
+      <ul>
+        <% @favorited_items.each do |item| %>
+          <li>
+            <%= link_to item.name, item %><br>
+            <%= item.description %><br>
+            <%= item.created_at.strftime("%Y/%m/%d/%H:%M") %>
+          </li><br>
+        <% end %>
+      </ul>
+    <% else %>
+      <p>まだいいねした作品がありません。</p>
+    <% end %>
+    </div>
+    <div class="col-md-12 item_edit_form">
+    ---------------------------------<br>
+    ↓あなたがコメントした作品<br>
+    ---------------------------------<br>
+    <% if @item_commented_items.present? %>
+      <ul>
+        <% @item_commented_items.each do |item| %>
+          <li>
+            <%= link_to item.name, item %><br>
+            <%= item.description %><br>
+            <%= item.created_at.strftime("%Y/%m/%d/%H:%M") %>
+          </li><br>
+        <% end %>
+      </ul>
+    <% else %>
+      <p>まだコメントした作品がありません。</p>
+    <% end %>
+    </div>
 
   </div>
 </div>
+
 <!--<h1>Public::Users#show</h1>-->
 <!--<p>Find me in app/views/public/users/show.html.erb</p>-->
-<!--顧客のマイページ画面-->
+<!--k会員のマイページ画面-->

@@ -1,0 +1,15 @@
+<div class="col-md-12 genre_list_title">
+  <p><h3>ジャンル例（5種）</h5></p>
+  <p>
+    他のジャンルについては
+    <%= link_to "こちら", new_user_session_path, class: "underline" %>
+    からゲストログイン後、<br>
+    ジャンル一覧ページにてご確認頂けます。
+  </p>
+</div>
+<% @genres.order(created_at: :desc).limit(5).each do |genre| %>
+  <div class="col-md-2 genre_list_body_title">
+    <i class="fa-solid fa-paw fa-4x genre_list_back"></i><br>
+      <%= genre.name %>
+  </div>
+<% end %>

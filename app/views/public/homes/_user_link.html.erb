@@ -1,0 +1,43 @@
+<div class="col-md-12 link_list_title">
+  <p><h3>リンク一覧（会員様用）</h5></p>
+  <%= link_to items_path do %>
+    <i class="fas fa-mitten"></i>
+    作品一覧<br>
+  <% end %>
+  <%= link_to genres_path do %>
+    <i class="fa-solid fa-paw"></i>
+    ジャンル一覧<br>
+  <% end %>
+  <%= link_to search_path do %>
+    <i class="fa-solid fa-magnifying-glass"></i>
+    作品検索<br>
+  <% end %>
+  <%= link_to new_item_path do %>
+    <i class="fa-solid fa-image"></i>
+    新規作品登録<br>
+  <% end %>
+  <%= link_to user_path(current_user) do %>
+    <i class="fa-solid fa-user"></i>
+    マイページ<br>
+  <% end %>
+  <%= link_to destroy_user_session_path, method: :delete do %>
+    <i class="fa-solid fa-right-from-bracket"></i>
+    ログアウト<br>
+  <% end %>
+    <%= link_to privacypolicy_path do %>
+    <i class="fa-solid fa-star"></i>
+    プライバシーポリシー<br>
+  <% end %>
+  <%= link_to new_contact_path do %>
+    <i class="fa-solid fa-star"></i>
+    お問い合わせ<br>
+  <% end %>
+  <%= link_to about_path do %>
+    <i class="fa-solid fa-star"></i>
+    当サイトについて<br>
+  <% end %>
+  <%= link_to question_path do %>
+    <i class="fa-solid fa-star"></i>
+    Q&A<br>
+  <% end %>
+</div>

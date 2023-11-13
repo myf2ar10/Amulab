@@ -29,7 +29,7 @@
         <%= f.hidden_field :phone_number %>
         <%#= f.hidden_field :subject %>
         <%= f.hidden_field :message %>
-        <div><%= f.submit "送信", class: "btn btn-primary" %></div><br>
+        <%= f.submit "送信", class: "btn btn-primary" %>
       <% end %>
       <%= form_for @contact, url: back_path do |f| %>
         <%= f.hidden_field :name %>
@@ -37,7 +37,7 @@
         <%= f.hidden_field :phone_number %>
         <%#= f.hidden_field :subject %>
         <%= f.hidden_field :message %>
-        <div><%= f.submit "入力画面に戻る", class: "btn btn-primary" %></div>
+        <%= f.submit "入力画面に戻る", class: "btn btn-primary" %><br>
         <small>※自動返信機能は備わっていないためお客様への控えは届きません。<br>　何卒ご容赦ください。</small>
       <% end %>
     </div>

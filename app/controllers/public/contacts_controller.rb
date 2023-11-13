@@ -1,4 +1,5 @@
 class Public::ContactsController < ApplicationController
+  before_action :set_contact, only: [:confirm, :back]
 
   def new
     @contact = Contact.new
@@ -36,7 +37,7 @@ end
     @contact = Contact.new
     if @contact.save  # 情報の保存に成功した場合
       flash[:notice] = "お問い合わせが正常に送信されました。"
-      redirect_to done_path  # リダイレクト先を指定
+      redirect_to complition_path  # リダイレクト先を指定
     else
       flash.now[:alert] = "お問い合わせの送信に失敗しました。<エラーコード[2]>"
       # 情報の保存に失敗した場合の処理
@@ -49,6 +50,10 @@ end
   def contact_params
     params.require(:contact).permit(:name, :email, :phone_number, :message)
           # ,:subject
+  end
+
+  def set_contact
+    @contact = Contact.new(contact_params)
   end
 
 end
