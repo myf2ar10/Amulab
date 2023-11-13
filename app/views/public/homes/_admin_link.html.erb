@@ -1,0 +1,23 @@
+<div class="col-md-12 link_list_title">
+  <p><h3>リンク一覧（管理者用）</h5></p>
+  <%= link_to admin_genres_path do %>
+    <i class="fa-solid fa-paw"></i>
+    ジャンル一覧<br>
+  <% end %>
+  <%= link_to admin_items_path do %>
+    <i class="fas fa-mitten"></i>
+    作品一覧<br>
+  <% end %>
+  <%= link_to admin_admin_top_path do %>
+    <i class="fa-solid fa-users"></i>
+    会員一覧<br>
+  <% end %>
+  <%= link_to destroy_admin_session_path, method: :delete do %>
+    <i class="fa-solid fa-right-from-bracket"></i>
+    ログアウト<br>
+  <% end %>
+  <%= link_to question_path do %>
+    <i class="fa-solid fa-star"></i>
+    Q&A<br>
+  <% end %>
+</div>

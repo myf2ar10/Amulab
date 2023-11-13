@@ -2,7 +2,8 @@
 
 class Public::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
-  # before_action :configure_sign_in_params, only: [:create]
+  before_action :configure_sign_in_params, only: [:create]
+  before_action :check_user_status, only: [:create]
 
   def new
     super
@@ -21,6 +22,22 @@ class Public::SessionsController < Devise::SessionsController
     sign_in user
     redirect_to user_path(user), notice: "ゲストユーザーでログインしました。"
   end
+
+  def configure_sign_in_params
+    devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
+  end
+
+  private
+
+  def check_user_status
+    user = User.find_by(email: params[:user][:email])
+    if user && user.status == 'suspend'
+      flash[:alert] = 'アカウントが利用停止されています。<エラーコード17>'
+      redirect_to public_root_path
+    end
+  end
+
+end
 
   # GET /resource/sign_in
   # def new
@@ -43,9 +60,3 @@ class Public::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
-
-  def configure_sign_in_params
-    devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
-  end
-
-end

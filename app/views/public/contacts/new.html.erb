@@ -21,9 +21,11 @@
           <div class="form-group">
             <%= f.label :email, 'メールアドレス*' %><br>
             <small>
-              ※存在するメールアドレスを入力してください。
+              ※存在するメールアドレスを入力してください。<br>
+              ※アドレスの入力に不安がある方は<br>
+              　"amulabamulab@gmail.com"をご入力ください。
             </small><br>
-            <%= f.text_field :email, class: 'form-control', autofocus: true %>
+            <%= f.text_field :email, class: 'form-control', autofocus: true, placeholder: "例）amulabamulab@gmail.com" %>
           </div>
 
           <div class="form-group">
@@ -34,13 +36,18 @@
           <div class="form-group">
             <%= f.label :phone_number, '電話番号*' %><br>
             <small>
-              ※メールでご連絡がつかなかった場合に使用します。
+              ※メールでご連絡がつかなかった場合に使用します。<br>
+              ※ハイフンは不要です。<br>
+              ※0から始まる存在する電話番号を入力してください。
             </small><br>
-            <%= f.text_field :phone_number, class: 'form-control' %>
+            <%= f.text_field :phone_number, class: 'form-control', placeholder: "例）08011112222or0334445555" %>
           </div>
 
           <div class="form-group">
             <%= f.label :message, 'お問い合わせ内容*' %><br>
+            <small>
+              ※2000文字以内でご入力ください。
+            </small><br>
             <%= f.text_area :message, style: "width: 400px; height: 200px;", class: 'form-control' %>
           </div>
 
@@ -48,6 +55,9 @@
             <%= f.submit "入力内容確認", class: "btn btn-primary" %><br>
             <small>
               ※*は入力必須項目です。<br>
+              ※エラー画面についてお問い合わせの際は<br>
+              　<エラーコード[●●]>も<br>
+              　ご記載頂けるとスムーズにご案内ができます。<br>
             </smaill>
           </div>
         <% end %>

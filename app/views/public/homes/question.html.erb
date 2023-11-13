@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-7">
+      <%= image_tag("knitting is healing1", alt: "knitting is healing1", width: "100%") %>
+    </div>
+    <div class="col-md-5">
+      <h4>Q&A</h4>
+      <div class="col-md-12">
+        <ul>
+          <li>会員登録は有料ですか?</li>
+          いいえ。無料です。
+        </ul>
+        <ul>
+          <li>会員登録したいのに登録できません。</li>
+          ご不便おかけし申し訳ありません。エラー状況を確認致します。<br>
+          <%= link_to "こちら", new_contact_path, class: "underline" %>のお問い合わせフォームから、エラーコードと、登録しようとした内容をお知らせください。
+          追ってご連絡致します。
+        </ul>
+        <ul>
+          <li>会員登録するか悩んでいます。</li>
+          よくおられます。ゲストログイン機能をご用意していますのでぜひご活用ください。<br>
+          <%= link_to "こちら", new_user_session_path, class: "underline" %>から、ご利用いただけます。
+        </ul>
+
+
+
+
+
+
+
+
+      </div>
+
+      <div class="col-md-12 text-center">
+        <p><big><b>随時更新致します。</b></big></p>
+      </div>
+
+    </div>
+  </div>
+</div>

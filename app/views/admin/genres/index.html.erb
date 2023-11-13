@@ -22,9 +22,10 @@
           <%= genre.created_at.strftime("%Y/%m/%d %H:%M:%S") %>
         </p>
         <%= link_to "編集", edit_admin_genre_path(genre), class: "btn btn-primary" %>
+        <%= link_to '削除', admin_genre_path(genre), method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'btn btn-danger' %>
       </div>
     <% end %>
-    <div class="col-md-12 admin_genre">
+    <div class="col-md-12">
       <%= paginate @genres %>
     </div>
 

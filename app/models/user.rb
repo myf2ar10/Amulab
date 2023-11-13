@@ -6,7 +6,9 @@ class User < ApplicationRecord
 
   has_many :items
   has_many :favorites, dependent: :destroy
+  has_many :favorited_items, through: :favorites, source: :item
   has_many :item_comments, dependent: :destroy
+  has_many :item_commented_items, through: :item_comments, source: :item
 
   validates :name, presence: true
   validates :phone_number, presence: true, format: { with: /\A0\d{9,10}\z/ }  # 正規表現、ハイフンなし、0から、9～10桁
