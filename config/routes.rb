@@ -45,15 +45,15 @@ Rails.application.routes.draw do
 
     get 'about', to: 'homes#about', as: 'about'
     get 'privacypolicy', to: 'homes#index', as: 'privacypolicy'
-    # get 'information', to: 'homes#create', as: 'information'コメントアウト
     patch 'information/:id', to: 'homes#information', as: 'information_send'
-    # get 'complition', to: 'homes#complition', as: 'complition'コメントアウト
+    get 'question', to: 'homes#question', as: 'question'
+    # get 'information', to: 'homes#create', as: 'information'=>contactで作成のためコメントアウト
+    # get 'complition', to: 'homes#complition', as: 'complition'=>contactで作成のためコメントアウト
     get '/search', to: 'searches#search'
 
-
+# お問い合わせ用
     resources :contacts, only: [:new, :create]
     get 'complition', to: 'contacts#complition'
-    # post 'contacts/complition', to: 'contacts#complition', as: 'complition'
     post 'contacts/confirm', to: 'contacts#confirm', as: 'confirm'
     post 'contacts/back', to: 'contacts#back', as: 'back'
     get 'done', to: 'contacts#done', as: 'done'

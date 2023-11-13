@@ -51,7 +51,7 @@
   /*******************************************************/
   /*view*/
   .card_title_underline{
-    color: #052D37;
+    color: #031C32;
   }
 
   .img-fluid {
@@ -131,7 +131,7 @@
    /*横幅を100%に設定 */
   height: 80px;
    /*フッターの高さを設定 */
-  color: #052D37;
+  color: #031C32;
   text-align: center;
   /*padding: 5px 0;*/
   position: fixed;
