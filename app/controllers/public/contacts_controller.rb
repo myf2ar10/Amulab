@@ -1,4 +1,5 @@
 class Public::ContactsController < ApplicationController
+  before_action :set_contact, only: [:confirm, :back]
 
   def new
     @contact = Contact.new
@@ -49,6 +50,10 @@ end
   def contact_params
     params.require(:contact).permit(:name, :email, :phone_number, :message)
           # ,:subject
+  end
+
+  def set_contact
+    @contact = Contact.new(contact_params)
   end
 
 end
