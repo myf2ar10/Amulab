@@ -1,10 +1,8 @@
 <div class="container">
   <div class="row">
-
     <div class="col-md-7  img-hidden-m">
       <%= image_tag("knitting is healing1", alt: "knitting is healing1", width: "100%") %>
     </div>
-
     <div class="col-md-5 home_create">
       <h4>お問い合わせ*</h4>
       <div class="col-md-12 item_edit_form">
@@ -22,7 +20,6 @@
       <%= @contact.phone_number %><br>
       <b>お問い合わせ内容*</b><br>
       <p><%= @contact.message %></p>
-
       <%= form_for(@contact) do |f| %>
         <%= f.hidden_field :name %>
         <%= f.hidden_field :email %>
@@ -41,6 +38,5 @@
         <small>※自動返信機能は備わっていないためお客様への控えは届きません。<br>　何卒ご容赦ください。</small>
       <% end %>
     </div>
-
   </div>
 <div>

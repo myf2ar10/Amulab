@@ -1,14 +1,11 @@
 <div class="container">
   <div class="row">
-
     <div class="col-md-12 admin_item_title">
       <p><h3>作品一覧</h5></p>
     </div>
-
     <% @items.each do |item| %>
       <div class="col-md-3 item_list_image">
         <%= item.id %><br>
-
         <% if item.images.attached? %>
           <%= link_to admin_item_path(item) do %>
             <% item.images.each_with_index do |image, index| %>
@@ -20,11 +17,9 @@
             <%= image_tag "no_image_BLU.png", style: "width: 240px;", alt: "no_image", class: "item_list_back" %><br>
           <% end %>
         <% end %>
-
         <%= link_to admin_item_path(item) do %>
           <%= item.name %><br>
         <% end %>
-
         <%= item.genre.name %><br>
         <%= item.created_at.strftime("%Y/%m/%d %H:%M:%S") %><br>
         投稿者: <%= item.user.name %><br>

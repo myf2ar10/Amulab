@@ -31,14 +31,10 @@ Rails.application.routes.draw do
     sessions: 'public/sessions'
   }
 
-
   # ゲストユーザーログイン
   devise_scope :user do
     post "users/guest_sign_in", to: "public/sessions#guest_sign_in"
   end
-
-
-
 
   scope module: :public do
     root 'homes#top', as: 'public_root'
@@ -72,10 +68,8 @@ Rails.application.routes.draw do
 
   end
 
-
-
-
 end
+
   # namespace :admin do
   #   get 'users/show'
   #   get 'users/edit'

@@ -1,5 +1,6 @@
 class Admin::HomesController < ApplicationController
   before_action :authenticate_admin # ログインしていてかつ管理者である
+
   def top
     @users = User.all
   end
