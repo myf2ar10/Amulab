@@ -1,27 +1,17 @@
 <!DOCTYPE html>
 <html>
-
   <head>
     <title>Amulab／編むらぼ</title>
-
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%#= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-
     <script src="https://kit.fontawesome.com/62ba821fbd.js" crossorigin="anonymous"></script>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-
     <link href="https://fonts.googleapis.com/earlyaccess/roundedmplus1c.css" rel="stylesheet" />
-
   </head>
-
   <body>
-
     <header>
       <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #B8C8CC;">
         <%= link_to(public_root_path, class: 'logo') do %>
@@ -36,14 +26,12 @@
         <% end %>
       </nav>
     </header>
-
     <main>
       <% flash.each do |message_type, message| %>
         <div class="flash-message <%= message_type %>"><%= message %></div>
       <% end %>
       <%= yield %>
     </main>
-
     <footer class="<%= user_signed_in? ? 'user_footer' : (admin_signed_in? ? 'admin_footer' : 'footer') %>">
       <% if user_signed_in? %>
         <%= render 'layouts/user_footer' %>
@@ -53,7 +41,23 @@
         <%= render 'layouts/footer' %>
       <% end %>
     </footer>
-
+    <script>
+      (function (document) {
+        const markers = [...document.querySelectorAll('mark')];
+        const observer = new IntersectionObserver(entries => {
+          entries.forEach((entry) => {
+            if (entry.intersectionRatio > 0) {
+              entry.target.style.animationPlayState = 'running';
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.8
+        });
+        markers.forEach(mark => {
+          observer.observe(mark);
+        });
+      })(document);
+    </script>
   </body>
-
 </html>

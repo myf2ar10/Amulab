@@ -1,14 +1,11 @@
 <div class="container">
   <div class="row">
-
     <div class="col-md-7  img-hidden-m">
       <%= image_tag("knitting is healing1", alt: "knitting is healing1", width: "100%") %>
     </div>
-
     <div class="col-md-5 item_show">
       <h4>マイページ</h4>
       <div class="col-md-12 item_edit_form">
-
         <%= form_for @user do |f| %>
           <b><%= f.label :メールアドレス %></b><br>
           <p><%= @user.email %></p>
@@ -29,7 +26,6 @@
         <%= link_to "作品登録", new_item_path, class: "btn btn-primary" %>
       </div>
     </div>
-
     <div class="col-md-12">
       ---------------------------------<br>
       ↓<%= @user.name %>さんが投稿した作品<br>
@@ -43,7 +39,6 @@
         <% end %>
       </ul>
     </div>
-
     <div class="col-md-12">
       ---------------------------------<br>
       ↓<%= @user.name %>さんがいいねした作品<br>
@@ -62,7 +57,6 @@
         <p>まだいいねした作品がありません。</p>
       <% end %>
     </div>
-
     <div class="col-md-12">
       ---------------------------------<br>
       ↓<%= @user.name %>さんがコメントした作品<br>
@@ -81,7 +75,6 @@
         <p>まだコメントした作品がありません。</p>
       <% end %>
     </div>
-
   </div>
 </div>
 

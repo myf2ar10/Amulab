@@ -1,5 +1,6 @@
 class Admin::ItemsController < ApplicationController
   before_action :authenticate_admin # ログインしていてかつ管理者である
+
   def index
     @items = Item.order(created_at: :desc).page(params[:page])
   end
