@@ -1,5 +1,6 @@
 class Public::ItemsController < ApplicationController
   before_action :is_matching_login_user, only: [:edit, :update], unless: :current_admin
+
   def index
     @items = Item.order(created_at: :desc).page(params[:page])    # ページネーション desc => 大きい順 asc  => 小さい順
   end
@@ -7,10 +8,8 @@ class Public::ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @item_comment = ItemComment.new
-
     # @item_favorite を初期化
     @item_favorite = Favorite.find_or_initialize_by(item: @item, user: current_user)
-
   end
 
   def edit
@@ -26,7 +25,6 @@ class Public::ItemsController < ApplicationController
       flash.now[:alert] = "作品の更新に失敗しました。<エラーコード[7]>"
       render :edit
     end
-
   end
 
   def create
@@ -53,11 +51,11 @@ class Public::ItemsController < ApplicationController
 
   def is_matching_login_user
     @item = Item.find(params[:id])
-
     if current_user.nil?
       redirect_to new_user_session_path, alert: "ログインしてください<エラーコード[9]>"
     elsif !current_admin && @item.user_id != current_user.id
       redirect_to items_path, alert: "他のユーザーの編集は許可されていません<エラーコード[10]>"
     end
   end
+
 end

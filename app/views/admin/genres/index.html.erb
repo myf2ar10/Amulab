@@ -1,10 +1,8 @@
 <div class="container">
   <div class="row">
-
     <div class="col-md-12 genre_title">
       <h4>ジャンル一覧（管理者用・登録含む）</h4>
     </div>
-
     <div class="col-md-12 add_genre">
       <%= form_with model: @genre, url: admin_genres_path, method: :post do |f| %>
         <%= f.label :name, "ジャンル名:" %>
@@ -12,7 +10,6 @@
         <%= f.submit "登録", class: "btn btn-primary ml2" %>
       <% end %>
     </div>
-
     <% @genres.each do |genre| %>
       <div class="col-md-4 admin_genre">
         <p>
@@ -28,7 +25,6 @@
     <div class="col-md-12">
       <%= paginate @genres %>
     </div>
-
   </div>
 </div>
 

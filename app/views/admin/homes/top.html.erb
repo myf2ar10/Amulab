@@ -1,10 +1,8 @@
 <div class="container">
   <div class="row">
-
     <div class="col-md-12 users">
       <h4>会員一覧（ID順／全て）</h4>
     </div>
-
     <% @users.each do |user| %>
       <div class="col-md-2 users">
         <%= user.id %><br>
@@ -21,7 +19,6 @@
         <p><%= link_to '一時停止解除', unsuspend_admin_user_path(user), method: :patch, data: { confirm: '本当に一時停止解除しますか？' }, class: 'btn btn-primary' %></p>
       </div>
     <% end %>
-
   </div>
 </div>
 
