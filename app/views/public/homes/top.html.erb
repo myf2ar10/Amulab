@@ -8,18 +8,28 @@
   </div>
 </div>
 
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <%= link_to new_user_session_path do %>
+  <%= image_tag("banner", alt: "banner", width: "100%") %>
+<% end %>
+    </div>
+  </div>
+</div>
+
 <div class="container container-m">
   <div class="card-deck">
     <%= render 'card' %>
   </div>
 </div>
 
-
-<div class="container container-m">
-  <div class="row">
-    <%= render 'card_image' %>
-  </div>
-</div>
+<!--LP熟考にてコメントアウト-->
+<!--<div class="container container-m">-->
+<!--  <div class="row">-->
+<!--    <%#= render 'card_image' %>-->
+<!--  </div>-->
+<!--</div>-->
 
 <!-------------------------------------------------------->
 
@@ -29,11 +39,16 @@
   </div>
 </div>
 
-<div class="container genre_list">
-  <div class="row">
-    <%= render 'genre_list' %>
-  </div>
-</div>
+
+
+<!--LP熟考にてコメントアウト-->
+<!--<div class="container genre_list">-->
+<!--  <div class="row">-->
+<!--    <%#= render 'genre_list' %>-->
+<!--  </div>-->
+<!--</div>-->
+
+
 
 <div class="container link_list">
   <div class="row">

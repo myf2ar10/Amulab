@@ -187,15 +187,11 @@ ja: # 日本語の設定を行う
     pm: 午後
 
 
-
-#   order: # モデル名
-#     payment_method: # カラム名
-#       credit_card: "クレジットカード" # enumで番号と紐付けた要素 要素の数だけ追加する
 # アプリケーション合わせた日本語化
-contact:
-  errors:
-    message:
-      email: メールアドレス
-      name: お名前
-      phonenumber: 電話番号
-      message: お問い合わせ内容
+  activerecord:
+    attributes:
+      contact:
+        message: "お問い合わせ内容"
+        email: "メールアドレス"
+        phone_number: "電話番号"
+        name: "お名前"
