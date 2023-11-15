@@ -23,6 +23,9 @@
       </div>
     </div>
   <% end %>
+  <div class="col-md-12" style="text-align: center; margin-top: 20px;">
+    <%= link_to "すべての作品を見る>>", items_path, class: "btn btn-primary" %>
+  </div>
 <% elsif admin_signed_in? %>
   <% @items.order(created_at: :desc).limit(5).each do |item| %>
     <div class="col-md-4 new_item_body_image">
@@ -45,4 +48,7 @@
       </div>
     </div>
   <% end %>
+  <div class="col-md-12" style="text-align: center; margin-top: 20px;">
+    <%= link_to "すべての作品を見る>>", admin_items_path, class: "btn btn-primary" %>
+  </div>
 <% end %>

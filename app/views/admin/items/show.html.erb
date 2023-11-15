@@ -12,7 +12,7 @@
             <%= image_tag image, style: "width: #{(1..4).include?(index) ? '100px' : '300px'};" %><br>
           <% end %>
         <% else %>
-          <%= image_tag "no_image_BLU.png", style: "width: 300px;", alt: "no_image" %><br>
+          <%= image_tag "no_image.png", style: "width: 300px;", alt: "no_image" %><br>
         <% end %>
         <b><%= label :作品名, "作品名" %></b><br>
         <%= @item.name %><br>

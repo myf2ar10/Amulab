@@ -99,6 +99,16 @@ div.container {
   background-size: cover; /* 画像を要素に合わせて調整 */
   background-repeat: no-repeat; /* 繰り返しを無効にする */
 }
+.admin_item_list_back{
+  background-image: url('green_round.png');
+  background-size: cover; /* 画像を要素に合わせて調整 */
+  background-repeat: no-repeat; /* 繰り返しを無効にする */
+}
+.back{
+  background-image: url('blue_round.png');
+  background-size: cover; /* 画像を要素に合わせて調整 */
+  background-repeat: no-repeat; /* 繰り返しを無効にする */
+}
 a:hover {
   opacity: 0.5;
   transition: 0.3s;
