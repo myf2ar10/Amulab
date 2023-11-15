@@ -20,7 +20,7 @@ class Public::SessionsController < Devise::SessionsController
   def guest_sign_in
     user = User.guest
     sign_in user
-    redirect_to user_path(user), notice: "ゲストユーザーでログインしました。"
+    redirect_to public_root_path, notice: "ゲストユーザーでログインしました。"
   end
 
   def configure_sign_in_params
@@ -31,7 +31,7 @@ class Public::SessionsController < Devise::SessionsController
 
   def check_user_status
     user = User.find_by(email: params[:user][:email])
-    if user && user.status == 'suspend'
+    if user && user.status == 'suspended'
       flash[:alert] = 'アカウントが利用停止されています。<エラーコード17>'
       redirect_to public_root_path
     end

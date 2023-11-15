@@ -58,6 +58,7 @@
   </ul>
   <%= form_with url: search_path, method: :get, local: true do |f| %>
     <div class="search_wrapper">
+      <div class="col-md-3">作品名</div>
       <%= f.search_field :content, class: "form-control mr-1", placeholder: "例）座布団", aria_label: "Search" %>
       <%= f.submit "検索", class: "btn btn-primary" %>
     </div>

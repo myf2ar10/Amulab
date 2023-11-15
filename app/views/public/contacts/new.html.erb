@@ -14,6 +14,16 @@
         </p>
       </div>
       <div>
+        <% if @contact.errors.any? %>
+          <%= @contact.errors.count %>件のエラーが発生しました
+          <ul>
+            <% @contact.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        <% end %>
+      </div>
+      <div>
         <%= form_for(@contact, url: confirm_path) do |f| %>
           <div class="form-group">
             <%= f.label :email, 'メールアドレス*' %><br>
