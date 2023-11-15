@@ -27,24 +27,17 @@ class Public::ContactsController < ApplicationController
   def create
     @contact = Contact.new(contact_params)
     if @contact.save
+      flash[:notice] = "お問い合わせが正常に送信されました。"
       ContactMailer.send_mail(@contact).deliver_now
-      redirect_to done_path
+      redirect_to complition_path
     else
+      flash.now[:alert] = "お問い合わせの送信に失敗しました。<エラーコード[2]>"
       render :new
     end
   end
 
   # 送信完了画面を使用する場合
   def done
-    @contact = Contact.new
-    if @contact.save  # 情報の保存に成功した場合
-      flash[:notice] = "お問い合わせが正常に送信されました。"
-      redirect_to complition_path  # リダイレクト先を指定
-    else
-      flash.now[:alert] = "お問い合わせの送信に失敗しました。<エラーコード[2]>"
-      # 情報の保存に失敗した場合の処理
-      render :new  # 新規作成ページを再表示
-    end
   end
 
   private

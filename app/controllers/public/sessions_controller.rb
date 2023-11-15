@@ -31,7 +31,7 @@ class Public::SessionsController < Devise::SessionsController
 
   def check_user_status
     user = User.find_by(email: params[:user][:email])
-    if user && user.status == 'suspend'
+    if user && user.status == 'suspended'
       flash[:alert] = 'アカウントが利用停止されています。<エラーコード17>'
       redirect_to public_root_path
     end

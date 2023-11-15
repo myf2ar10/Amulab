@@ -29,4 +29,10 @@ class User < ApplicationRecord
     email == GUEST_USER_EMAIL
   end
 
+  def invalid_user?
+    self.status == "suspended"
+  end
+
+
+
 end
