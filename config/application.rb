@@ -21,8 +21,10 @@ module Amulab
 
     config.i18n.default_locale = :ja
 
-config.autoload_paths += %W(#{config.root}/app/models)
-  end
+    config.autoload_paths += %W(#{config.root}/app/models)
 
+
+    # config.action_view.image_loading = 'lazy'遅延読み込み
+  end
 
 end

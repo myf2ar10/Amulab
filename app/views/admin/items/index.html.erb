@@ -9,12 +9,12 @@
         <% if item.images.attached? %>
           <%= link_to admin_item_path(item) do %>
             <% item.images.each_with_index do |image, index| %>
-              <%= image_tag image, style: "width: 240px;", class: "item_list_back" %><br>
+              <%= image_tag image, style: "width: 240px;", class: "admin_item_list_back" %><br>
             <% end %>
           <% end %>
         <% else %>
           <%= link_to admin_item_path(item) do %>
-            <%= image_tag "no_image_BLU.png", style: "width: 240px;", alt: "no_image", class: "item_list_back" %><br>
+            <%= image_tag "no_image.png", style: "width: 240px;", alt: "no_image", class: "admin_item_list_back" %><br>
           <% end %>
         <% end %>
         <%= link_to admin_item_path(item) do %>

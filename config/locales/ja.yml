@@ -185,3 +185,13 @@ ja: # 日本語の設定を行う
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
+
+
+# アプリケーション合わせた日本語化
+  activerecord:
+    attributes:
+      contact:
+        message: "お問い合わせ内容"
+        email: "メールアドレス"
+        phone_number: "電話番号"
+        name: "お名前"

@@ -99,6 +99,16 @@ div.container {
   background-size: cover; /* 画像を要素に合わせて調整 */
   background-repeat: no-repeat; /* 繰り返しを無効にする */
 }
+.admin_item_list_back{
+  background-image: url('green_round.png');
+  background-size: cover; /* 画像を要素に合わせて調整 */
+  background-repeat: no-repeat; /* 繰り返しを無効にする */
+}
+.back{
+  background-image: url('blue_round.png');
+  background-size: cover; /* 画像を要素に合わせて調整 */
+  background-repeat: no-repeat; /* 繰り返しを無効にする */
+}
 a:hover {
   opacity: 0.5;
   transition: 0.3s;
@@ -198,15 +208,15 @@ body {
 /*******************************************************/
 /*ハイライトアニメーション*/
 mark {
-  --color1: yellow;
-  --color2: yellow;/*グラデーションなし*/
+  --color1: #fffff4;
+  --color2: #ffff00;/*黄色グラデーション*/
   --bg-height: 40%;
   all: unset;
   background-image: linear-gradient(var(--color1), var(--color2));
   background-position: 0 100%;
   background-repeat: no-repeat;
   background-size: 0 var(--bg-height);
-  animation: highlight 1100ms 1 ease-out;/*アニメーション速度を遅めに*/
+  animation: highlight 800ms 1 ease-out;/*アニメーション速度を遅めに*/
   animation-fill-mode: forwards;
   animation-play-state: paused;
 }

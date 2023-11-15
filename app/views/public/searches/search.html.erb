@@ -4,26 +4,37 @@
     <div class="col-md-12 search_title">
       <h4>作品検索</h4>
     </div>
-
-    <div><b><%= @hit_records_count %>／<%= @all_records_count %>件</b></div>
     <div class="col-md-12 search_form">
       <%= form_with url: search_path, method: :get, local: true do |f| %>
         <%= f.text_field :content %>
         <%= f.submit '検索', class: "btn btn-primary" %>
       <% end %>
     </div>
+    <div class="col-md-12">
+      <p><h4>検索結果</h4></p>
+    </div>
+    <div class="col-md-12">
+      <b><%= @hit_records_count %>／<%= @all_records_count %>件</b>
+    </div>
     <% @records.each do |record| %>
       <div class="col-md-4 search_form">
         <p>
           <% if record.user.present? %>
             <%= link_to item_path(record) do %>
-              <%= image_tag record.images.first, style: "width: 100px;" if record.images.attached? %><br>
+              <% if record.images.attached? %>
+                <%= image_tag record.images.first, style: "width: 100px;", class: "back" %><br>
+              <% else %>
+                <%= image_tag "no_image.png", style: "width: 100px;", alt: "no_image", class: "back" %><br>
+              <% end %>
             <% end %>
           <% else %>
-            <%= record.images %><br>
+            <% if record.images.attached? %>
+              <%= image_tag record.images.first, style: "width: 100px;" %><br>
+            <% else %>
+              <%= image_tag "no_image.png", style: "width: 100px;", alt: "no_image", class: "back"  %><br>
+            <% end %>
           <% end %>
         </p>
-
         <p>
           作品ID：<%= record.id %><br>
           作品名：<%= record.name %><br>
@@ -36,10 +47,9 @@
         </p>
       </div>
     <% end %>
-
     <% if @records.empty? %>
-      <p>見つかりませんでした。検索条件を変更して再度お試しください。</p>
+    <p>検索結果は0件です。</p>
+      <!--<p>見つかりませんでした。検索条件を変更して再度お試しください。</p>-->
     <% end %>
-
   </div>
 </div>
