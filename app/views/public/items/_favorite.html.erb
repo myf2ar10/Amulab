@@ -4,12 +4,12 @@
   <%= link_to item_favorites_path(item.id), method: :delete, remote: true do %>
     <i class="fa-solid fa-thumbs-up fa-5x" style="color: #031C32;"></i>
   <% end %>
-  <%= item.favorites.count %><br>
+  <br>（<%= item.favorites.count %>）
 <!--一致するレコードが存在しない＝まだいいねしていない場合はcreateアクションへ-->
 <% else %>
   いいね：未<br>
   <%= link_to item_favorites_path(item.id), method: :post, remote: true do %>
     <i class="fa-regular fa-thumbs-up fa-beat fa-5x" style="color: #031C32;"></i>
   <% end %>
-  <%= item.favorites.count %><br>
+  <br>（<%= item.favorites.count %>）
 <% end %>

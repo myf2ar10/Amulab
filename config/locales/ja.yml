@@ -195,3 +195,12 @@ ja: # 日本語の設定を行う
         email: "メールアドレス"
         phone_number: "電話番号"
         name: "お名前"
+      item:
+        name: "作品名"
+        description: "作品説明文"
+      genre:
+        name: "ジャンル名"
+ja:
+  user:
+    active: "有効"
+    suspended: "一時停止"
