@@ -25,6 +25,7 @@
         <p><b><%= label :投稿者, "投稿者" %></b><br>
         投稿者: <%= @item.user.name %><br></p>
         <%= link_to "一覧に戻る", admin_items_path, class: "btn btn-primary" %>
+        <%= link_to "削除", admin_item_path, method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-primary" %>
       </div>
     </div>
     <div class="col-md-12">

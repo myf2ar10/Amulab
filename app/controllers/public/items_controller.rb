@@ -1,6 +1,6 @@
 class Public::ItemsController < ApplicationController
 
-  before_action :is_matching_login_user, only: [:edit, :update], unless: :current_admin
+  before_action :is_matching_login_user, only: [:edit, :update, :destroy], unless: :current_admin
   before_action :authenticate_user!, only: [:create]
 
   def index
@@ -44,6 +44,19 @@ class Public::ItemsController < ApplicationController
   def new
     @item = Item.new  # 新しいアイテムのインスタンスを作成
   end
+
+ def destroy
+  @item = Item.find(params[:id])
+  if current_user && (@item.user == current_user || current_admin)
+    @item.destroy
+    flash[:notice] = "作品が削除されました。"
+    redirect_to items_path
+  else
+    flash[:alert] = "削除権限がありません。<エラーコード[19]>"
+    redirect_to item_path(@item)
+  end
+ end
+
 
   private
 

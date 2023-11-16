@@ -10,6 +10,18 @@ class Admin::ItemsController < ApplicationController
     @favorited_users = @item.favorites.map(&:user)
   end
 
+   def destroy
+    @item = Item.find(params[:id])
+    if current_admin
+      @item.destroy
+      flash[:notice] = "作品が削除されました。"
+      redirect_to admin_items_path
+    else
+      flash[:alert] = "削除できませんでした。<エラーコード[19]>"
+      redirect_to admin_item_path(@item)
+    end
+   end
+
   private
 
   def item_params
