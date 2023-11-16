@@ -77,3 +77,5 @@ gem 'gimei'# seed用
 gem "dotenv-rails"# お問い合わせメール用
 
 gem 'net-smtp'
+
+gem 'jquery-rails'
