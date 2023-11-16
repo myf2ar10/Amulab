@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     get 'item_comments/create'
     get 'item_comments/destroy'
   end
+
   # 管理者用
   # URL /admin/sign_in ...
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
@@ -12,7 +13,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get 'top' => 'homes#top', as: 'admin_top'
-    resources :items, except: [:destroy]
+    resources :items, only: [:index, :show, :edit, :update, :destroy]
     resources :genres, except: [:show]
     resources :users, only: [:index, :show, :edit, :update, :destroy] do
 
@@ -54,7 +55,7 @@ Rails.application.routes.draw do
     post 'contacts/back', to: 'contacts#back', as: 'back'
     get 'done', to: 'contacts#done', as: 'done'
 
-    resources :items, only: [:index, :show, :edit, :update, :create, :new] do
+    resources :items, only: [:index, :show, :edit, :update, :create, :new, :destroy] do
       resources :item_comments,only: [:create, :destroy]
       resource :favorites, only: [:create, :destroy]
       end
