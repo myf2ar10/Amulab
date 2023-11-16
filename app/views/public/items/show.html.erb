@@ -25,10 +25,12 @@
         <%= @item.created_at.strftime("%Y/%m/%d") %><br>
         <p><b><%= label :投稿者, "投稿者" %></b><br>
         <%= @item.user.name %><br></p>
-        <% if user_signed_in? || admin_signed_in? %>
+        <% if user_signed_in? %>
+         <!--|| admin_signed_in?-->
           <!-- ユーザーまたは管理者がログインしている場合の表示 -->
           <p><%= link_to "編集", edit_item_path(@item), class: "btn btn-primary" %>
-          <%= link_to "一覧に戻る", items_path, class: "btn btn-primary" %><br></p>
+          <%= link_to "一覧に戻る", items_path, class: "btn btn-primary" %></p>
+          <%= link_to "削除", item_path(@item), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-primary" %>
           <p>---------------------------------<br>
             <b>↓いいね・コメント機能を利用できます。<br></b>
             ---------------------------------<br>
@@ -47,11 +49,11 @@
           <% end %>
         <% end %>
         <p>---------------------------------<br>
-          <b>↓コメント入力欄<small>※200文字以内</small><br></b>-
-          --------------------------------<br>
+          <b>↓コメント入力欄<small>※200文字以内</small><br></b>
+          ---------------------------------<br>
         </p>
         <%= form_with(model:[@item, @item_comment], local: true) do |f| %>
-          <%= f.text_area :comment, rows:'5',placeholder: "例）とてもすてきな作品ですね。", class: "w-100" %>
+          <%= f.text_area :comment, rows:'5',placeholder: "例）とてもすてきな作品ですね。" %>
           <p><%= f.submit "送信", class: "btn btn-primary" %></p>
         <% end %>
       </div>
@@ -59,7 +61,8 @@
     <div class="col-md-12 comment_wrapper">
       <div class="col-md-12">
         <p>---------------------------------<br>
-          <b>↓コメント一覧<br></b>---------------------------------<br>
+          <b>↓コメント一覧<br></b>
+          ---------------------------------<br>
         </p>
       </div>
       <% @item.item_comments.each_with_index do |item_comment, index| %>
