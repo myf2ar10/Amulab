@@ -168,7 +168,8 @@ body {
 .comment_wrapper {
   display: flex;
   flex-wrap: wrap;
-  border: 1px solid #ccc; /* 枠線を追加 */
+  /*border: 1px solid #ccc;*/
+  /* 枠線を追加 */
   padding: 10px; /* コメントブロックの内部に余白を追加 */
 }
 .comment_show {
@@ -181,13 +182,23 @@ body {
 .comment_show:after {
   content: "";
   display: block;
-  border-top: 2px solid #ccc;
+  /*border-top: 2px solid #ccc;*/
   /* 疑似要素による横線 */
   margin-top: 10px;
   /* 線とコメントブロックの間隔 */
 }
+.comment_list_title{
+  text-align: center;
+}
+.comment_form_title{
+  text-align: center;
+}
+.you_can_faborite_comment{
+  text-align: center;
+}
 .write_user {
-  border-top: 1px solid #ccc; /* 疑似要素による横線 */
+  /*border-top: 1px solid #ccc;*/
+  /* 疑似要素による横線 */
   margin-top: auto;
   align-self: flex-start; /* 左側に配置 */
 }
