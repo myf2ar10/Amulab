@@ -85,32 +85,32 @@ div.container {
   display: flex;
 }
 .top_item_back{
-  background-image: url('pink_round.png');
+  background-image: image-url('pink_round.png');
   background-size: cover; /* 画像を要素に合わせて調整 */
   background-repeat: no-repeat; /* 繰り返しを無効にする */
 }
 .genre_list_back{
-  background-image: url('gray_round.png');
+  background-image: image-url('gray_round.png');
   background-size: cover; /* 画像を要素に合わせて調整 */
   background-repeat: no-repeat; /* 繰り返しを無効にする */
 }
 .admin_back{
-  background-image: url('green_round_56-64.png');
+  background-image: image-url('green_round_56-64.png');
   background-size: cover; /* 画像を要素に合わせて調整 */
   background-repeat: no-repeat; /* 繰り返しを無効にする */
 }
 .item_list_back{
-  background-image: url('yellow_round.png');
+  background-image: image-url('yellow_round.png');
   background-size: cover; /* 画像を要素に合わせて調整 */
   background-repeat: no-repeat; /* 繰り返しを無効にする */
 }
 .admin_item_list_back{
-  background-image: url('green_round.png');
+  background-image: image-url('green_round.png');
   background-size: cover; /* 画像を要素に合わせて調整 */
   background-repeat: no-repeat; /* 繰り返しを無効にする */
 }
 .back{
-  background-image: url('blue_round.png');
+  background-image: image-url('blue_round.png');
   background-size: cover; /* 画像を要素に合わせて調整 */
   background-repeat: no-repeat; /* 繰り返しを無効にする */
 }
