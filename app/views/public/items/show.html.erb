@@ -38,9 +38,9 @@
             ---------------------------------<br>
           </p>
 
-          <%#= render 'favorite' %>
-          <%= render "favorite", item: @item %>
-
+          <div id="favorite_buttons_<%= @item.id %>">
+            <%= render "favorite", item: @item %>
+          </div>
 
         <p>---------------------------------<br>
           <b>↓コメント入力欄<small>※200文字以内</small><br></b>
@@ -53,6 +53,12 @@
       </div>
     </div>
     <div class="col-md-12 comment_wrapper">
+
+
+
+      <% if @item.item_comments.empty? %>
+        <p>コメントがまだありません</p>
+      <% else %>
       <div class="col-md-12">
         <p>---------------------------------<br>
           <b>↓コメント一覧<br></b>
@@ -74,6 +80,11 @@
             <% end %>
           </div>
         </div>
+<% end %>
+
+
+
+
       <% end %>
       <% else %>
         <!-- ユーザーまたは管理者がログインしていない場合の表示 -->
