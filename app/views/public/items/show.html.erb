@@ -1,68 +1,64 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-7  img-hidden-m">
-      <%= image_tag("knitting is healing1", alt: "knitting is healing1", width: "100%") %>
-    </div>
-    <div class="col-md-5 item_show">
+    <!--<div class="col-md-12 text-center">-->
+    <div class="col-md-12">
       <h4>作品詳細画面</h4>
-      <div class="col-md-12 item_edit_form">
-        <b><%= label :画像, "画像" %></b><br>
+    </div>
+    <div class="col-md-7  img-hidden-m">
+      <h5><b><%= label :画像, "画像" %></b></h5>
         <% if @item.images.attached? %>
           <% @item.images.each_with_index do |image, index| %>
             <%= index + 1 %><br>
-            <%= image_tag image, style: "width: #{(1..4).include?(index) ? '300px' : '300px'};" %><br>
+            <%= image_tag image, style: "width: #{(1..4).include?(index) ? '20%' : '100%'};" %><br>
           <% end %>
         <% else %>
           <%= image_tag "no_image.png", style: "width: 240px;", alt: "no_image" %><br>
         <% end %>
-        <b><%= label :作品名, "作品名" %></b><br>
-        <%= @item.name %><br>
-        <b><%= label :ジャンル, "ジャンル" %></b><br>
-        <%= @item.genre.name %><br>
-        <b><%= label :作品説明, "作品説明" %></b><br>
-        <%= @item.description %><br>
-        <b><%= label :投稿日, "投稿日" %></b><br>
-        <%= @item.created_at.strftime("%Y/%m/%d") %><br>
-        <p><b><%= label :投稿者, "投稿者" %></b><br>
-        <%= @item.user.name %><br></p>
+    </div>
+    <div class="col-md-5 item_show">
+      <div class="col-md-12 item_edit_form">
+        <p><h5><b><%= label :作品名, "作品名" %></b></h5>
+        <%= @item.name %></p><br>
+        <p><h5><b><%= label :ジャンル, "ジャンル" %></b></h5>
+        <%= @item.genre.name %></p><br>
+        <p><h5><b><%= label :作品説明, "作品説明" %></b></h5>
+        <%= @item.description %></p><br>
+        <p><h5><b><%= label :投稿日, "投稿日" %></b></h5>
+        <%= @item.created_at.strftime("%Y/%m/%d") %></p><br>
+        <p><h5><b><%= label :投稿者, "投稿者" %></b></h5>
+        <%= @item.user.name %></p><br>
         <% if user_signed_in? %>
          <!--|| admin_signed_in?-->
           <!-- ユーザーまたは管理者がログインしている場合の表示 -->
           <p><%= link_to "編集", edit_item_path(@item), class: "btn btn-primary" %>
-          <%= link_to "一覧に戻る", items_path, class: "btn btn-primary" %></p>
           <%= link_to "削除", item_path(@item), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-primary" %>
-          <p>---------------------------------<br>
-            <b>↓いいね・コメント機能を利用できます。<br></b>
-            ---------------------------------<br>
-          </p>
-          <!-- 一致するレコードが存在する＝すでにいいね済みの場合はdestroyアクションへ -->
-        <% if @item.favorited?(current_user) %>
-          いいね：済<br>
-          <%= link_to item_favorites_path(@item.id), method: :delete do %>
-            <i class="fa-solid fa-thumbs-up fa-5x" style="color: #031C32;"></i><br>
-          <% end %>
-          <!--一致するレコードが存在しない＝まだいいねしていない場合はcreateアクションへ-->
-        <% else %>
-          いいね：未<br>
-          <%= link_to item_favorites_path(@item.id), method: :post do %>
-            <i class="fa-regular fa-thumbs-up fa-beat fa-5x" style="color: #031C32;"></i><br>
-          <% end %>
-        <% end %>
-        <p>---------------------------------<br>
-          <b>↓コメント入力欄<small>※200文字以内</small><br></b>
-          ---------------------------------<br>
+          <%= link_to "一覧に戻る", items_path, class: "btn btn-primary" %></p>
+      </div>
+    </div>
+    <div class="col-md-12 you_can_faborite_comment">
+        <h5><b>↓いいね・コメント機能を利用できます。<br></b></h5>
+      <div id="favorite_buttons_<%= @item.id %>">
+        <%= render "favorite", item: @item %>
+      </div>
+    </div>
+    <div class="col-md-12 comment_form_title">
+      <h5><b>↓コメント入力欄<small>※200文字以内</small><br></b></h5>
+      <div>
         </p>
         <%= form_with(model:[@item, @item_comment], local: true) do |f| %>
-          <%= f.text_area :comment, rows:'5',placeholder: "例）とてもすてきな作品ですね。" %>
-          <p><%= f.submit "送信", class: "btn btn-primary" %></p>
+          <%= f.text_area :comment, rows: 5, style: "width: 100%;", placeholder: "例）とてもすてきな作品ですね。" %>
+          <p class="text-left">
+            <%= f.submit "送信", class: "btn btn-primary" %>
+          </p>
         <% end %>
       </div>
     </div>
     <div class="col-md-12 comment_wrapper">
-      <div class="col-md-12">
-        <p>---------------------------------<br>
-          <b>↓コメント一覧<br></b>
-          ---------------------------------<br>
+      <% if @item.item_comments.empty? %>
+        <p>コメントがまだありません</p>
+      <% else %>
+      <div class="col-md-12 comment_list_title">
+          <h5><b>↓コメント一覧<br></b></h5>
         </p>
       </div>
       <% @item.item_comments.each_with_index do |item_comment, index| %>
@@ -80,6 +76,11 @@
             <% end %>
           </div>
         </div>
+<% end %>
+
+
+
+
       <% end %>
       <% else %>
         <!-- ユーザーまたは管理者がログインしていない場合の表示 -->

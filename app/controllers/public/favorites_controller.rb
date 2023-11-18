@@ -5,7 +5,7 @@ class Public::FavoritesController < ApplicationController
     @favorite = current_user.favorites.new(item_id: @item.id)
     @favorite.save
     # flash.now[:notice] = "このアイテムはいいねされました。"
-    redirect_to request.referer
+    # redirect_to request.referer
   end
 
   def destroy
@@ -13,7 +13,7 @@ class Public::FavoritesController < ApplicationController
     @favorite = current_user.favorites.find_by(item_id: @item.id)
     @favorite.destroy
     # flash.now[:notice] = "このアイテムのいいねは取り消されました。"
-    redirect_to request.referer
+    # redirect_to request.referer
   end
 
 end

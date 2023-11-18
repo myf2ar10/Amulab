@@ -70,6 +70,11 @@ div.container {
 .container container-m{
   margin-top: 80px;
 }
+.top_btn{
+  text-align: center;
+  /*margin-l: : 10px;*/
+  /*padding-right: 10px*/
+}
 .top_image{
   margin-top: 80px;
 }
@@ -163,7 +168,8 @@ body {
 .comment_wrapper {
   display: flex;
   flex-wrap: wrap;
-  border: 1px solid #ccc; /* 枠線を追加 */
+  /*border: 1px solid #ccc;*/
+  /* 枠線を追加 */
   padding: 10px; /* コメントブロックの内部に余白を追加 */
 }
 .comment_show {
@@ -176,13 +182,23 @@ body {
 .comment_show:after {
   content: "";
   display: block;
-  border-top: 2px solid #ccc;
+  /*border-top: 2px solid #ccc;*/
   /* 疑似要素による横線 */
   margin-top: 10px;
   /* 線とコメントブロックの間隔 */
 }
+.comment_list_title{
+  text-align: center;
+}
+.comment_form_title{
+  text-align: center;
+}
+.you_can_faborite_comment{
+  text-align: center;
+}
 .write_user {
-  border-top: 1px solid #ccc; /* 疑似要素による横線 */
+  /*border-top: 1px solid #ccc;*/
+  /* 疑似要素による横線 */
   margin-top: auto;
   align-self: flex-start; /* 左側に配置 */
 }
@@ -197,7 +213,7 @@ body {
 }
 .slide-wrapper {
   display: flex;
-  animation: slide-flow 30s infinite linear 1s both;
+  animation: slide-flow 20s infinite linear 1s both;
 }
 .slide{
   width: 100px;
@@ -205,7 +221,7 @@ body {
 }
 @keyframes slide-flow {
   0% {transform: translateX(0);}
-  100% {transform: translateX(-100%);}
+  100% {transform: translateX(-10%);}
 }
 /*******************************************************/
 /*******************************************************/
