@@ -1,11 +1,21 @@
 <div class="container">
   <div class="row">
     <div class="col-md-7  img-hidden-m">
-      <%= image_tag("knitting is healing1", alt: "knitting is healing1", width: "100%") %>
+      <%= image_tag("knitting_is_healing_BLU.jpg", alt: "knitting is healing1", width: "100%") %>
     </div>
 
     <div class="col-md-5 new_item_add">
       <h4>新規作品登録</h4>
+      <div>
+        <% if @item.errors.any? %>
+          <%= @item.errors.count %>件のエラーが発生しました
+          <ul>
+            <% @item.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        <% end %>
+      </div>
       <%= form_with model: @item, local: true, html: { enctype: 'multipart/form-data' } do |f| %>
         <div class="col-md-12 item_edit_form">
           <%= f.label :name, "作品名*" %><br>

@@ -11,7 +11,7 @@
           <b><%= user.name %></b><br>
         <% end %>
         <p><%= user.phone_number %></p>
-        <p>状況：<%= user.status %></p>
+        <p>状況：<%= I18n.t("user.#{user.status}") %></p>
         <!--<p><%#= link_to '退会させる', admin_user_path(user), method: :delete, data: { confirm: '本当に退会させますか？' }, class: 'btn btn-primary' %></p>-->
         <!-- 一時停止ボタン -->
         <p><%= link_to '一時停止', suspend_admin_user_path(user), method: :patch, data: { confirm: '本当に一時停止しますか？' }, class: 'btn btn-primary' %></p>

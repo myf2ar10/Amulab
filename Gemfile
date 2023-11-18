@@ -8,7 +8,8 @@ gem 'rails', '~> 6.1.7', '>= 6.1.7.6'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '~> 1.4'
 # Use Puma as the app server
-gem 'puma', '~> 5.0'
+# gem 'puma', '~> 5.0'
+gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
@@ -31,6 +32,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  # gem 'mysql2'  # 追加
 end
 
 group :development do
@@ -74,6 +76,14 @@ gem 'image_processing', '~>1.2'
 gem 'faker-japanese'# seed用
 gem 'gimei'# seed用
 
-gem "dotenv-rails"# お問い合わせメール用
+gem "dotenv-rails"
+# お問い合わせメール用、デプロイ時使用
+group :production do
+  gem 'mysql2'
+end
 
 gem 'net-smtp'
+gem "net-pop"
+gem "net-imap"
+
+gem 'jquery-rails'

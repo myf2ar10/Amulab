@@ -12,7 +12,7 @@
             <%= image_tag item.images.first, style: "width: 240px; height: 240px;", class: "item_list_back" %><br>
           <% end %>
           <% if item.images.count > 1 %>
-            <span class="image-count-mark">There's more image...</span><br>
+            <span class="image-count-mark">★他にも画像があります★</span><br>
           <% end %>
           <% else %>
           <%= link_to item_path(item) do %>
