@@ -213,7 +213,7 @@ body {
 }
 .slide-wrapper {
   display: flex;
-  animation: slide-flow 20s infinite linear 1s both;
+  animation: slide-flow 100s infinite linear 1s both;
 }
 .slide{
   width: 100px;
