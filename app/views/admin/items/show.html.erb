@@ -20,10 +20,10 @@
         <%= @item.genre.name %><br>
         <b><%= label :作品説明, "作品説明" %></b><br>
         <%= @item.description %><br>
-        <b><%= label :投稿日, "投稿日" %></b><br>
+        <b><%= label :登録日, "登録日" %></b><br>
         <%= @item.created_at.strftime("%Y/%m/%d %H:%M:%S") %><br>
-        <p><b><%= label :投稿者, "投稿者" %></b><br>
-        投稿者: <%= @item.user.name %><br></p>
+        <p><b><%= label :登録者, "登録者" %></b><br>
+        登録者: <%= @item.user.name %><br></p>
         <%= link_to "一覧に戻る", admin_items_path, class: "btn btn-primary" %>
         <%= link_to "削除", admin_item_path, method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-primary" %>
       </div>
