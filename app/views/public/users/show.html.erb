@@ -4,52 +4,46 @@
       <%= image_tag("knitting_is_healing_BLU.jpg", alt: "knitting is healing1", width: "100%") %>
     </div>
     <div class="col-md-5 item_show">
-      <h4>マイページ</h4>
+      <p><h4><mark>マイページ</mark></h4></p><br>
       <div class="col-md-12 item_edit_form">
         <%= form_for @user do |f| %>
-          <b><%= f.label :メールアドレス %></b><br>
-          <p><%= @user.email %></p>
-          <b><%= f.label :ニックネーム %></b><br>
-          <p><%= @user.name %></p>
-          <b><%= f.label :電話番号 %></b><br>
-          <p><%= @user.phone_number %></p>
-          <b><%= f.label :パスワード %></b><small>※暗号化にて</small><br>
-          <p><%= @user.encrypted_password %></p>
+          <p><h5><%= f.label :メールアドレス %></h5>
+          <%= @user.email %></p><br>
+          <p><h5><%= f.label :ニックネーム %></h5>
+          <%= @user.name %></p><br>
+          <p><h5><%= f.label :電話番号 %></h5>
+          <%= @user.phone_number %></p><br>
         <% end %>
-        <small>
-          ※誠に恐れ入りますが編集画面のご用意がございません。<br>
-          　修正・削除の際は<a href="/contacts/new">お問い合わせ</a>より、<br>
-          　管理者宛にご連絡いただきますようお願いします。<br>
-        </small><br>
         <%= link_to "トップ", public_root_path, class: "btn btn-primary" %>
         <%= link_to "作品一覧", items_path, class: "btn btn-primary" %>
-        <%= link_to "作品登録", new_item_path, class: "btn btn-primary" %>
+        <%= link_to "作品登録", new_item_path, class: "btn btn-primary" %><br>
+        <small>
+          ※誠に恐れ入りますが編集画面のご用意がございません。<br>
+          　会員情報の修正・削除の際は<a href="/contacts/new">お問い合わせ</a>より、<br>
+          　管理者宛にご連絡いただきますようお願いします。<br>
+        </small><br>
       </div>
     </div>
     <div class="col-md-12">
-      ---------------------------------<br>
-      ↓<%= @user.name %>さんが投稿した作品<br>
-      ---------------------------------<br>
+      <h5><mark>最近投稿した作品（5作品）</mark></h5><br>
       <ul>
-        <% @user_items.each do |item| %>
+        <% @user_items.last(5).each do |item| %>
           <li>
             <%= link_to item.name, item_path(item) %><br>
-            <%= item.created_at.strftime("%Y/%m/%d/%H:%M") %>の作品
+            （<%= item.created_at.strftime("%Y/%m/%d/%H:%M") %>に投稿した作品）
           </li><br>
         <% end %>
       </ul>
     </div>
-    <div class="col-md-12">
-      ---------------------------------<br>
-      ↓<%= @user.name %>さんがいいねした作品<br>
-      ---------------------------------<br>
+    <div class="col-md-4">
+      <h5><mark>最近いいねした作品（5作品）</mark></h5><br>
       <% if @favorited_items.present? %>
         <ul>
-          <% @favorited_items.each do |item| %>
+          <% @favorited_items.last(5).each do |item| %>
             <li>
               <%= link_to item.name, item %><br>
               <%= item.user.name %><br>
-              <%= item.created_at.strftime("%Y/%m/%d/%H:%M") %>の作品
+              （<%= item.created_at.strftime("%Y/%m/%d/%H:%M") %>に投稿された作品）
             </li><br>
           <% end %>
         </ul>
@@ -58,16 +52,14 @@
       <% end %>
     </div>
     <div class="col-md-12">
-      ---------------------------------<br>
-      ↓<%= @user.name %>さんがコメントした作品<br>
-      ---------------------------------<br>
+      <h5><mark>最近コメントした作品（5作品）</mark></h5><br>
       <% if @item_commented_items.present? %>
         <ul>
-          <% @item_commented_items.each do |item| %>
+          <% @item_commented_items.last(5).each do |item| %>
             <li>
               <%= link_to item.name, item %><br>
               <%= item.user.name %><br>
-              <%= item.created_at.strftime("%Y/%m/%d/%H:%M") %>の作品
+              （<%= item.created_at.strftime("%Y/%m/%d/%H:%M") %>に投稿された作品）
             </li><br>
           <% end %>
         </ul>
