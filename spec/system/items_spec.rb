@@ -16,7 +16,7 @@ describe '【登録（投稿）のテスト】' do
     end
   end
 
-  describe "【投稿画面(new_item_path)のテスト】" do
+  describe "【登録（投稿）画面(new_item_path)のテスト】" do
     before do
       visit new_item_path
     end

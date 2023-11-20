@@ -38,11 +38,11 @@
         <p>
           作品ID：<%= record.id %><br>
           作品名：<%= record.name %><br>
-          投稿日：<%= record.created_at.strftime("%Y/%m/%d") %><br>
+          登録日：<%= record.created_at.strftime("%Y/%m/%d") %><br>
           <% if record.user.present? %>
-            投稿者：<%= record.user.name %><br>
+            登録者：<%= record.user.name %><br>
           <% else %>
-            投稿者：管理者<br>
+            登録者：管理者<br>
           <% end %>
         </p>
       </div>

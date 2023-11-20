@@ -25,15 +25,18 @@
       </div>
     </div>
     <div class="col-md-12">
-      <h5><mark>最近投稿した作品（5作品）</mark></h5><br>
-      <ul>
-        <% @user_items.last(5).each do |item| %>
-          <li>
-            <%= link_to item.name, item_path(item) %><br>
-            （<%= item.created_at.strftime("%Y/%m/%d/%H:%M") %>に投稿した作品）
-          </li><br>
-        <% end %>
-      </ul>
+      <% if @user_items.present? %>
+        <h5><mark>最近登録した作品（5作品）</mark></h5><br>
+        <ul>
+          <% @user_items.last(5).each do |item| %>
+            <li>
+              <%= link_to item.name, item_path(item) %><br>
+              （<%= item.created_at.strftime("%Y/%m/%d/%H:%M") %>に登録した作品）
+            </li><br>
+          <% end %>
+        </ul>
+      <% else %>
+      <p>まだ登録した作品がありません。
     </div>
     <div class="col-md-4">
       <h5><mark>最近いいねした作品（5作品）</mark></h5><br>
@@ -43,7 +46,7 @@
             <li>
               <%= link_to item.name, item %><br>
               <%= item.user.name %><br>
-              （<%= item.created_at.strftime("%Y/%m/%d/%H:%M") %>に投稿された作品）
+              （<%= item.created_at.strftime("%Y/%m/%d/%H:%M") %>に登録された作品）
             </li><br>
           <% end %>
         </ul>
@@ -59,7 +62,7 @@
             <li>
               <%= link_to item.name, item %><br>
               <%= item.user.name %><br>
-              （<%= item.created_at.strftime("%Y/%m/%d/%H:%M") %>に投稿された作品）
+              （<%= item.created_at.strftime("%Y/%m/%d/%H:%M") %>に登録された作品）
             </li><br>
           <% end %>
         </ul>
