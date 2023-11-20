@@ -26,14 +26,14 @@
     </div>
     <div>
     <% if @user_items.any? %>
-        <%= @user.name %> さんが投稿した作品<br>
+        <%= @user.name %> さんが登録した作品<br>
         <ul>
           <% @user_items.each do |item| %>
             <li><%= link_to item.name, admin_item_path(item) %></li>
           <% end %>
         </ul>
       <% else %>
-        <%= @user.name %> さんはまだ作品を投稿していません。
+        <%= @user.name %> さんはまだ作品を登録していません。
     <% end %>
     </div>
   </div>
