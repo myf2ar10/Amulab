@@ -12,13 +12,13 @@
         ご了承ください。</p>
       </div>
       <div>
-      <p><h5><mark>お名前*</mark></h5>
+      <p><h5><mark>お名前<font color="red">*</font></mark></h5>
       <%= @contact.name %></p><br>
-      <p><h5><mark>メールアドレス*</mark></h5>
+      <p><h5><mark>メールアドレス<font color="red">*</font></mark></h5>
       <%= @contact.email %></p><br>
-      <p><h5><mark>電話番号*</mark></h5>
+      <p><h5><mark>電話番号<font color="red">*</font></mark></h5>
       <%= @contact.phone_number %><p><br>
-      <p><h5><mark>お問い合わせ内容*</mark></h5>
+      <p><h5><mark>お問い合わせ内容<font color="red">*</font></mark></h5>
       <%= @contact.message %></p><br>
       <%= form_for(@contact) do |f| %>
         <%= f.hidden_field :name %>
