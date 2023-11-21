@@ -2,7 +2,7 @@
   <div class="row">
 
     <div class="col-md-12 search_title">
-      <h4>作品検索</h4>
+      <h4><mark>作品検索</mark></h4><br>
     </div>
     <div class="col-md-12 search_form">
       <%= form_with url: search_path, method: :get, local: true do |f| %>
@@ -11,10 +11,11 @@
       <% end %>
     </div>
     <div class="col-md-12">
-      <p><h4>検索結果</h4></p>
+      <p><h4><mark>検索結果</mark></h4></p>
     </div>
     <div class="col-md-12">
-      <b><%= @hit_records_count %>／<%= @all_records_count %>件</b>
+      <p><h5>検索結果は<mark><big><%= @hit_records_count %>件</big></mark>です。</h5>
+      <h5>（<%= @hit_records_count %>／<%= @all_records_count %>件）</h5></p>
     </div>
     <% @records.each do |record| %>
       <div class="col-md-4 search_form">
@@ -37,7 +38,7 @@
         </p>
         <p>
           作品ID：<%= record.id %><br>
-          作品名：<%= record.name %><br>
+          作品名：<%= link_to item_path(record) do %><%= record.name %><% end %><br>
           登録日：<%= record.created_at.strftime("%Y/%m/%d") %><br>
           <% if record.user.present? %>
             登録者：<%= record.user.name %><br>
@@ -48,8 +49,10 @@
       </div>
     <% end %>
     <% if @records.empty? %>
-    <p>検索結果は0件です。</p>
+    <div class="col-md-12">
+    <p><h5>検索条件を変更して再度お試しください。</h5></p>
       <!--<p>見つかりませんでした。検索条件を変更して再度お試しください。</p>-->
     <% end %>
+    </div>
   </div>
 </div>

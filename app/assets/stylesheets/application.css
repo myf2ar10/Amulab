@@ -246,3 +246,33 @@ mark {
   }
 }
 /*******************************************************/
+/*******************************************************/
+/*トップできること*/
+table{
+  border-collapse:separate;
+  border-spacing: 5px;
+  width: 100%;
+}
+
+table th{
+  border-radius: 5px;
+  text-align: center;
+  padding: 10px 0;
+}
+table td{
+  border-radius: 5px;
+  text-align: left;
+  padding: 10px 30px;
+}
+
+table th{
+  background-color: #382b1d;
+  color: white;
+  border:solid 1px #927141;
+}
+
+table td{
+  background-color: #f1eae2;
+  border:solid 1px #af9d85;
+}
+/*******************************************************/

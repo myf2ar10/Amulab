@@ -12,19 +12,19 @@
         ご了承ください。</p>
       </div>
       <div>
-      <p><h5>お名前*</h5>
+      <p><h5><mark>お名前*</mark></h5>
       <%= @contact.name %></p><br>
-      <p><h5>メールアドレス*</h5>
+      <p><h5><mark>メールアドレス*</mark></h5>
       <%= @contact.email %></p><br>
-      <p><h5>電話番号*</h5>
+      <p><h5><mark>電話番号*</mark></h5>
       <%= @contact.phone_number %><p><br>
-      <p><h5>お問い合わせ内容*</h5>
+      <p><h5><mark>お問い合わせ内容*</mark></h5>
       <%= @contact.message %></p><br>
       <%= form_for(@contact) do |f| %>
         <%= f.hidden_field :name %>
         <%= f.hidden_field :email %>
         <%= f.hidden_field :phone_number %>
-        <%#= f.hidden_field :subject %>
+        <%#= f.hidden_field :subject %>        <!--enumの実装ができたら選択式で用件を用意-->
         <%= f.hidden_field :message %>
         <p><%= f.submit "送信", class: "btn btn-primary" %></p>
       <% end %>
@@ -32,7 +32,7 @@
         <%= f.hidden_field :name %>
         <%= f.hidden_field :email %>
         <%= f.hidden_field :phone_number %>
-        <%#= f.hidden_field :subject %>
+        <%#= f.hidden_field :subject %>        <!--enumの実装ができたら選択式で用件を用意-->
         <%= f.hidden_field :message %>
         <p><%= f.submit "入力画面に戻る", class: "btn btn-primary" %></p>
         <small>※自動返信機能は備わっていないためお客様への控えは届きません。<br>

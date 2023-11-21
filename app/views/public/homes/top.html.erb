@@ -8,6 +8,50 @@
   </div>
 </div>
 
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-7 img-hidden-m" style="margin: 0 auto;">
+
+
+      <table>
+        <tr>
+          <th>このサイトでできること</th>
+        </tr>
+        <tr>
+          <td><li>自身のハンドメイド作品の登録、編集、削除</li></td>
+        </tr>
+        <tr>
+          <td><li>他者のハンドメイド作品の閲覧、いいね、コメント</li></td>
+        </tr>
+        <tr>
+          <td><li>会員登録</li></td>
+        </tr>
+        <tr>
+          <td><li>登録された作品を作品名で検索</li></td>
+        </tr>
+        <tr>
+          <td>【会員登録済の方】<br><li>マイページから自身が登録した作品、いいね、コメント履歴の確認</li></td>
+        </tr>
+        <tr>
+          <td>【会員登録にお悩みの方】<br><li><%= link_to "ゲストログイン（閲覧用）", new_user_session_path, class: "underline" %>にてお試し動作確認</li></td>
+        </tr>
+      </table>
+
+    </div>
+  </div>
+</div>
+
+  <tbody>
+    <tr>
+      <td>
+
+      </td>
+    </tr>
+  </tbody>
+</table>
+    <% if user_signed_in? %>
+        <% else %>
 <div class="container">
   <div class="row">
     <div class="col-md-12">
@@ -17,7 +61,7 @@
     </div>
   </div>
 </div>
-
+    <% end %>
 <div class="container">
   <div class="row">
     <div class="col-md-12">

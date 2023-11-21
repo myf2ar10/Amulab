@@ -6,14 +6,14 @@
     </div>
 
     <div class="col-md-5">
-      <h4>ログイン</h4>
+      <h4><mark>ログイン</mark></h4><br>
       <div class="col-md-12 login_form">
         <%= form_with(model: resource, url: session_path(resource_name), local: true) do |f| %>
-          <%= f.label :メールアドレス %><br>
+          <p><h5><mark><%= f.label :メールアドレス %></mark></h5></p>
           <small>※登録済みメールアドレスを入力してください。</small><br>
           <p><%= f.email_field :email, autofocus: true, autocomplete: "email" %></p>
-          <%= f.label :パスワード %><br>
-          <small>※登録済みパスワード、6文字を入力してください。</small></br>
+          <p><h5><mark><%= f.label :パスワード %></mark></h5></p>
+          <small>※登録済みパスワード6文字を入力してください。</small><br>
           <p><%= f.password_field :password, autocomplete: "current-password" %></p>
           <p><%= f.submit "ログイン", class: "btn btn-primary" %>
           <%= render "public/shared/links" %></p>
