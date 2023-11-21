@@ -4,7 +4,7 @@
       <%= image_tag("knitting_is_healing_BLU.jpg", alt: "knitting is healing1", width: "100%") %>
     </div>
     <div class="col-md-5 home_create">
-      <h4>お問い合わせ*</h4>
+      <h4><mark>お問い合わせ*</mark></h4>
       <div class="col-md-12 item_edit_form">
         <p>下記フォームにご入力の上送信ください。<br>
         管理者にて確認後、追ってご連絡いたします。<br>
@@ -12,21 +12,21 @@
         ご了承ください。</p>
       </div>
       <div>
-      <b>お名前*</b><br>
-      <%= @contact.name %><br>
-      <b>メールアドレス*</b><br>
-      <%= @contact.email %><br>
-      <b>電話番号*</b><br>
-      <%= @contact.phone_number %><br>
-      <b>お問い合わせ内容*</b><br>
-      <p><%= @contact.message %></p>
+      <p><h5>お名前*</h5>
+      <%= @contact.name %></p><br>
+      <p><h5>メールアドレス*</h5>
+      <%= @contact.email %></p><br>
+      <p><h5>電話番号*</h5>
+      <%= @contact.phone_number %><p><br>
+      <p><h5>お問い合わせ内容*</h5>
+      <%= @contact.message %></p><br>
       <%= form_for(@contact) do |f| %>
         <%= f.hidden_field :name %>
         <%= f.hidden_field :email %>
         <%= f.hidden_field :phone_number %>
         <%#= f.hidden_field :subject %>
         <%= f.hidden_field :message %>
-        <%= f.submit "送信", class: "btn btn-primary" %>
+        <p><%= f.submit "送信", class: "btn btn-primary" %></p>
       <% end %>
       <%= form_for @contact, url: back_path do |f| %>
         <%= f.hidden_field :name %>
@@ -34,8 +34,9 @@
         <%= f.hidden_field :phone_number %>
         <%#= f.hidden_field :subject %>
         <%= f.hidden_field :message %>
-        <%= f.submit "入力画面に戻る", class: "btn btn-primary" %><br>
-        <small>※自動返信機能は備わっていないためお客様への控えは届きません。<br>　何卒ご容赦ください。</small>
+        <p><%= f.submit "入力画面に戻る", class: "btn btn-primary" %></p>
+        <small>※自動返信機能は備わっていないためお客様への控えは届きません。<br>
+        　何卒ご容赦ください。</small>
       <% end %>
     </div>
   </div>
