@@ -3,28 +3,43 @@
     <div class="col-md-7  img-hidden-m">
       <%= image_tag("knitting_is_healing_BLU.jpg", alt: "knitting is healing1", width: "100%") %>
     </div>
-    <div class="col-md-5 home_create">
-      <h4><mark>お問い合わせ*</mark></h4>
-      <div class="col-md-12 item_edit_form">
-        <p>下記フォームにご入力の上送信ください。<br>
-        管理者にて確認後、追ってご連絡いたします。<br>
-        確認には5日程度いただく場合がございます。<br>
-        ご了承ください。</p>
+    <div class="col-md-5">
+      <h4><mark>お問い合わせ</mark></h4>
+      <div class="col-md-12">
+        <p>
+          下記フォームにご入力の上送信ください。<br>
+          管理者にて確認後、追ってご連絡いたします。<br>
+          確認には5日程度いただく場合がございます。<br>
+          ご了承ください。
+        </p>
       </div>
       <div>
-      <p><h5>お名前*</h5>
-      <%= @contact.name %></p><br>
-      <p><h5>メールアドレス*</h5>
+      <p><h5><mark>メールアドレス<font color="red">*</font></mark></h5>
+      <small>
+        ※存在するメールアドレスを入力してください。<br>
+        ※アドレスの入力に不安がある方は<br>
+        　"amulabamulab[at]gmail.com"をご入力ください。
+      </small><br>
       <%= @contact.email %></p><br>
-      <p><h5>電話番号*</h5>
+      <p><h5><mark>お名前<font color="red">*</font></mark></h5>
+      <%= @contact.name %></p><br>
+      <p><h5><mark>電話番号<font color="red">*</font></mark></h5>
+      <small>
+        ※メールでご連絡がつかなかった場合に使用します。<br>
+        ※ハイフンは不要です。<br>
+        ※0から始まる存在する電話番号を入力してください。
+      </small><br>
       <%= @contact.phone_number %><p><br>
-      <p><h5>お問い合わせ内容*</h5>
+      <p><h5><mark>お問い合わせ内容<font color="red">*</font></mark></h5>
+      <small>
+        ※2000文字以内でご入力ください。
+      </small><br>
       <%= @contact.message %></p><br>
       <%= form_for(@contact) do |f| %>
         <%= f.hidden_field :name %>
         <%= f.hidden_field :email %>
         <%= f.hidden_field :phone_number %>
-        <%#= f.hidden_field :subject %>
+        <%#= f.hidden_field :subject %>        <!--enumの実装ができたら選択式で用件を用意-->
         <%= f.hidden_field :message %>
         <p><%= f.submit "送信", class: "btn btn-primary" %></p>
       <% end %>
@@ -32,7 +47,7 @@
         <%= f.hidden_field :name %>
         <%= f.hidden_field :email %>
         <%= f.hidden_field :phone_number %>
-        <%#= f.hidden_field :subject %>
+        <%#= f.hidden_field :subject %>        <!--enumの実装ができたら選択式で用件を用意-->
         <%= f.hidden_field :message %>
         <p><%= f.submit "入力画面に戻る", class: "btn btn-primary" %></p>
         <small>※自動返信機能は備わっていないためお客様への控えは届きません。<br>

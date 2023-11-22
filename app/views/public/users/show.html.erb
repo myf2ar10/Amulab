@@ -4,14 +4,14 @@
       <%= image_tag("knitting_is_healing_BLU.jpg", alt: "knitting is healing1", width: "100%") %>
     </div>
     <div class="col-md-5 item_show">
-      <p><h4><mark>マイページ</mark></h4></p><br>
+      <h4><mark>マイページ</mark></h4><br>
       <div class="col-md-12 item_edit_form">
         <%= form_for @user do |f| %>
-          <p><h5><%= f.label :メールアドレス %></h5>
+          <p><h5><mark><%= f.label :メールアドレス %></mark></h5>
           <%= @user.email %></p><br>
-          <p><h5><%= f.label :ニックネーム %></h5>
+          <p><h5><mark><%= f.label :ニックネーム %></mark></h5>
           <%= @user.name %></p><br>
-          <p><h5><%= f.label :電話番号 %></h5>
+          <p><h5><mark><%= f.label :電話番号 %></mark></h5>
           <%= @user.phone_number %></p><br>
         <% end %>
         <%= link_to "トップ", public_root_path, class: "btn btn-primary" %>
@@ -37,6 +37,7 @@
         </ul>
       <% else %>
       <p>まだ登録した作品がありません。
+      <% end %>
     </div>
     <div class="col-md-4">
       <h5><mark>最近いいねした作品（5作品）</mark></h5><br>
@@ -75,4 +76,4 @@
 
 <!--<h1>Public::Users#show</h1>-->
 <!--<p>Find me in app/views/public/users/show.html.erb</p>-->
-<!--k会員のマイページ画面-->
+<!--会員のマイページ画面-->

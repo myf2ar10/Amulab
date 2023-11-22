@@ -11,10 +11,10 @@
 
   <div class="card">
     <%#= image_tag("card_knit2.jpg", alt: "card_knit2") %>
-    <%= link_to(image_tag("card_knit2.jpg", alt: "card_knit2", width: "100%" ), new_user_registration_path) %>
+    <%= link_to(image_tag("card_knit2.jpg", alt: "card_knit2", width: "100%" ), question_path) %>
     <div class="card-body">
-      <h5 class="card-title"><%= link_to "会員登録", new_user_registration_path, class: "card_title_underline" %></h5>
-      <p class="card-text">会員登録をご希望の際は<%= link_to "こちら", new_user_registration_path, class: "underline" %>からご登録ください。<br><br><br><br></p>
+      <h5 class="card-title"><%= link_to "Q&A", question_path, class: "card_title_underline" %></h5>
+      <p class="card-text">よくあるご質問について回答しています。内容は随時更新致します。<br><br><br><br></p>
       <p class="card-text"><small class="text-muted">Function added on November 1, 2023</small></p>
     </div>
   </div>
@@ -58,4 +58,34 @@
       <p class="card-text"><small class="text-muted">Function added on November 1, 2023</small></p>
     </div>
   </div>
-<% end %>
+<% else %>
+  <div class="card">
+    <%#= image_tag("card_knit1.jpg", alt: "card_knit1") %>
+    <%= link_to(image_tag("card_knit1.jpg", alt: "card_knit1", width: "100%" ), items_path) %>
+    <div class="card-body">
+      <h5 class="card-title"><%= link_to "作品一覧", items_path, class: "card_title_underline" %></h5>
+      <p class="card-text"><%= link_to "このページ", items_path, class: "underline" %>では会員が登録した作品を一覧で見ることができます。最新の登録順に並んでいます。会員登録をしないと登録はできませんが、ゲストログイン機能を設けているので、お試しで投稿いただけます。</p>
+      <p class="card-text"><small class="text-muted">Function added on November 1, 2023</small></p>
+    </div>
+  </div>
+
+  <div class="card">
+    <%#= image_tag("card_knit2.jpg", alt: "card_knit2") %>
+    <%= link_to(image_tag("card_knit2.jpg", alt: "card_knit2", width: "100%" ), new_user_registration_path) %>
+    <div class="card-body">
+      <h5 class="card-title"><%= link_to "会員登録", new_user_registration_path, class: "card_title_underline" %></h5>
+      <p class="card-text">会員登録をご希望の際は<%= link_to "こちら", new_user_registration_path, class: "underline" %>からご登録ください。<br><br><br><br></p>
+      <p class="card-text"><small class="text-muted">Function added on November 1, 2023</small></p>
+    </div>
+  </div>
+
+  <div class="card">
+    <%#= image_tag("card_knit3.jpg", alt: "card_knit3") %>
+    <%= link_to(image_tag("card_knit3.jpg", alt: "card_knit3", width: "100%" ), about_path) %>
+    <div class="card-body">
+      <h5 class="card-title"><%= link_to "当サイトについて", about_path, class: "card_title_underline" %></h5>
+      <p class="card-text">リリース予定機能を時系列にて記載しています。お知らせも<%= link_to "こちら", about_path, class: "underline" %>で行いますので気になる方はアクセスください。<br><br><br></p>
+      <p class="card-text"><small class="text-muted">Function added on November 1, 2023</small></p>
+    </div>
+  </div>
+  <% end %>

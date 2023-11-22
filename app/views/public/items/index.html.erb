@@ -2,29 +2,29 @@
   <div class="row">
 
     <div class="col-md-12 new_item_title">
-      <p><h3>作品一覧</h5></p>
+      <p><h3><mark>作品一覧</mark></h5></p>
     </div>
 
     <% @items.each do |item| %>
       <div class="col-md-3 item_list_image">
-        <% if item.images.attached? %>
+        <p><% if item.images.attached? %>
           <%= link_to item_path(item) do %>
             <%= image_tag item.images.first, style: "width: 240px; height: 240px;", class: "item_list_back" %><br>
           <% end %>
           <% if item.images.count > 1 %>
-            <span class="image-count-mark">★他にも画像があります★</span><br>
+            <span class="image-count-mark"><b>★2枚以上画像があります★</b></span><br>
           <% end %>
           <% else %>
           <%= link_to item_path(item) do %>
             <%= image_tag "no_image.png", style: "width: 240px;", alt: "no_image", class: "item_list_back" %><br>
           <% end %>
         <% end %>
-        <%= link_to item_path(item) do %>
+        作品名　：<%= link_to item_path(item) do %>
           <%= item.name %><br>
         <% end %>
-        <%= item.genre.name %><br>
-        <%= item.created_at.strftime("%Y/%m/%d") %><br>
-        登録者: <%= item.user.name %><br>
+        ジャンル：<%= item.genre.name %><br>
+        登録日　：<%= item.created_at.strftime("%Y/%m/%d") %><br>
+        登録者　：<%= item.user.name %><br></p>
       </div>
     <% end %>
   </div>

@@ -6,25 +6,25 @@
     </div>
 
     <div class="col-md-5">
-      <h4>新規会員登録</h4>
+      <h4><mark>新規会員登録</mark></h4><br>
       <div class="col-md-12 signin_form">
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <%= render "public/shared/error_messages", resource: resource %><br>
-          <%= f.label :メールアドレス %><br>
+          <p><h5><mark><%= f.label :メールアドレス %></mark></h5></p>
           <small>※実在するメールアドレスを登録してください。</small></br>
           <p><%= f.email_field :email, autofocus: true, autocomplete: "email" %></p>
-          <%= f.label :ニックネーム %><br>
+          <p><h5><mark><%= f.label :ニックネーム %></mark></h5></p>
           <p><%= f.text_field :name, autofocus: true, autocomplete: "name" %></p>
-          <%= f.label :電話番号 %><br>
+          <p><h5><mark><%= f.label :電話番号 %></mark></h5></p>
           <small>
             ※実在する電話番号を登録してください。<br>
             ※ハイフンは除いてください。<br>
           </small>
           <p><%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number" %></p>
-          <%= f.label :パスワード %><br>
+          <p><h5><mark><%= f.label :パスワード %></mark></h5></p>
           <small>※6文字以上で登録してください。</small></br>
           <p><%= f.password_field :password, autocomplete: "new-password" %></p>
-          <%= f.label :password_confirmation %><br>
+          <p><h5><mark><%= f.label :password_confirmation %></mark></h5></p>
           <p><%= f.password_field :password_confirmation, autocomplete: "new-password" %></p>
           <%= f.submit "新規登録", class: "btn btn-primary" %>
           <%= render "public/shared/links" %>

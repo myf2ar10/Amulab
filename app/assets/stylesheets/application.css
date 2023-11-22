@@ -213,7 +213,7 @@ body {
 }
 .slide-wrapper {
   display: flex;
-  animation: slide-flow 100s infinite linear 1s both;
+  animation: slide-flow 10s infinite linear 1s both;
 }
 .slide{
   width: 100px;
@@ -221,7 +221,7 @@ body {
 }
 @keyframes slide-flow {
   0% {transform: translateX(0);}
-  100% {transform: translateX(-10%);}
+  95% {transform: translateX(-5%);}
 }
 /*******************************************************/
 /*******************************************************/
@@ -246,3 +246,42 @@ mark {
   }
 }
 /*******************************************************/
+/*******************************************************/
+/*トップできること*/
+table{
+  border-collapse:separate;
+  border-spacing: 5px;
+  width: 100%;
+}
+
+table th{
+  border-radius: 5px;
+  text-align: center;
+  padding: 10px 0;
+}
+table td{
+  border-radius: 5px;
+  text-align: left;
+  padding: 10px 30px;
+}
+
+table th{
+  background-color: #382b1d;
+  color: white;
+  border:solid 1px #927141;
+}
+
+table td{
+  background-color: #f1eae2;
+  border:solid 1px #af9d85;
+}
+/*******************************************************/
+.footer_wraper{
+  display:flex;
+}
+.footer_line_left{
+  text-align: center
+}
+.footer_line_right{
+  text-align: center
+}
