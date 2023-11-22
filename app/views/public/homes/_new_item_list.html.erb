@@ -63,13 +63,13 @@
             <%= image_tag "no_image.png", style: "width: 240px;", alt: "no_image", class: "top_item_back" %>
           <% end %>
       <% end %>
-      <div class="col-md-8 new_item_body_body">
-          <%= link_to item_path(item) do %>
+      <div class="col-md-12 new_item_body_body">
+          作品名　：<%= link_to item_path(item) do %>
             <%= item.name %><br>
           <% end %>
-          <%= item.genre.name %><br>
-          <%= item.created_at.strftime("%Y/%m/%d") %><br>
-          登録者: <%= item.user.name %>
+          ジャンル：<%= item.genre.name %><br>
+          登録日　：<%= item.created_at.strftime("%Y/%m/%d") %><br>
+          登録者　：<%= item.user.name %>
       </div>
     </div>
   <% end %>
