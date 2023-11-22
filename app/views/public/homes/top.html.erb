@@ -1,5 +1,49 @@
 <%= image_tag("slim.jpg", class: "img-fluid", alt: "top") %>
 
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-7">
+      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <!-- スライドさせる画像の設定 -->
+        <div class="carousel-inner">
+      <div class="carousel-item active" data-interval="2000">
+        <%= image_tag("knitting is healing1.jpg", alt: "第1スライド", width: "100%") %>
+      </div><!-- /.carousel-item -->
+      <div class="carousel-item" data-interval="2000">
+        <%= image_tag("knitting is healing_GRN.jpg", alt: "第2スライド", width: "100%") %>
+      </div><!-- /.carousel-item -->
+      <div class="carousel-item" data-interval="2000">
+        <%= image_tag("knitting is healing_GRY.jpg", alt: "第3スライド", width: "100%") %>
+      </div><!-- /.carousel-item -->
+      <div class="carousel-item" data-interval="2000">
+        <%= image_tag("knitting_is_healing_BLU.jpg", alt: "第4スライド", width: "100%") %>
+      </div><!-- /.carousel-item -->
+      <div class="carousel-item" data-interval="2000">
+        <%= image_tag("knitting is healing_PIK.jpg", alt: "第5スライド", width: "100%") %>
+      </div><!-- /.carousel-item -->
+      <div class="carousel-item" data-interval="2000">
+        <%= image_tag("knitting is healing_YEL.jpg", alt: "第6スライド", width: "100%") %>
+      </div><!-- /.carousel-item -->
+        </div><!-- /.carousel-inner -->
+        <!-- スライドコントロールの設定 -->
+        <button type="button" class="carousel-control-prev" data-target="#carouselExampleControls" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">前へ</span>
+        </button>
+        <button type="button" class="carousel-control-next" data-target="#carouselExampleControls" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">次へ</span>
+        </button>
+      </div><!-- /.carousel -->
+    </div>
+  </div>
+</div>
+
+
+
+
 <div class="container">
   <div class="row">
     <div class="col-md-7  img-hidden-m">
@@ -8,12 +52,9 @@
   </div>
 </div>
 
-
 <div class="container">
   <div class="row">
     <div class="col-md-7 img-hidden-m" style="margin: 0 auto;">
-
-
       <table>
         <tr>
           <th>このサイトでできること</th>
@@ -31,37 +72,29 @@
           <td><li>登録された作品を作品名で検索</li></td>
         </tr>
         <tr>
-          <td>【会員登録済の方】<br><li>マイページから自身が登録した作品、いいね、コメント履歴の確認</li></td>
+          <td>【会員登録済の方】<br>
+          <li>マイページから自身が登録した作品、いいね、コメント履歴の確認</li></td>
         </tr>
         <tr>
-          <td>【会員登録にお悩みの方】<br><li><%= link_to "ゲストログイン（閲覧用）", new_user_session_path, class: "underline" %>にてお試し動作確認</li></td>
+          <td>【会員登録にお悩みの方】<br>
+          <li><%= link_to "ゲストログイン（閲覧用）", new_user_session_path, class: "underline" %>にてお試し動作確認</li></td>
         </tr>
       </table>
-
     </div>
   </div>
 </div>
-
-  <tbody>
-    <tr>
-      <td>
-
-      </td>
-    </tr>
-  </tbody>
-</table>
-    <% if user_signed_in? %>
-        <% else %>
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <%= link_to new_user_session_path do %>
-        <%= image_tag("banner2.jpg", alt: "banner", width: "100%") %>
-      <% end %>
+<% if user_signed_in? %>
+<% else %>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <%= link_to new_user_session_path do %>
+          <%= image_tag("banner2.jpg", alt: "banner", width: "100%") %>
+        <% end %>
+      </div>
     </div>
   </div>
-</div>
-    <% end %>
+<% end %>
 <div class="container">
   <div class="row">
     <div class="col-md-12">
