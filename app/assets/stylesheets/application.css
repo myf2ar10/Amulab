@@ -285,3 +285,7 @@ table td{
 .footer_line_right{
   text-align: center
 }
+#carouselExampleControls{
+  width: 635px;
+  height: 475px;
+}
