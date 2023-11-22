@@ -8,11 +8,11 @@
 
 # require 'faker'
 
-Admin.create!(
-id: 1,
-  email: "admin@admin",
-  password: "123456"
-  )
+# Admin.create!(
+# id: 1,
+#   email: "admin@admin",
+#   password: "123456"
+#   )
 
 User.create!(
 id: 0,
