@@ -1,11 +1,10 @@
 <div class="container">
   <div class="row">
-    <!--<div class="col-md-12 text-center">-->
     <div class="col-md-12">
-      <h4>作品詳細画面</h4>
+      <h3><mark>作品詳細画面</mark></h3><br>
     </div>
     <div class="col-md-7  img-hidden-m">
-      <h5><b><%= label :画像, "画像" %></b></h5>
+      <h5><mark><%= label :画像, "画像" %></mark></h5>
         <% if @item.images.attached? %>
           <% @item.images.each_with_index do |image, index| %>
             <%= index + 1 %><br>
@@ -17,34 +16,33 @@
     </div>
     <div class="col-md-5 item_show">
       <div class="col-md-12 item_edit_form">
-        <p><h5><b><%= label :作品名, "作品名" %></b></h5>
+        <p><h5><mark><%= label :作品名, "作品名" %></mark></h5>
         <%= @item.name %></p><br>
-        <p><h5><b><%= label :ジャンル, "ジャンル" %></b></h5>
+        <p><h5><mark><%= label :ジャンル, "ジャンル" %></mark></h5>
         <%= @item.genre.name %></p><br>
-        <p><h5><b><%= label :作品説明, "作品説明" %></b></h5>
+        <p><h5><mark><%= label :作品説明, "作品説明" %></mark></h5>
         <%= @item.description %></p><br>
-        <p><h5><b><%= label :登録日, "登録日" %></b></h5>
+        <p><h5><mark><%= label :登録日, "登録日" %></mark></h5>
         <%= @item.created_at.strftime("%Y/%m/%d") %></p><br>
-        <p><h5><b><%= label :登録者, "登録者" %></b></h5>
+        <p><h5><mark><%= label :登録者, "登録者" %></mark></h5>
         <%= @item.user.name %></p><br>
         <% if user_signed_in? %>
          <!--|| admin_signed_in?-->
           <!-- ユーザーまたは管理者がログインしている場合の表示 -->
           <p><%= link_to "編集", edit_item_path(@item), class: "btn btn-primary" %>
-          <%= link_to "削除", item_path(@item), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-primary" %>
+          <%= link_to "削除", item_path(@item), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-danger" %>
           <%= link_to "一覧に戻る", items_path, class: "btn btn-primary" %></p>
       </div>
     </div>
     <div class="col-md-12 you_can_faborite_comment">
-        <h5><b>↓いいね・コメント機能を利用できます。<br></b></h5>
+      <p><h5><mark>↓いいね・コメント機能を利用できます。</mark></h5></p>
       <div id="favorite_buttons_<%= @item.id %>">
         <%= render "favorite", item: @item %>
       </div>
     </div>
     <div class="col-md-12 comment_form_title">
-      <h5><b>↓コメント入力欄<small>※200文字以内</small><br></b></h5>
+      <p><h5><mark>↓コメント入力欄<small>※200文字以内</small></mark></h5></p>
       <div>
-        </p>
         <%= form_with(model:[@item, @item_comment], local: true) do |f| %>
           <%= f.text_area :comment, rows: 5, style: "width: 100%;", placeholder: "例）とてもすてきな作品ですね。" %>
           <p class="text-left">
@@ -57,35 +55,30 @@
       <% if @item.item_comments.empty? %>
         <p>コメントがまだありません</p>
       <% else %>
-      <div class="col-md-12 comment_list_title">
-          <h5><b>↓コメント一覧<br></b></h5>
-        </p>
-      </div>
-      <% @item.item_comments.each_with_index do |item_comment, index| %>
-        <div class="col-md-3 comment_show">
-          <div>
-            <small><b>No.<%= 1 + index %></b></small><br>
-            <b>コメント：</b><br>
-            <%= item_comment.comment %><br>
-          </div>
-          <div class="write_user">
-            <%= item_comment.user.name %>より<br>
-            （<%= item_comment.created_at.strftime("%Y/%m/%d/%H:%M") %>）<br>
-            <% if item_comment.user == current_user %>
-              <%= link_to "削除", item_item_comment_path(@item, item_comment), method: :delete, class: "btn btn-danger comment_delete_button" %>
-            <% end %>
-          </div>
+        <div class="col-md-12 comment_list_title">
+          <p><h5><mark>↓コメント一覧</mark></h5></p>
         </div>
-<% end %>
-
-
-
-
+        <% @item.item_comments.each_with_index do |item_comment, index| %>
+          <div class="col-md-3 comment_show">
+            <div>
+              <small><b>No.<%= 1 + index %></b></small><br>
+              <b>コメント：</b><br>
+              <%= item_comment.comment %><br>
+            </div>
+            <div class="write_user">
+              <%= item_comment.user.name %>より<br>
+              （<%= item_comment.created_at.strftime("%Y/%m/%d/%H:%M") %>）<br>
+              <% if item_comment.user == current_user %>
+                <%= link_to "削除", item_item_comment_path(@item, item_comment), method: :delete, class: "btn btn-danger comment_delete_button" %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
       <% end %>
       <% else %>
         <!-- ユーザーまたは管理者がログインしていない場合の表示 -->
-        <p><b>いいね・コメント機能をご利用いただくには、<br>
-          <%= link_to "こちら", new_user_registration_path, class: "underline" %>から新規登録を行なってください。
+        <p><b>いいね・コメント機能を利用するには、<br>
+          <%= link_to "こちら", new_user_registration_path, class: "underline" %>から新規会員登録を行なってください。
         </p>
         <p>会員登録済みの方は、<br>
           <%= link_to "こちら", new_user_session_path, class: "underline" %>からログインできます。</b>
