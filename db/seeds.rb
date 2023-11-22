@@ -8,13 +8,13 @@
 
 Admin.create!(
   p id: 1,
-  email: "admin@admin",
+  email: "admin@admin.admin",
   password: "123456"
   )
 
 User.create!(
   p id: 1,
-  email: "user@user",
+  email: "user@user.user",
   name: "ユーザー",
   phone_number: "00000000000",
   password: "123456"
@@ -22,17 +22,17 @@ User.create!(
 
 User.create!(
   p id: 2,
-  email: "user2@user",
+  email: "user2@user2.user2",
   name: "ユーザー2",
-  phone_number: "2222222222",
+  phone_number: "0222222222",
   password: "123456"
   )
 
 User.create!(
   p id: 3,
-  email: "user3@user",
+  email: "user3@user3.user3",
   name: "ユーザー3",
-  phone_number: "33333333333",
+  phone_number: "03333333333",
   password: "123456"
   )
 
