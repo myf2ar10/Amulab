@@ -276,3 +276,12 @@ table td{
   border:solid 1px #af9d85;
 }
 /*******************************************************/
+.footer_wraper{
+  display:flex;
+}
+.footer_line_left{
+  text-align: center
+}
+.footer_line_right{
+  text-align: center
+}
