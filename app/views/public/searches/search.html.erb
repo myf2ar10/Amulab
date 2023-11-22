@@ -37,7 +37,6 @@
           <% end %>
         </p>
         <p>
-          作品ID：<%= record.id %><br>
           作品名：<%= link_to item_path(record) do %><%= record.name %><% end %><br>
           登録日：<%= record.created_at.strftime("%Y/%m/%d") %><br>
           <% if record.user.present? %>
