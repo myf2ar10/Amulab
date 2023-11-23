@@ -1,10 +1,49 @@
-<%= image_tag("knitting_is_healing_BLU.jpg", alt: "card_collar1", width: "100%") %>
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    <!-- インジケータの設定 -->
+  <ol class="carousel-indicators">
+    <li data-target="#carouselOption1" data-slide-to="第1スライド" class="active"></li>
+    <li data-target="#carouselOption1" data-slide-to="第2スライド"></li>
+    <li data-target="#carouselOption1" data-slide-to="第3スライド"></li>
+    <li data-target="#carouselOption1" data-slide-to="第4スライド"></li>
+    <li data-target="#carouselOption1" data-slide-to="第5スライド"></li>
+    <li data-target="#carouselOption1" data-slide-to="第6スライド"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-interval="1500">
+        <%= image_tag("knitting is healing1.jpg", alt: "第1スライド", width: "100%") %>
+      </div>
+      <div class="carousel-item" data-interval="5000">
+        <%= image_tag("knitting is healing_GRN.jpg", alt: "第2スライド", width: "100%") %>
+      </div>
+      <div class="carousel-item" data-interval="5000">
+        <%= image_tag("knitting is healing_GRY.jpg", alt: "第3スライド", width: "100%") %>
+      </div>
+      <div class="carousel-item" data-interval="5000">
+        <%= image_tag("knitting_is_healing_BLU.jpg", alt: "第4スライド", width: "100%") %>
+      </div>
+      <div class="carousel-item" data-interval="5000">
+        <%= image_tag("knitting is healing_PIK.jpg", alt: "第5スライド", width: "100%") %>
+      </div>
+      <div class="carousel-item" data-interval="5000">
+        <%= image_tag("knitting is healing_YEL.jpg", alt: "第6スライド", width: "100%") %>
+      </div>
+    </div>
+    <button type="button" class="carousel-control-prev" data-target="#carouselExampleControls" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">前へ</span>
+    </button>
+    <button type="button" class="carousel-control-next" data-target="#carouselExampleControls" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">次へ</span>
+    </button>
+  </div>
 </div>
+
 <div class="col-md-5">
   <h1><mark>Welcome to Amulab !!</mark></h1>
   <p>
-    アクセス頂きありがとうございます。<br>
-    当サイトは「ハンドメイド作品登録サイト」です。
+    Amulab／編むらぼらとりーにアクセス頂きありがとうございます。<br>
+    当サイトは「ハンドメイド作品を登録するコミュニティサイト」です。
   </p>
   <p>
     編み物だけに限りません！
@@ -18,7 +57,7 @@
     みんなでいいねし合いましょう。
   </p>
   <p>
-    サイトに関するご意見・ご感想は<br>
+    サイトに関するご意見・ご感想は
     <%= link_to "こちら", new_contact_path, class: "underline" %>
     のお問い合わせよりご連絡ください。
   </p>
