@@ -36,6 +36,13 @@ p id: 3,
   password: "123456"
   )
 
+User.create!(
+p id: 4,
+  email: "user4@user4.com",
+  name: "名無しの権兵衛",
+  phone_number: "04444444444",
+  password: "123456"
+  )
 
 Genre.create!(
 p id: 1,
@@ -188,6 +195,19 @@ p item = Item.find_by(name: "携帯ケース")
 Item.create!(
 p id: 10,
   user: User.find_by(name: "真子"),
+  genre: Genre.find_by(name: "ポーチ"),
+  name: "ポーチ",
+  description: "何か小物を入れる用のポーチです。"
+  )
+p item = Item.find_by(name: "ポーチ")
+ item.images.attach(io: File.open(Rails.root.join('app/assets/images/test10.png')), filename: 'test_item')
+p item = Item.find_by(name: "ポーチ")
+ item.images.attach(io: File.open(Rails.root.join('app/assets/images/test10_2.png')), filename: 'test_item')
+
+
+Item.create!(
+p id: 11,
+  user: User.find_by(name: "名無しの権兵衛"),
   genre: Genre.find_by(name: "ポーチ"),
   name: "ポーチ",
   description: "何か小物を入れる用のポーチです。"
