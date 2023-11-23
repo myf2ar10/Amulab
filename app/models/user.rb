@@ -33,6 +33,4 @@ class User < ApplicationRecord
     self.status == "suspended"
   end
 
-
-
 end
