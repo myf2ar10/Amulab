@@ -7,13 +7,13 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Admin.create!(
-id: 1,
+p id: 1,
   email: "admin@admin",
   password: "123456"
   )
 
 User.create!(
-id: 0,
+p id: 0,
   email: "user@user.com",
   name: "編み物大好きっ子",
   phone_number: "0000000000",
@@ -21,7 +21,7 @@ id: 0,
   )
 
 User.create!(
-id: 2,
+p id: 2,
   email: "user2@user2.com",
   name: "はなちゃん",
   phone_number: "0222222222",
@@ -29,7 +29,7 @@ id: 2,
   )
 
 User.create!(
-id: 3,
+p id: 3,
   email: "user3@user3.com",
   name: "真子",
   phone_number: "0333333333",
@@ -38,79 +38,79 @@ id: 3,
 
 
 Genre.create!(
-id: 1,
+p id: 1,
   name: "いいねが欲しい"
   )
 
 Genre.create!(
-id: 2,
+p id: 2,
   name: "コメントが欲しい"
   )
 
 Genre.create!(
-id: 3,
+p id: 3,
   name: "自分用のメモ"
   )
 
 Genre.create!(
-id: 4,
+p id: 4,
   name: "その他"
   )
 
 Genre.create!(
-id: 5,
+p id: 5,
   name: "かばん"
   )
 
 Genre.create!(
-id: 6,
+p id: 6,
   name: "ポーチ"
   )
 
 Genre.create!(
-id: 7,
+p id: 7,
   name: "編み物"
   )
 
 Genre.create!(
-id: 8,
+p id: 8,
   name: "縫い物"
   )
 
 Genre.create!(
-id: 9,
+p id: 9,
   name: "適当に作ってみた"
   )
 
 Genre.create!(
-id: 10,
+p id: 10,
   name: "お気に入り"
   )
 
 Item.create!(
-id: 1,
+p id: 1,
   user: User.find_by(name: "編み物大好きっ子"),
   genre: Genre.find_by(name: "適当に作ってみた"),
   name: "リトルグリーンメンのミニバッグ",
   description: "ビニールひもで編みました。試しに作ったので網目がずれています。楽しく作れました！"
   )
-item = Item.find_by(name: "リトルグリーンメンのミニバッグ")
+p item = Item.find_by(name: "リトルグリーンメンのミニバッグ")
  item.images.attach(io: File.open(Rails.root.join('app/assets/images/test.jpg')), filename: 'test_item')
 
 Item.create!(
-id: 2,
+p id: 2,
   user: User.find_by(name: "編み物大好きっ子"),
   genre: Genre.find_by(name: "かばん"),
   name: "ミニバッグ",
   description: "100均で買った毛糸で編みました。どこの100均か忘れました💦バイカラーにしてこだわっています。これを作ったときは初めて底板を使いました。持ち手も既製品を使ったので丈夫で、今も使っているバッグです。"
   )
-item = Item.find_by(name: "ミニバッグ")
+p item = Item.find_by(name: "ミニバッグ")
  item.images.attach(io: File.open(Rails.root.join('app/assets/images/test2.png')), filename: 'test_item')
-item = Item.find_by(name: "ミニバッグ")
+p item = Item.find_by(name: "ミニバッグ")
  item.images.attach(io: File.open(Rails.root.join('app/assets/images/test2_2.png')), filename: 'test_item')
 
 Item.create!(
-id: 3,
+p id: 3,
   user: User.find_by(name: "編み物大好きっ子"),
   genre: Genre.find_by(name: "自分用のメモ"),
   name: "メモ",
@@ -120,79 +120,79 @@ id: 3,
 # item.images.attach(io: File.open(Rails.root.join('app/assets/images/test.jpg')), filename: 'test_item')
 
 Item.create!(
-id: 4,
+p id: 4,
   user: User.find_by(name: "はなちゃん"),
   genre: Genre.find_by(name: "編み物"),
   name: "ミニオン",
   description: "余っていたビニールひもを使って編み図なしで編んだ。ミニオン。手が痛かった。"
   )
-item = Item.find_by(name: "ミニオン")
+p item = Item.find_by(name: "ミニオン")
  item.images.attach(io: File.open(Rails.root.join('app/assets/images/test4.png')), filename: 'test_item')
-item = Item.find_by(name: "ミニオン")
+p item = Item.find_by(name: "ミニオン")
  item.images.attach(io: File.open(Rails.root.join('app/assets/images/test4.png')), filename: 'test_item')
-item = Item.find_by(name: "ミニオン")
+p item = Item.find_by(name: "ミニオン")
  item.images.attach(io: File.open(Rails.root.join('app/assets/images/test4.png')), filename: 'test_item')
 
 Item.create!(
-id: 5,
+p id: 5,
   user: User.find_by(name: "はなちゃん"),
   genre: Genre.find_by(name: "編み物"),
   name: "バッグ",
   description: "ベロア風のバッグを編んだ。チャームを余りもの。糸処理が雑になったので次回気を付ける。"
   )
-item = Item.find_by(name: "バッグ")
+p item = Item.find_by(name: "バッグ")
  item.images.attach(io: File.open(Rails.root.join('app/assets/images/test5.png')), filename: 'test_item')
 
 Item.create!(
-id: 6,
+p id: 6,
   user: User.find_by(name: "はなちゃん"),
   genre: Genre.find_by(name: "その他"),
   name: "座布団",
   description: "ネットの編み図を見ながら座布団を編んだ。極太の意図を使った。いろんな色のモチーフをたくさん作るのが楽しかった。"
   )
-item = Item.find_by(name: "座布団")
+p item = Item.find_by(name: "座布団")
  item.images.attach(io: File.open(Rails.root.join('app/assets/images/test6.png')), filename: 'test_item')
 
 Item.create!(
-id: 7,
+p id: 7,
   user: User.find_by(name: "真子"),
   genre: Genre.find_by(name: "その他"),
   name: "貯金箱",
   description: "昔作った工作の貯金箱です。出来が良かったので記録として登録しておきます。確か表彰されました。嬉しかったです。"
   )
-item = Item.find_by(name: "貯金箱")
+p item = Item.find_by(name: "貯金箱")
  item.images.attach(io: File.open(Rails.root.join('app/assets/images/test7.png')), filename: 'test_item')
 
 Item.create!(
-id: 8,
+p id: 8,
   user: User.find_by(name: "真子"),
   genre: Genre.find_by(name: "お気に入り"),
   name: "ピンクのかばん",
   description: "衣類を一時的に仕舞う用に入れ物が欲しかったので適当に編んでみました。結構気に入っています。"
   )
-item = Item.find_by(name: "ピンクのかばん")
+p item = Item.find_by(name: "ピンクのかばん")
  item.images.attach(io: File.open(Rails.root.join('app/assets/images/test8.png')), filename: 'test_item')
-item = Item.find_by(name: "ピンクのかばん")
+p item = Item.find_by(name: "ピンクのかばん")
  item.images.attach(io: File.open(Rails.root.join('app/assets/images/test8_2.png')), filename: 'test_item')
 
 Item.create!(
-id: 9,
+p id: 9,
   user: User.find_by(name: "真子"),
   genre: Genre.find_by(name: "縫い物"),
   name: "携帯ケース",
   description: "ポケットのない服を着ているときに携帯を入れておくところがないのでケースを縫いました。便利です★"
   )
-item = Item.find_by(name: "携帯ケース")
+p item = Item.find_by(name: "携帯ケース")
  item.images.attach(io: File.open(Rails.root.join('app/assets/images/test9.png')), filename: 'test_item')
 
 Item.create!(
-id: 10,
+p id: 10,
   user: User.find_by(name: "真子"),
   genre: Genre.find_by(name: "ポーチ"),
   name: "ポーチ",
   description: "何か小物を入れる用のポーチです。"
   )
-item = Item.find_by(name: "ポーチ")
+p item = Item.find_by(name: "ポーチ")
  item.images.attach(io: File.open(Rails.root.join('app/assets/images/test10.png')), filename: 'test_item')
-item = Item.find_by(name: "ポーチ")
+p item = Item.find_by(name: "ポーチ")
  item.images.attach(io: File.open(Rails.root.join('app/assets/images/test10_2.png')), filename: 'test_item')
