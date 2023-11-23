@@ -25,8 +25,8 @@
       </div>
     </div>
     <div class="col-md-12">
-      <% if @user_items.present? %>
         <h5><mark>最近登録した作品（5作品）</mark></h5><br>
+      <% if @user_items.present? %>
         <ul>
           <% @user_items.last(5).each do |item| %>
             <li>
