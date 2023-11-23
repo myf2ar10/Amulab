@@ -1,7 +1,7 @@
 class Public::ItemsController < ApplicationController
 
   before_action :is_matching_login_user, only: [:edit, :update, :destroy], unless: :current_admin
-  before_action :authenticate_user!, only: [:create]
+  before_action :authenticate_user!, only: [:create, :new]
 
   def index
     @items = Item.order(created_at: :desc).page(params[:page])    # ページネーション desc => 大きい順 asc  => 小さい順

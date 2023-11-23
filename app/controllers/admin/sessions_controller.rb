@@ -2,6 +2,7 @@
 
 class Admin::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
+    before_action :require_admin, only: [:admin_action]
 
 # Deviseのデフォルトの挙動も必要なため、super を呼び出すことで親クラスの new メソッドを実行。
   def new
@@ -43,9 +44,10 @@ class Admin::SessionsController < Devise::SessionsController
   def after_sign_in_path_for(resource)
     public_root_path
   end
-
-  # def after_sign_out_path_for(resource)
-  #   new_admin_session_path
-  # end
-
+  def require_admin
+    unless current_user && current_user.admin?
+      flash[:alert] = "アクセス権がありません。"
+      redirect_to root_path
+    end
+  end
 end
