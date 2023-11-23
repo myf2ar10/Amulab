@@ -1,56 +1,12 @@
 <%= image_tag("slim.jpg", class: "img-fluid", alt: "top") %>
-<div class="container">
-  <div class="row">
-    <div class="col-md-7">
-      <p>
-        <a href="https://lin.ee/WQcPzTs">
-          <img src="https://scdn.line-apps.com/n/line_add_friends/btn/ja.png" alt="友だち追加" height="36" border="0">
-        </a>
-        LINEでのお問い合わせも受付中！<br>
-      </p>
-    </div>
-  </div>
-</div>
 
 <div class="container">
   <div class="row">
-    <div class="col-md-7">
-      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active" data-interval="2000">
-            <%= image_tag("knitting is healing1.jpg", alt: "第1スライド", width: "100%") %>
-          </div>
-          <div class="carousel-item" data-interval="2000">
-            <%= image_tag("knitting is healing_GRN.jpg", alt: "第2スライド", width: "100%") %>
-          </div>
-          <div class="carousel-item" data-interval="2000">
-            <%= image_tag("knitting is healing_GRY.jpg", alt: "第3スライド", width: "100%") %>
-          </div>
-          <div class="carousel-item" data-interval="2000">
-            <%= image_tag("knitting_is_healing_BLU.jpg", alt: "第4スライド", width: "100%") %>
-          </div>
-          <div class="carousel-item" data-interval="2000">
-            <%= image_tag("knitting is healing_PIK.jpg", alt: "第5スライド", width: "100%") %>
-          </div>
-          <div class="carousel-item" data-interval="2000">
-            <%= image_tag("knitting is healing_YEL.jpg", alt: "第6スライド", width: "100%") %>
-          </div>
-        </div>
-        <button type="button" class="carousel-control-prev" data-target="#carouselExampleControls" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">前へ</span>
-        </button>
-        <button type="button" class="carousel-control-next" data-target="#carouselExampleControls" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">次へ</span>
-        </button>
-      </div>
+    <div class="col-md-7 line">
+    <%= render 'line' %>
     </div>
   </div>
 </div>
-
-
-
 
 <div class="container">
   <div class="row">

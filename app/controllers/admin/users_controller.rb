@@ -1,6 +1,6 @@
 class Admin::UsersController < ApplicationController
   before_action :authenticate_admin # ログインしていてかつ管理者である
-  before_action :require_admin, only: [:destroy]
+  before_action :require_admin, only: [:destroy, :show, :edhit, :update]
 
   def show
     @user = User.find(params[:id])
