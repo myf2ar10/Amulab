@@ -1,12 +1,12 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12 admin_item_title">
-      <p><h3>作品一覧</h5></p>
+      <p><h3><mark>作品一覧</mark></h5></p>
     </div>
     <% @items.each do |item| %>
       <div class="col-md-3 item_list_image">
-        <%= item.id %><br>
-        <% if item.images.attached? %>
+
+        <p><% if item.images.attached? %>
           <%= link_to admin_item_path(item) do %>
             <% item.images.each_with_index do |image, index| %>
               <%= image_tag image, style: "width: 240px;", class: "admin_item_list_back" %><br>
@@ -17,12 +17,13 @@
             <%= image_tag "no_image.png", style: "width: 240px;", alt: "no_image", class: "admin_item_list_back" %><br>
           <% end %>
         <% end %>
-        <%= link_to admin_item_path(item) do %>
+        作品ID　：<%= item.id %><br>
+        作品名　：<%= link_to admin_item_path(item) do %>
           <%= item.name %><br>
         <% end %>
-        <%= item.genre.name %><br>
-        <%= item.created_at.strftime("%Y/%m/%d %H:%M:%S") %><br>
-        登録者: <%= item.user.name %><br>
+        ジャンル：<%= item.genre.name %><br>
+        登録日　：<%= item.created_at.strftime("%Y/%m/%d %H:%M:%S") %><br>
+        登録者　：<%= item.user.name %><br></p>
       </div>
     <% end %>
     </div>
