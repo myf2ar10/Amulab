@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12 genre_title">
-      <h4>ジャンル一覧（管理者用・登録含む）</h4>
+      <h4><mark>ジャンル一覧（管理者用・登録含む）</mark></h4>
     </div>
     <div class="col-md-12 add_genre">
       <div>
@@ -14,23 +14,23 @@
           </ul>
         <% end %>
       </div>
-      <%= form_with model: @genre, url: admin_genres_path, method: :post do |f| %>
+      <p><%= form_with model: @genre, url: admin_genres_path, method: :post do |f| %>
         <%= f.label :name, "ジャンル名:" %>
         <%= f.text_field :name %>
         <%= f.submit "登録", class: "btn btn-primary ml2" %>
-      <% end %>
+      <% end %></p>
     </div>
     <% @genres.each do |genre| %>
       <div class="col-md-4 admin_genre">
         <p>
-          <%= genre.id %><br>
           <i class="fa-solid fa-paw fa-4x admin_back"></i><br>
-          <b><%= genre.name %></b><br>
-          <%= genre.created_at.strftime("%Y/%m/%d %H:%M:%S") %>
+          ジャンルID：<%= genre.id %><br>
+          ジャンル名：<%= genre.name %><br>
+          登録日　　：<%= genre.created_at.strftime("%Y/%m/%d %H:%M:%S") %>
         </p>
-        <%= link_to "編集", edit_admin_genre_path(genre), class: "btn btn-primary" %>
+        <p><%= link_to "編集", edit_admin_genre_path(genre), class: "btn btn-primary" %>
         <%= link_to '削除', admin_genre_path(genre), method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'btn btn-danger' %>
-      </div>
+      </div></p>
     <% end %>
     <div class="col-md-12">
       <%= paginate @genres %>

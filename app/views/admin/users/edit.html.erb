@@ -6,7 +6,7 @@
     </div>
 
     <div class="col-md-5 item_show">
-      <h4>会員情報編集画面</h4>
+      <h4><mark>会員情報編集画面</mark></h4>
       <div>
         <% if @user.errors.any? %>
           <%= @user.errors.count %>件のエラーが発生しました
@@ -19,18 +19,18 @@
       </div>
       <div class="col-md-12 item_edit_form">
         <%= form_with model:@user, url: admin_user_path(@user), method: :patch do |f| %>
-          <%= f.label :email, "メールアドレス" %><br>
-          <%= f.text_field :email %><br>
-          <%= f.label :name, "ニックネーム" %><br>
-          <%= f.text_field :name %><br>
-          <%= f.label :phone_number, "電話番号" %><br>
-          <%= f.text_field :phone_number %><br>
-          <%= f.label :password, "パスワード" %><br>
-          <small>※パスワードの変更は不可。</small> <br>
-          <p><%= @user.encrypted_password %></p><br>
-          <!--<td><%#= f.text_field :password %></td>-->
-          <%= link_to "詳細に戻る", admin_user_path(@user), class: "btn btn-primary" %>
+          <p><h5><mark>会員ID</mark></h5>
+          <%= @user.id %></p><br>
+          <p><h5><mark><%= f.label :email, "メールアドレス" %></mark></h5>
+          <%= f.text_field :email %></p><br>
+          <p><h5><mark><%= f.label :name, "ニックネーム" %></mark></h5>
+          <%= f.text_field :name %></p><br>
+          <p><h5><mark><%= f.label :phone_number, "電話番号" %></mark></h5>
+          <%= f.text_field :phone_number %></p><br>
+          <p><h5><mark><%= f.label :状況 %></mark></h5>
+          <%= I18n.t("user.#{@user.status}") %></p><br>
           <%= f.submit "編集完了", class: "btn btn-primary" %>
+          <%= link_to "詳細に戻る", admin_user_path(@user), class: "btn btn-primary" %>
         <% end %>
 
   </div>

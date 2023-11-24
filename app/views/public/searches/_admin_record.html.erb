@@ -1,0 +1,31 @@
+<% @records.each do |record| %>
+  <div class="col-md-4 search_form">
+    <p>
+      <% if record.user.present? %>
+        <%= link_to admin_item_path(record) do %>
+          <% if record.images.attached? %>
+            <%= image_tag record.images.first, style: "width: 100px;", class: "back" %><br>
+          <% else %>
+            <%= image_tag "no_image.png", style: "width: 100px;", alt: "no_image", class: "back" %><br>
+          <% end %>
+        <% end %>
+      <% else %>
+        <% if record.images.attached? %>
+          <%= image_tag record.images.first, style: "width: 100px;" %><br>
+        <% else %>
+          <%= image_tag "no_image.png", style: "width: 100px;", alt: "no_image", class: "back"  %><br>
+        <% end %>
+      <% end %>
+    </p>
+    <p>
+      作品名　：<%= link_to admin_item_path(record) do %><%= record.name %><% end %><br>
+      ジャンル：<%= record.genre.name %><br>
+      登録日　：<%= record.created_at.strftime("%Y/%m/%d") %><br>
+      <% if record.user.present? %>
+        登録者　：<%= record.user.name %><br>
+      <% else %>
+        登録者　：管理者<br>
+      <% end %>
+    </p>
+  </div>
+<% end %>
