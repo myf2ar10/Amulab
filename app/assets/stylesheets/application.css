@@ -235,7 +235,7 @@ mark {
   background-position: 0 100%;
   background-repeat: no-repeat;
   background-size: 0 var(--bg-height);
-  animation: highlight 800ms 1 ease-out;/*アニメーション速度を遅めに*/
+  animation: highlight 800ms 1 ease-out;/*アニメーション速度変更*/
   animation-fill-mode: forwards;
   animation-play-state: paused;
 }
@@ -258,20 +258,14 @@ table th{
   border-radius: 5px;
   text-align: center;
   padding: 10px 0;
+  background-color: #382b1d;
+  color: white;
+  border:solid 1px #927141;
 }
 table td{
   border-radius: 5px;
   text-align: left;
   padding: 10px 30px;
-}
-
-table th{
-  background-color: #382b1d;
-  color: white;
-  border:solid 1px #927141;
-}
-
-table td{
   background-color: #f1eae2;
   border:solid 1px #af9d85;
 }
@@ -282,7 +276,3 @@ table td{
   width: 100%;
 }
 /*******************************************************/
-/*.line{*/
-/*  margin-left: 12%;*/
-/*  margin-top: 3%;*/
-/*}*/

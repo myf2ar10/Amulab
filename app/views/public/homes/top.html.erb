@@ -2,7 +2,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-7 line">
+    <div class="col-md-12 line">
     <%= render 'line' %>
     </div>
   </div>
@@ -24,33 +24,15 @@
   </div>
 </div>
 
-<% if user_signed_in? %>
-<% else %>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <%= link_to new_user_session_path do %>
-          <%= image_tag("banner2.jpg", alt: "banner", width: "100%") %>
-        <% end %>
-      </div>
-    </div>
-  </div>
-<% end %>
-<% if user_signed_in? %>
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
-      <%= link_to new_item_path do %>
-        <%= image_tag("2banner.jpg", alt: "banner2", width: "100%") %>
-      <% end %>
-    </div>
-  </div>
-</div>
-<% else %>
-<% end %>
-<div class="container container-m">
-  <div class="card-deck">
-    <%= render 'card' %>
+    <% if user_signed_in? %>
+      <%= render 'banner_user' %>
+    <% elsif admin_signed_in? %>
+      <%= render 'banner_admin' %>
+    <% else %>
+      <%= render 'banner' %>
+    <% end %>
   </div>
 </div>
 

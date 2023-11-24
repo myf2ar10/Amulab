@@ -26,12 +26,14 @@
         <%= @item.created_at.strftime("%Y/%m/%d") %></p><br>
         <p><h5><mark><%= label :登録者, "登録者" %></mark></h5>
         <%= @item.user.name %></p><br>
+        <% if user_signed_in? && current_user == @item.user %>
+          <p><%= link_to "編集", edit_item_path(@item), class: "btn btn-primary" %>
+          <%= link_to "削除", item_path(@item), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-danger" %></p>
+        <% end %>
         <% if user_signed_in? %>
          <!--|| admin_signed_in?-->
           <!-- ユーザーまたは管理者がログインしている場合の表示 -->
-          <p><%= link_to "編集", edit_item_path(@item), class: "btn btn-primary" %>
-          <%= link_to "削除", item_path(@item), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-danger" %>
-          <%= link_to "一覧に戻る", items_path, class: "btn btn-primary" %></p>
+          <p><%= link_to "一覧に戻る", items_path, class: "btn btn-primary" %></p>
       </div>
     </div>
     <div class="col-md-12 you_can_faborite_comment">
@@ -52,12 +54,12 @@
       </div>
     </div>
     <div class="col-md-12 comment_wrapper">
-      <% if @item.item_comments.empty? %>
-        <p>コメントがまだありません</p>
-      <% else %>
         <div class="col-md-12 comment_list_title">
           <p><h5><mark>↓コメント一覧</mark></h5></p>
         </div>
+      <% if @item.item_comments.empty? %>
+        <p>コメントがまだありません</p>
+      <% else %>
         <% @item.item_comments.each_with_index do |item_comment, index| %>
           <div class="col-md-3 comment_show">
             <div>
@@ -69,7 +71,7 @@
               <%= item_comment.user.name %>より<br>
               （<%= item_comment.created_at.strftime("%Y/%m/%d/%H:%M") %>）<br>
               <% if item_comment.user == current_user %>
-                <%= link_to "削除", item_item_comment_path(@item, item_comment), method: :delete, class: "btn btn-danger comment_delete_button" %>
+<%= link_to "削除", item_item_comment_path(@item, item_comment), method: :delete, class: "btn btn-danger comment_delete_button", data: { confirm: "本当に削除しますか？" } %>
               <% end %>
             </div>
           </div>

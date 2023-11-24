@@ -1,31 +1,33 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-7  img-hidden-m">
-      <%= image_tag("knitting_is_healing_BLU.jpg", alt: "knitting is healing1", width: "100%") %>
+    <div class="col-md-12">
+      <h3><mark>作品詳細画面</mark></h3><br>
     </div>
-    <div class="col-md-5 item_show">
-      <h4>作品詳細画面</h4>
-      <div class="col-md-12 item_edit_form">
-        <% if @item.images.present? %>
+    <div class="col-md-7  admin_item_show">
+      <h5><mark><%= label :画像, "画像" %></mark></h5>
+        <% if @item.images.attached? %>
           <% @item.images.each_with_index do |image, index| %>
             <%= index + 1 %><br>
-            <%= image_tag image, style: "width: #{(1..4).include?(index) ? '100px' : '300px'};" %><br>
+            <%= image_tag image, style: "width: #{(1..4).include?(index) ? '20%' : '100%'};" %><br>
           <% end %>
         <% else %>
-          <%= image_tag "no_image.png", style: "width: 300px;", alt: "no_image" %><br>
+          <%= image_tag "no_image.png", style: "width: 240px;", alt: "no_image" %><br>
         <% end %>
-        <b><%= label :作品名, "作品名" %></b><br>
-        <%= @item.name %><br>
-        <b><%= label :ジャンル, "ジャンル" %></b><br>
-        <%= @item.genre.name %><br>
-        <b><%= label :作品説明, "作品説明" %></b><br>
-        <%= @item.description %><br>
-        <b><%= label :登録日, "登録日" %></b><br>
+    </div>
+    <div class="col-md-5 item_show">
+      <div class="col-md-12 item_edit_form">
+        <p><h5><mark><%= label :作品名, "作品名" %></mark></h5>
+        <%= @item.name %></p><br>
+        <p><h5><mark><%= label :ジャンル, "ジャンル" %></mark></h5>
+        <%= @item.genre.name %></p><br>
+        <p><h5><mark><%= label :作品説明, "作品説明" %></mark></h5>
+        <%= @item.description %></p><br>
+        <p><h5><mark><%= label :登録日, "登録日" %></mark></h5>
         <%= @item.created_at.strftime("%Y/%m/%d %H:%M:%S") %><br>
-        <p><b><%= label :登録者, "登録者" %></b><br>
-        登録者: <%= @item.user.name %><br></p>
+        <p><h5><mark><%= label :登録者, "登録者" %></mark></h5>
+        <%= @item.user.name %></p><br>
+        <%= link_to "削除", admin_item_path, method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-danger" %>
         <%= link_to "一覧に戻る", admin_items_path, class: "btn btn-primary" %>
-        <%= link_to "削除", admin_item_path, method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-primary" %>
       </div>
     </div>
     <div class="col-md-12">
