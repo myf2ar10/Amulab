@@ -1,6 +1,5 @@
 <div class="container">
   <div class="row">
-
     <div class="col-md-12 search_title">
       <h4><mark>作品検索</mark></h4><br>
     </div>
@@ -17,7 +16,6 @@
       <p><h5>検索結果は<mark><big><%= @hit_records_count %>件</big></mark>です。</h5>
       <h5>（<%= @hit_records_count %>／<%= @all_records_count %>件）</h5></p>
     </div>
-
     <% if user_signed_in? %>
       <%= render 'user_record' %>
     <% elsif admin_signed_in? %>
@@ -25,7 +23,6 @@
     <% else %>
       <%= render 'record' %>
     <% end %>
-
     <% if @records.empty? %>
     <div class="col-md-12">
     <p><h5>検索条件を変更して再度お試しください。</h5></p>
