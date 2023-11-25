@@ -1,15 +1,16 @@
-<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-    <!-- インジケータの設定 -->
-  <ol class="carousel-indicators">
-    <li data-target="#carouselOption1" data-slide-to="第1スライド" class="active"></li>
-    <li data-target="#carouselOption1" data-slide-to="第2スライド"></li>
-    <li data-target="#carouselOption1" data-slide-to="第3スライド"></li>
-    <li data-target="#carouselOption1" data-slide-to="第4スライド"></li>
-    <li data-target="#carouselOption1" data-slide-to="第5スライド"></li>
-    <li data-target="#carouselOption1" data-slide-to="第6スライド"></li>
-  </ol>
-  <div class="carousel-inner">
-    <div class="carousel-item active" data-interval="1500">
+<div class="col-md-7  img-hidden-m">
+  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+      <!-- インジケータの設定 -->
+    <ol class="carousel-indicators">
+      <li data-target="#carouselOption1" data-slide-to="第1スライド" class="active"></li>
+      <li data-target="#carouselOption1" data-slide-to="第2スライド"></li>
+      <li data-target="#carouselOption1" data-slide-to="第3スライド"></li>
+      <li data-target="#carouselOption1" data-slide-to="第4スライド"></li>
+      <li data-target="#carouselOption1" data-slide-to="第5スライド"></li>
+      <li data-target="#carouselOption1" data-slide-to="第6スライド"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-interval="1500">
         <%= image_tag("knitting is healing1.jpg", alt: "第1スライド", width: "100%") %>
       </div>
       <div class="carousel-item" data-interval="5000">
@@ -38,7 +39,6 @@
     </button>
   </div>
 </div>
-
 <div class="col-md-5">
   <h1><mark>Welcome to Amulab !!</mark></h1>
   <p>
@@ -65,9 +65,10 @@
     Amulab管理者より
   </p>
   <div class="col-md-12 top_btn">
-  <% if user_signed_in? %>
-  <% else %>
-    <%= link_to "ログイン", new_user_session_path, class: "btn btn-primary" %>
-    <%= link_to "新規会員登録", new_user_registration_path, class: "btn btn-primary" %>
-  <% end %>
+    <% if user_signed_in? %>
+    <% else %>
+      <%= link_to "ログイン", new_user_session_path, class: "btn btn-primary" %>
+      <%= link_to "新規会員登録", new_user_registration_path, class: "btn btn-primary" %>
+    <% end %>
   </div>
+</div>
