@@ -8,9 +8,7 @@
       <p class="card-text"><small class="text-muted">Function added on November 1, 2023</small></p>
     </div>
   </div>
-
   <div class="card">
-    <%#= image_tag("card_knit2.jpg", alt: "card_knit2") %>
     <%= link_to(image_tag("card_knit2.jpg", alt: "card_knit2", width: "100%" ), question_path) %>
     <div class="card-body">
       <h5 class="card-title"><%= link_to "Q&A", question_path, class: "card_title_underline" %></h5>
@@ -18,9 +16,7 @@
       <p class="card-text"><small class="text-muted">Function added on November 1, 2023</small></p>
     </div>
   </div>
-
   <div class="card">
-    <%#= image_tag("card_knit3.jpg", alt: "card_knit3") %>
     <%= link_to(image_tag("card_knit3.jpg", alt: "card_knit3", width: "100%" ), about_path) %>
     <div class="card-body">
       <h5 class="card-title"><%= link_to "当サイトについて", about_path, class: "card_title_underline" %></h5>
@@ -30,7 +26,6 @@
   </div>
 <% elsif admin_signed_in? %>
   <div class="card">
-    <%#= image_tag("card_knit1.jpg", alt: "card_knit1") %>
     <%= link_to(image_tag("card_knit1.jpg", alt: "card_knit1", width: "100%" ), admin_items_path) %>
     <div class="card-body">
       <h5 class="card-title"><%= link_to "作品一覧", admin_items_path, class: "card_title_underline" %></h5>
@@ -38,9 +33,7 @@
       <p class="card-text"><small class="text-muted">Function added on November 1, 2023</small></p>
     </div>
   </div>
-
   <div class="card">
-    <%#= image_tag("card_knit2.jpg", alt: "card_knit2") %>
     <%= link_to(image_tag("card_knit2.jpg", alt: "card_knit2", width: "100%" ), new_user_registration_path) %>
     <div class="card-body">
       <h5 class="card-title"><%= link_to "会員登録", new_user_registration_path, class: "card_title_underline" %></h5>
@@ -48,9 +41,7 @@
       <p class="card-text"><small class="text-muted">Function added on November 1, 2023</small></p>
     </div>
   </div>
-
   <div class="card">
-    <%#= image_tag("card_knit3.jpg", alt: "card_knit3") %>
     <%= link_to(image_tag("card_knit3.jpg", alt: "card_knit3", width: "100%" ), about_path) %>
     <div class="card-body">
       <h5 class="card-title"><%= link_to "当サイトについて", about_path, class: "card_title_underline" %></h5>
@@ -60,7 +51,6 @@
   </div>
 <% else %>
   <div class="card">
-    <%#= image_tag("card_knit1.jpg", alt: "card_knit1") %>
     <%= link_to(image_tag("card_knit1.jpg", alt: "card_knit1", width: "100%" ), items_path) %>
     <div class="card-body">
       <h5 class="card-title"><%= link_to "作品一覧", items_path, class: "card_title_underline" %></h5>
@@ -68,9 +58,7 @@
       <p class="card-text"><small class="text-muted">Function added on November 1, 2023</small></p>
     </div>
   </div>
-
   <div class="card">
-    <%#= image_tag("card_knit2.jpg", alt: "card_knit2") %>
     <%= link_to(image_tag("card_knit2.jpg", alt: "card_knit2", width: "100%" ), new_user_registration_path) %>
     <div class="card-body">
       <h5 class="card-title"><%= link_to "会員登録", new_user_registration_path, class: "card_title_underline" %></h5>
@@ -78,9 +66,7 @@
       <p class="card-text"><small class="text-muted">Function added on November 1, 2023</small></p>
     </div>
   </div>
-
   <div class="card">
-    <%#= image_tag("card_knit3.jpg", alt: "card_knit3") %>
     <%= link_to(image_tag("card_knit3.jpg", alt: "card_knit3", width: "100%" ), about_path) %>
     <div class="card-body">
       <h5 class="card-title"><%= link_to "当サイトについて", about_path, class: "card_title_underline" %></h5>
