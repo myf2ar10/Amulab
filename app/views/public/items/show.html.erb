@@ -5,33 +5,31 @@
     </div>
     <div class="col-md-7  img-hidden-m">
       <h5><mark><%= label :画像, "画像" %></mark></h5>
-        <% if @item.images.attached? %>
-          <% @item.images.each_with_index do |image, index| %>
-            <%= index + 1 %><br>
-            <%= image_tag image, style: "width: #{(1..4).include?(index) ? '20%' : '100%'};" %><br>
-          <% end %>
-        <% else %>
-          <%= image_tag "no_image.png", style: "width: 240px;", alt: "no_image" %><br>
+      <% if @item.images.attached? %>
+        <% @item.images.each_with_index do |image, index| %>
+          <%= index + 1 %><br>
+          <%= image_tag image, style: "width: #{(1..4).include?(index) ? '20%' : '100%'};" %><br>
         <% end %>
-
-<table>
-  <tr>
-    <th>
-      AIによる分析によると、この画像は・・・
-    </th>
-  </tr>
-</table>
-        <% @item.tags.each do |tag| %>
+      <% else %>
+        <%= image_tag "no_image.png", style: "width: 240px;", alt: "no_image" %><br>
+      <% end %>
+      <table>
+        <tr>
+          <th>
+            AIによる分析によると、この画像は・・・
+          </th>
+        </tr>
+      </table>
+      <% @item.tags.each do |tag| %>
         <!--lib/vision.rbで指定した数分だけラベルを取得-->
-<table>
-  <tr>
-    <td>
-          <%= tag.name %>
-    </td>
-  </tr>
-</table>
-        <% end %>
-
+        <table>
+          <tr>
+            <td>
+              <%= tag.name %>
+            </td>
+          </tr>
+        </table>
+      <% end %>
     </div>
     <div class="col-md-5 item_show">
       <div class="col-md-12 item_edit_form">
