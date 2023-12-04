@@ -32,9 +32,21 @@ class Public::ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)  # 新しいアイテムを作成
     @item.user_id = current_user.id
-    if @item.save  # データベースに保存
+    tags = []
+    # tags = Vision.get_image_data(item_params[:image]
+
+    if @item.save
       flash[:notice] = "作品が新規登録されました。"
-      redirect_to items_path  # 一覧ページにリダイレクト
+      # Vision APIを各画像に対して呼び出す
+      @item.images.each do |image|
+        tags += Vision.get_image_data(image)
+      end
+
+      tags.each do |tag|
+        @item.tags.create(name: tag)
+      end
+
+      redirect_to items_path
     else
       flash.now[:alert] = "作品が新規登録されませんでした。<エラーコード[8]>"
       render :new
