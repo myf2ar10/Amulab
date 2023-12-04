@@ -8,6 +8,8 @@ class Item < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :item_comments, dependent: :destroy
 
+  has_many :tags, dependent: :destroy
+
   validates :name, presence: true
   validates :description, presence: true
 
