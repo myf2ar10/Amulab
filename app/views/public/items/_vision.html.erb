@@ -1,0 +1,27 @@
+<table>
+  <tr>
+    <th>
+      AIによる分析によると、<br>この画像は・・・
+    </th>
+  </tr>
+</table>
+<% @item.tags.each do |tag| %>
+    <% if @item.tags.name == [] %>
+    <!--lib/vision.rbで指定した数分だけラベルを取得-->
+    <table>
+      <tr>
+        <td>
+          nothing
+        </td>
+      </tr>
+    </table>
+  <% else %>
+    <table>
+      <tr>
+        <td>
+          <li><%= tag.name %></li>
+        </td>
+      </tr>
+    </table>
+  <% end %>
+<% end %>
