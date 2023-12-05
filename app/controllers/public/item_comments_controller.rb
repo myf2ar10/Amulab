@@ -3,15 +3,12 @@ class Public::ItemCommentsController < ApplicationController
     item = Item.find(params[:item_id])
     comment = current_user.item_comments.new(item_comment_params)
     comment.item_id = item.id
-    # comment.save!
-    # redirect_to request.referer
 
-    if comment.comment.length <= 200
-      comment.save!
-      flash[:notice] = "コメントが投稿されました。"
-    else
-      flash[:alert] = "コメントは200文字以内で入力してください。<エラーコード[16]>"
-    end
+  if comment.save
+    flash[:notice] = "コメントが投稿されました。"
+  else
+    flash[:alert] = "コメントを正しく入力してください。<エラーコード[16]>"
+  end
 
     redirect_to request.referer
 
