@@ -32,6 +32,7 @@ class Public::ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)  # 新しいアイテムを作成
     @item.user_id = current_user.id
+    @item.score = Language.get_data(item_params[:description])  #この行を追加
     tags = []
     # tags = Vision.get_image_data(item_params[:image]
 

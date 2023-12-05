@@ -1,0 +1,24 @@
+<table>
+  <tr>
+    <th>
+      <span class="sentiment-score">
+        AIによる分析によると、<br>
+        この作品説明の感情分析のスコアは・・・<br>（範囲：マイナスな感情-1.0～プラスな感情1.0）
+      </span>
+    </th>
+  </tr>
+  <%# if @item.score attached? %>
+  <% if @item.score == [] %>
+    <tr>
+      <td>
+        nothing
+      </td>
+    </tr>
+  <% else %>
+    <tr>
+      <td>
+        <%= @item.score %>
+      </td>
+    </tr>
+  <% end %>
+</table>
