@@ -22,6 +22,10 @@
         <%= @item.genre.name %></p><br>
         <p><h5><mark><%= label :作品説明, "作品説明" %></mark></h5>
         <%= @item.description %></p><br>
+
+        <%= render 'public/items/language' %>
+        <%= render 'public/items/vision' %>
+
         <p><h5><mark><%= label :登録日, "登録日" %></mark></h5>
         <%= @item.created_at.strftime("%Y/%m/%d %H:%M:%S") %><br>
         <p><h5><mark><%= label :登録者, "登録者" %></mark></h5>
