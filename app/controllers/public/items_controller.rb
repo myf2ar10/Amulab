@@ -36,8 +36,9 @@ class Public::ItemsController < ApplicationController
       item_tags = item_params[:images].map { |image| Vision.get_image_data(image, 'update') }
 
       # tagsとitem_tagsを組み合わせて更新
-      item_tags.zip(@item.tags).each { |new_tag, item_tag| item_tag.update(name: new_tag) }
-
+      item_tags.zip(@item.tags || []).each do |new_tag, item_tag|
+        item_tag&.update(name: new_tag)
+      end
     end
 
     # その他の属性を更新

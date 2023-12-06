@@ -16,7 +16,7 @@
         <% end %>
       </div>
       <%= form_with model: @item, local: true, html: { enctype: 'multipart/form-data' } do |f| %>
-        <div class="col-md-12 item_edit_form">
+        <div class="col-md-12 item_new_form">
           <p><h5><mark><%= f.label :name, "作品名" %><font color="red">*</font></mark></h5></p>
           <%= f.text_field :name %><br>
           <p><h5><mark><%= f.label :images, "画像" %></mark></h5></p>
