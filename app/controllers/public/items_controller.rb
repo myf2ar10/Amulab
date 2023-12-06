@@ -18,9 +18,37 @@ class Public::ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
+
+
   def update
     @item = Item.find(params[:id]) # アイテムをIDで取得
-    if @item.update(item_params)
+
+    @item.score = Language.get_data(item_params[:description])  #この行を追加
+    tags = []
+
+    # 画像が更新された場合の処理
+    if item_params[:images].present?
+      @item.images.purge # 既存の画像をクリア
+
+      # Vision APIを各新しい画像に対して呼び出す
+
+      item_params[:images].each do |image|
+        tags += Vision.get_image_data(image,'update')
+      end
+
+      tags.zip(@item.tags).each do |tag, item_tag|
+        item_tag.update(name:tag)
+      end
+
+      # tags.each do |tag|
+      #   @item.tags.create(name: tag)
+      # end
+    end
+
+    # その他の属性を更新
+    @item.assign_attributes(item_params)
+
+    if @item.save
       flash[:notice] = "作品が更新されました。"
       redirect_to item_path(@item)
     else
@@ -40,7 +68,7 @@ class Public::ItemsController < ApplicationController
       flash[:notice] = "作品が新規登録されました。"
       # Vision APIを各画像に対して呼び出す
       @item.images.each do |image|
-        tags += Vision.get_image_data(image)
+        tags += Vision.get_image_data(image,'create')
       end
 
       tags.each do |tag|
