@@ -32,17 +32,12 @@ class Public::ItemsController < ApplicationController
 
       # Vision APIを各新しい画像に対して呼び出す
 
-      item_params[:images].each do |image|
-        tags += Vision.get_image_data(image,'update')
-      end
+      # Vision.get_image_dataメソッドがitem_tagsを返す
+      item_tags = item_params[:images].map { |image| Vision.get_image_data(image, 'update') }
 
-      tags.zip(@item.tags).each do |tag, item_tag|
-        item_tag.update(name:tag)
-      end
+      # tagsとitem_tagsを組み合わせて更新
+      item_tags.zip(@item.tags).each { |new_tag, item_tag| item_tag.update(name: new_tag) }
 
-      # tags.each do |tag|
-      #   @item.tags.create(name: tag)
-      # end
     end
 
     # その他の属性を更新
