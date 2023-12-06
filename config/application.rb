@@ -23,6 +23,7 @@ module Amulab
 
     config.autoload_paths += %W(#{config.root}/app/models)
 
+    config.time_zone = 'Tokyo'
 
     # config.action_view.image_loading = 'lazy'遅延読み込み
   end
