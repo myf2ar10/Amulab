@@ -17,8 +17,8 @@
       </div>
       <div class="col-md-12 item_edit_form">
         <%= form_with model:@item, url: item_path, local: true do |f| %>
-            <p><h5><mark><%= f.label :作品画像 %></mark></h5></p>
-            <%= f.file_field :image, accept: 'image/*' %><br>
+            <p><h5><mark><%= f.label :images, "画像" %></mark></h5></p>
+            <%= f.file_field :images, accept: 'image/*', multiple: true %><br>
             <p><h5><mark><%= f.label :作品名 %></mark></h5></p>
             <%= f.text_field :name, placeholder:"作品名" %><br>
             <p><h5><mark><%= f.label :ジャンル %></mark></h5></p>
