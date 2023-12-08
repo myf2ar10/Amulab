@@ -49,7 +49,7 @@
       <div>
         <%= form_with(model:[@item, @item_comment], local: true) do |f| %>
           <%= f.text_area :comment, rows: 5, style: "width: 100%;", placeholder: "例）とてもすてきな作品ですね。" %>
-          <p class="text-left">
+          <p class="text-right">
             <%= f.submit "送信", class: "btn btn-primary" %>
           </p>
         <% end %>
