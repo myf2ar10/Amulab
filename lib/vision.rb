@@ -40,13 +40,7 @@ module Vision
         raise error['message']
       else
         label_annotations = response_body['responses'][0]['labelAnnotations']
-        # labelAnnotationsが存在しないか空の場合、「nothing」として処理
-        if label_annotations.blank?
-          Rails.logger.debug("No tags found in the response.")
-          return ['nothing']
-        end
-          # labelAnnotationsがある場合は、通常の処理
-          response_body['responses'][0]['labelAnnotations'].pluck('description').take(3)
+        response_body['responses'][0]['labelAnnotations'].pluck('description').take(3)
       end
     end
   end
