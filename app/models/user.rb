@@ -12,8 +12,8 @@ class User < ApplicationRecord
 
   validates :name, presence: true
   validates :phone_number, presence: true, format: { with: /\A0\d{9,10}\z/ }  # 正規表現、ハイフンなし、0から、9～10桁
-  validates :email, presence: true, format: { with: /\A[a-zA-Z0-9_+-]+(\.[a-zA-Z0-9_+-]+)*@([a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]*\.)+[a-zA-Z]{2,}\z/ }  # 正規表現、ローカル@ドメイン、ドット連続不可
-
+  # validates :email, presence: true, format: { with: /\A[a-zA-Z0-9_+-]+(\.[a-zA-Z0-9_+-]+)*@([a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]*\.)+[a-zA-Z]{2,}\z/ }  # 正規表現、ローカル@ドメイン、ドット連続不可
+  validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP }
 
   GUEST_USER_EMAIL = "guest@example.com"
 

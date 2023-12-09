@@ -63,7 +63,10 @@ class Public::ItemsController < ApplicationController
     if @item.save
       flash[:notice] = "作品が新規登録されました。"
       # Vision APIを各画像に対して呼び出す
+      p "確認1"
+      p @item.images
       @item.images.each do |image|
+      p "確認2"
         tags += Vision.get_image_data(image,'create')
       end
 

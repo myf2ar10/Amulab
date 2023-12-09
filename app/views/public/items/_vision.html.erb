@@ -5,17 +5,9 @@
     </th>
   </tr>
 </table>
-<% @item.tags.each do |tag| %>
-    <% if @item.tags.name == [] %>
+<% if @item.tags.present? %>
+  <% @item.tags.each do |tag| %>
     <!--lib/vision.rbで指定した数分だけラベルを取得-->
-    <table>
-      <tr>
-        <td>
-          nothing
-        </td>
-      </tr>
-    </table>
-  <% else %>
     <table>
       <tr>
         <td>
@@ -24,4 +16,12 @@
       </tr>
     </table>
   <% end %>
+<% else %>
+  <table>
+  <tr>
+    <td>
+      nothing
+    </td>
+  </tr>
+</table>
 <% end %>

@@ -153,6 +153,20 @@ Devise.setup do |config|
   # before confirming their account.
   # config.confirm_within = 3.days
 
+
+
+
+
+
+  # 期限を設定のためコメントアウトの解除
+  config.confirm_within = 1.minutes
+
+
+
+
+
+
+
   # If true, requires any email changes to be confirmed (exactly the same way as
   # initial account confirmation) to be applied. Requires additional unconfirmed_email
   # db field (see migrations). Until confirmed, new email is stored in
