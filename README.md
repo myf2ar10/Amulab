@@ -1,5 +1,10 @@
-# Amulab
-<img src="https://github.com/myf2ar10/Amulab/assets/141298495/e5c77992-0fd1-4838-8f9a-63619964e12b" width="240"><!--https://github.com/myf2ar10/Amulab/assets/141298495/36b95fe1-b039-4043-837c-40ace51fbf23 https://github.com/myf2ar10/amulab/assets/141298495/82f8066a-8657-4f3e-b5f7-f803393ff640-->
+<img src="https://github.com/myf2ar10/Amulab/assets/141298495/e5c77992-0fd1-4838-8f9a-63619964e12b" width="240">
+
+# Amulab／編むらぼらとりー（<a href="https://amulab.xyz/">https://amulab.xyz/</a>）
+
+<a href="https://amulab.xyz/" style="display: inline-block;"><img src="https://github.com/myf2ar10/Amulab/assets/141298495/2b1f9d82-3b07-4548-8f8a-77aaaca8bdb4" width="240"></a>
+<a href="https://amulab.xyz/" style="display: inline-block;"><img src="https://github.com/myf2ar10/Amulab/assets/141298495/adb18dca-0787-44a8-ad4e-0bf293460a37" width="500"></a>
+
 
 ## サイト概要🌈
 
