@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
 
-  namespace :public do
-    get 'item_comments/create'
-    get 'item_comments/destroy'
-  end
+  # namespace :public do
+  #   get 'item_comments/create'
+  #   get 'item_comments/destroy'
+  # end
 
   # 管理者用
   # URL /admin/sign_in ...

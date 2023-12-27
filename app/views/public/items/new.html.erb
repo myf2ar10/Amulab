@@ -17,16 +17,16 @@
       </div>
       <%= form_with model: @item, local: true, html: { enctype: 'multipart/form-data' } do |f| %>
         <div class="col-md-12 item_new_form">
-          <p><h5><mark><%= f.label :name, "作品名" %><font color="red">*</font></mark></h5></p>
+          <p><h5><mark><%= f.label :name, "作品名" %><span class="red-text">*</span></mark></h5></p>
           <%= f.text_field :name %><br>
           <p><h5><mark><%= f.label :images, "画像" %></mark></h5></p>
           <%= f.file_field :images, accept: "image/*", multiple: true %><br>
           <small>
             ※なし可能。2枚以上可能。
           </small><br>
-          <p><h5><mark><%= f.label :genre_id, "ジャンル" %><font color="red">*</font></mark></h5></p>
+          <p><h5><mark><%= f.label :genre_id, "ジャンル" %><span class="red-text">*</span></mark></h5></p>
           <%= f.collection_select :genre_id, Genre.all, :id, :name %><br>
-          <p><h5><mark><%= f.label :description, "作品説明文" %><font color="red">*</font></mark></h5></p>
+          <p><h5><mark><%= f.label :description, "作品説明文" %><span class="red-text">*</span></mark></h5></p>
           <small>
             ※なし可能。
           </small><br>
@@ -35,7 +35,7 @@
           <small>
             ※誠に恐れ入りますが確認画面のご用意がございません。<br>
             　最後にご入力内容をご確認ください。<br>
-            ※<font color="red">*</font>は入力必須項目です。<br>
+            ※<span class="red-text">*</span>は入力必須項目です。<br>
           </small>
         </div>
       <% end %>
