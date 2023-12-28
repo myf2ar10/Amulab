@@ -60,7 +60,7 @@ Rails.application.routes.draw do
       resource :favorites, only: [:create, :destroy]
       end
 
-    resources :genres, only: [:index]
+    resources :genres, only: [:index, :show]
     resources :users, only: [:show]
 
     # resources :item_images, only: [:new, :create, :index, :show, :destroy] do

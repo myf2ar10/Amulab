@@ -5,15 +5,17 @@
       <p>ジャンルの追加ご希望は<%= link_to "こちら", new_contact_path, class: "underline" %>から管理者へお気軽にご連絡ください。</p>
     </div>
     <br>
+
     <% @genres.each do |genre| %>
       <div class="col-md-4 genre_body">
         <p>
           <i class="fa-solid fa-paw fa-4x genre_list_back"></i><br>
-          <b><%= genre.name %></b><br>
+          <%= link_to genre.name, genre_path(genre) %><br>
           <%= genre.created_at.strftime("%Y/%m/%d") %>
         </p>
       </div>
     <% end %>
+
     <div class="col-md-12 ">
       <%= paginate @genres %>
     </div>
