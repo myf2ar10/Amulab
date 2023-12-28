@@ -65,6 +65,11 @@
         <% @item.item_comments.each_with_index do |item_comment, index| %>
           <div class="col-md-3 comment_show">
             <div>
+              <% if item_comment.user == current_user %>
+                <%= link_to item_item_comment_path(@item, item_comment), method: :delete, class: "btn btn-danger comment_delete_button", data: { confirm: "本当に削除しますか？" } do %>
+                  <i class="fas fa-times"></i> <!-- バツのアイコン -->
+                <% end %>
+              <% end %><br>
               <small><b>No.<%= 1 + index %></b></small><br>
               <b>コメント：</b><br>
               <%= item_comment.comment %><br>
@@ -72,10 +77,6 @@
             <div class="write_user">
               <%= item_comment.user.name %>より<br>
               （<%= item_comment.created_at.strftime("%Y/%m/%d/%H:%M") %>）<br>
-              <% if item_comment.user == current_user %>
-                <%= link_to "削除", item_item_comment_path(@item, item_comment), method: :delete, class: "btn btn-danger comment_delete_button", data: { confirm: "本当に削除しますか？" } %>
-                    <i class="fas fa-times"></i> <!-- バツのアイコン -->
-              <% end %>
             </div>
           </div>
         <% end %>
