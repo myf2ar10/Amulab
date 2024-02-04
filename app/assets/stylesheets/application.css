@@ -213,7 +213,8 @@ body {
 }
 .slide-wrapper {
   display: flex;
-  animation: slide-flow 10s infinite linear 1s both;
+  /*animation: slide-flow 10s infinite linear 1s both;*/
+  animation: slide-flow 100s infinite linear;
 }
 .slide{
   width: 100px;
@@ -221,8 +222,9 @@ body {
 }
 @keyframes slide-flow {
   0% {transform: translateX(0);}
-  95% {transform: translateX(-5%);}
+  100% {transform: translateX(-100%); /* Adjusted to -100% for infinite loop */}
 }
+
 /*******************************************************/
 /*******************************************************/
 /*ハイライトアニメーション*/
